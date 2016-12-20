@@ -35,32 +35,62 @@ tumor <- read.table("/extraspace/TCGA/WXS_RAW/BRCA/downloadDataList/brca.tumor.m
 
 normal <- read.table("/extraspace/TCGA/WXS_RAW/BRCA/downloadDataList/brca.normal.manifest.tsv", header = T, sep = "\t")
 
-tumor.sub <- select(tumor, file_id, file_name, size, sub=cases_0_submitter_id) %>% arrange(sub)
+tumor.extract <- read.table("/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/7.case.statistics/tumor.total.extracted.bam.file.size")
+colnames(tumor.extract) <- c("tumor_extracted_size","filename")
+
+normal.extract <- read.table("/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/7.case.statistics/normal.total.extracted.bam.file.size")
+colnames(normal.extract) <- c("normal_extracted_size","filename")
+
+tumor <- inner_join(tumor, tumor.extract, by = "filename")
+
+normal <- inner_join(normal, normal.extract, by = "filename")
+
+tumor.sub <- select(tumor, file_id, file_name, size, sub=cases_0_submitter_id,tumor_extracted_size) %>% arrange(sub)
 tumor.sub.dup.list <- tumor.sub$sub[duplicated(tumor.sub$sub)]
 tumor.sub.dup <- filter(tumor.sub,  sub %in% tumor.sub.dup.list)
 tumor.sub.nondup <- filter(tumor.sub, ! sub %in% tumor.sub.dup.list)
-tmp <- tumor.sub.dup %>% group_by(sub) %>% dplyr::summarise(file_id = toString(file_id),file_name = toString(file_name), size = mean(size))
-tmp <- select(tmp, file_id, file_name, size, sub)
+tmp <- tumor.sub.dup %>% group_by(sub) %>% dplyr::summarise(file_id = toString(file_id),file_name = toString(file_name), size = mean(size), tumor_extracted_size = mean(tumor_extracted_size))
+tmp <- select(tmp, file_id, file_name, size, sub, tumor_extracted_size)
 
 tumor.sub.nondup <- rbind(tumor.sub.nondup, tmp)
-colnames(tumor.sub.nondup) <-c("tumor.file_id", "tumor.file_name", "tumor.file_size", "subID")
+colnames(tumor.sub.nondup) <-c("tumor.file_id", "tumor.file_name", "tumor.file_size", "subID", "tumor.extracted_size")
 
 
-normal.sub <- select(normal, file_id, file_name, size, sub=cases_0_submitter_id) %>% arrange(sub)
+
+normal.sub <- select(normal, file_id, file_name, size, sub=cases_0_submitter_id,normal_extracted_size) %>% arrange(sub)
 normal.sub.dup.list <- normal.sub$sub[duplicated(normal.sub$sub)]
 normal.sub.dup  <- filter(normal.sub, sub %in% normal.sub.dup.list)
 normal.sub.nondup <- filter(normal.sub, ! sub %in% normal.sub.dup.list)
-tmp <- normal.sub.dup %>% group_by(sub) %>% dplyr::summarise(file_id = toString(file_id), file_name = toString(file_name), size = mean(size))
-tmp <- select(tmp, file_id, file_name, size, sub)
+tmp <- normal.sub.dup %>% group_by(sub) %>% dplyr::summarise(file_id = toString(file_id), file_name = toString(file_name), size = mean(size),normal_extracted_size = mean(normal_extracted_size))
+tmp <- select(tmp, file_id, file_name, size, sub, normal_extracted_size)
 
 normal.sub.nondup <- rbind(normal.sub.nondup, tmp)
-colnames(normal.sub.nondup) <-c("normal.file_id", "normal.file_name", "normal.file_size", "subID")
+colnames(normal.sub.nondup) <-c("normal.file_id", "normal.file_name", "normal.file_size", "subID", "normal.extracted_size")
 
 # Combined data
 tumor.normal.info <- inner_join(normal.sub.nondup, tumor.sub.nondup, by = "subID")
 
 #write.table(tumor.normal.info, file = "/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/7.case.statistics/tumor.normal.file.info", quote = F, sep = "\t", row.names = F, col.names = F)
 
+# load mutation number in every sample
+
+mutation.number <- read.table('/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/7.case.statistics/brca.call.mutation.number.per.case', sep = "\t")
+
+colnames(mutation.number) <- c("numb", "subID")
+
+tumor.normal.info.numb <- inner_join(tumor.normal.info, mutation.number, by = "subID")
+
+brca.stat <- select(tumor.normal.info.numb, subID, tumor.file_size,tumor.extracted_size, normal.file_size, normal.extracted_size,  numb)
+
+ggplot(brca.stat, aes(x = tumor.file_size / normal.file_size, y = log10(numb))) + geom_point() + theme_minimal() + scale_x_continuous(name = "Tumor / Normal File size") + scale_y_continuous(name= "Log10(# of Mutations)") 
+
+#write.table(brca.stat, file = "/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/7.case.statistics/brca.mutation.stat", quote = F, sep = "\t", row.names = F, col.names = T)
+
+## Read usage
+ggplot(brca.stat, aes(x="tumor", y = tumor.extracted_size / tumor.file_size)) + geom_boxplot() +geom_jitter(position=position_jitter(width=.2, height=0)) + theme_minimal() + scale_x_discrete(name="Tumor") + scale_y_continuous(name = "File size of regulatory region / WXS")
+
+
+ggplot(brca.stat, aes(x="normal", y = normal.extracted_size /normal.file_size)) + geom_boxplot() +geom_jitter(position=position_jitter(width=.2, height=0))+ theme_minimal() + scale_x_discrete(name="Normal") + scale_y_continuous(name = "File size of regulatory region / WXS")
 ```
 
 
