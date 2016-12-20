@@ -65,3 +65,9 @@ git commit
 ls
 git 
 git commit 
+git commit -a -m "not sure"
+git push origin master
+ls
+LS
+ls
+cd

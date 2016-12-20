@@ -1,0 +1,71 @@
+---
+title: "BRCA.filesize.variant.statistics"
+author: "C.J. Liu"
+date: "12/19/2016"
+output:
+  html_document:
+    depth: 3
+    highlight: tango
+    number_sections: yes
+    theme: united
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    word_document:
+      toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r library packages}
+suppressMessages(library(dplyr))
+suppressMessages(library(ggplot2))
+library(knitr)
+
+```
+
+## Get tumor and normal case pairs
+```{r load data}
+tumor <- read.table("/extraspace/TCGA/WXS_RAW/BRCA/downloadDataList/brca.tumor.manifest.tsv", header = T, sep = "\t")
+
+normal <- read.table("/extraspace/TCGA/WXS_RAW/BRCA/downloadDataList/brca.normal.manifest.tsv", header = T, sep = "\t")
+
+tumor.sub <- select(tumor, file_id, file_name, size, sub=cases_0_submitter_id) %>% arrange(sub)
+tumor.sub.dup.list <- tumor.sub$sub[duplicated(tumor.sub$sub)]
+tumor.sub.dup <- filter(tumor.sub,  sub %in% tumor.sub.dup.list)
+tumor.sub.nondup <- filter(tumor.sub, ! sub %in% tumor.sub.dup.list)
+tmp <- tumor.sub.dup %>% group_by(sub) %>% dplyr::summarise(file_id = toString(file_id),file_name = toString(file_name), size = mean(size))
+tmp <- select(tmp, file_id, file_name, size, sub)
+
+tumor.sub.nondup <- rbind(tumor.sub.nondup, tmp)
+colnames(tumor.sub.nondup) <-c("tumor.file_id", "tumor.file_name", "tumor.file_size", "subID")
+
+
+normal.sub <- select(normal, file_id, file_name, size, sub=cases_0_submitter_id) %>% arrange(sub)
+normal.sub.dup.list <- normal.sub$sub[duplicated(normal.sub$sub)]
+normal.sub.dup  <- filter(normal.sub, sub %in% normal.sub.dup.list)
+normal.sub.nondup <- filter(normal.sub, ! sub %in% normal.sub.dup.list)
+tmp <- normal.sub.dup %>% group_by(sub) %>% dplyr::summarise(file_id = toString(file_id), file_name = toString(file_name), size = mean(size))
+tmp <- select(tmp, file_id, file_name, size, sub)
+
+normal.sub.nondup <- rbind(normal.sub.nondup, tmp)
+colnames(normal.sub.nondup) <-c("normal.file_id", "normal.file_name", "normal.file_size", "subID")
+
+# Combined data
+tumor.normal.info <- inner_join(normal.sub.nondup, tumor.sub.nondup, by = "subID")
+
+#write.table(tumor.normal.info, file = "/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/7.case.statistics/tumor.normal.file.info", quote = F, sep = "\t", row.names = F, col.names = F)
+
+```
+
+
+
+
+
+
+
