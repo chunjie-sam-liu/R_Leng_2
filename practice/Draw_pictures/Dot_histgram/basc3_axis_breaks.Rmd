@@ -1,0 +1,85 @@
+---
+title: 'Plot 3: Axis breaks'
+author: "C.J. Liu"
+date: "11/9/2016"
+output:
+    html_document:
+        toc: true
+        toc_float:
+            collapsed: false
+            smooth_scroll: false
+        depth: 3
+        theme: united
+        number_sections: true
+        highlight: tango
+
+---
+# Axis breaks
+R当中的坐标中断一般都使用plotrix库中的axis.break(), gap.plot(), gap.barplot(), gap.boxplot()等几个函数来实现，例：
+
+## plotrix
+```{r plotrix}
+library(plotrix)
+
+plot(sample(5:7,20,replace=T),main="Axis break test",ylim=c(2,8))
+axis.break(axis=2,breakpos=2.5,style="gap")
+axis.break(axis=2,breakpos=3.5,style="slash")
+axis.break(axis=2,breakpos=4.5,style="zigzag")
+twogrp<-c(rnorm(5)+4,rnorm(5)+20,rnorm(5)+5,rnorm(5)+22)
+gap.plot(twogrp,gap=c(8,16,25,35),
+ xlab="X values",ylab="Y values",xlim=c(1,30),ylim=c(0,25),
+ main="Test two gap plot with the lot",xtics=seq(0,30,by=5),
+ ytics=c(4,6,18,20,22,38,40,42),
+ lty=c(rep(1,10),rep(2,10)),
+ pch=c(rep(2,10),rep(3,10)),
+ col=c(rep(2,10),rep(3,10)),
+ type="b")
+gap.plot(21:30,rnorm(10)+40,gap=c(8,16,25,35),add=TRUE,
+  lty=rep(3,10),col=rep(4,10),type="l")
+gap.barplot(twogrp,gap=c(8,16),xlab="Index",ytics=c(3,6,17,20),
+  ylab="Group values",main="Barplot with gap")
+gap.barplot(twogrp,gap=c(8,16),xlab="Index",ytics=c(3,6,17,20),
+  ylab="Group values",horiz=TRUE,main="Horizontal barplot with gap")
+twovec<-list(vec1=c(rnorm(30),-6),vec2=c(sample(1:10,40,TRUE),20))
+ gap.boxplot(twovec,gap=list(top=c(12,18),bottom=c(-5,-3)),
+ main="Show outliers separately")
+gap.boxplot(twovec,gap=list(top=c(12,18),bottom=c(-5,-3)),range=0,
+ main="Include outliers in whiskers")
+
+```
+
+从图像效果上来看，这样的坐标中断只能说实现了坐标中断，但效果上是非常一般的。甚至远不如excel, openoffice当中出图效果好。为此，我们需要对plotrix库中的gap.plot做出修改，以达到满意的效果。
+
+
+最简单的修改办法就是在使用了gap.plot, gap.barplot, gap.boxplot之后重新使用axis.break来修改中断类型，使得看上去美一点。
+
+```{}
+axis.break(2,from,breakcol="snow",style="gap")
+axis.break(2,from*(1+0.02),breakcol="black",style="slash")
+axis.break(4,from*(1+0.02),breakcol="black",style="slash")
+axis(2,at=from)
+```
+## gap
+```{r gap}
+library(plotrix)
+x<-c(1:5,6.9,7)
+y<-2^x
+from<-33
+to<-110
+plot(x,y,type="b",main="normal plot")
+gap.plot(x,y,gap=c(from,to),type="b",main="gap plot")
+axis.break(2,from,breakcol="snow",style="gap")
+axis.break(2,from*(1+0.02),breakcol="black",style="slash")
+axis.break(4,from*(1+0.02),breakcol="black",style="slash")
+axis(2,at=from)
+gap.barplot(y,gap=c(from,to),col=as.numeric(x),main="barplot with gap")
+axis.break(2,from,breakcol="snow",style="gap")
+axis.break(2,from*(1+0.02),breakcol="black",style="slash")
+axis.break(4,from*(1+0.02),breakcol="black",style="slash")
+axis(2,at=from)
+gap.barplot(y,gap=c(from,to),col=as.numeric(x),horiz=T,main="Horizontal barplot with gap")
+axis.break(1,from,breakcol="snow",style="gap")
+axis.break(1,from*(1+0.02),breakcol="black",style="slash")
+axis.break(3,from*(1+0.02),breakcol="black",style="slash")
+axis(1,at=from) 
+```

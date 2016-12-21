@@ -82,7 +82,7 @@ tumor.normal.info.numb <- inner_join(tumor.normal.info, mutation.number, by = "s
 
 brca.stat <- select(tumor.normal.info.numb, subID, tumor.file_size,tumor.extracted_size, normal.file_size, normal.extracted_size,  numb)
 
-ggplot(brca.stat, aes(x = tumor.file_size / normal.file_size, y = log10(numb))) + geom_point() + theme_minimal() + scale_x_continuous(name = "Tumor / Normal File size") + scale_y_continuous(name= "Log10(# of Mutations)") 
+ggplot(brca.stat, aes(x = tumor.file_size / normal.file_size, y = log10(numb))) + geom_point() + theme_minimal() + scale_x_continuous(name = "Tumor / Normal File size") + scale_y_continuous(name= "Log10(# of Mutations)") + geom_smooth()
 
 #write.table(brca.stat, file = "/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/7.case.statistics/brca.mutation.stat", quote = F, sep = "\t", row.names = F, col.names = T)
 
@@ -90,7 +90,7 @@ ggplot(brca.stat, aes(x = tumor.file_size / normal.file_size, y = log10(numb))) 
 ggplot(brca.stat, aes(x="tumor", y = tumor.extracted_size / tumor.file_size)) + geom_boxplot() +geom_jitter(position=position_jitter(width=.2, height=0)) + theme_minimal() + scale_x_discrete(name="Tumor") + scale_y_continuous(name = "File size of regulatory region / WXS")
 
 
-ggplot(brca.stat, aes(x="normal", y = normal.extracted_size /normal.file_size)) + geom_boxplot() +geom_jitter(position=position_jitter(width=.2, height=0))+ theme_minimal() + scale_x_discrete(name="Normal") + scale_y_continuous(name = "File size of regulatory region / WXS")
+ggplot(brca.stat, aes(x="normal", y = normal.extracted_size /normal.file_size)) + geom_violin() + theme_minimal() + scale_x_discrete(name="Normal") + scale_y_continuous(name = "File size of regulatory region / WXS")
 ```
 
 

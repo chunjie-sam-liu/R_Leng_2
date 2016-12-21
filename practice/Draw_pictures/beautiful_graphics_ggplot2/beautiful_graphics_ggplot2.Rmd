@@ -1,0 +1,438 @@
+---
+title: "beautiful graphics ggplot2"
+author: "C.J. Liu"
+date: "11/17/2016"
+output: 
+    html_document:
+        toc: true
+        toc_float:
+            collapsed: false
+            smooth_scroll: false
+        depth: 3
+        theme: united
+        number_sections: true
+        highlight: tango
+---
+
+# Plot One Variable - X: Continuous or Discrete
+
+For **one continuous variable** = **Numeric**:
+
+* geom_area()
+* geom_density()
+* geom_histogram()
+* geom_freqpoly()
+* geom_dotplot()
+* stat_ecdf()
+* stat_qq()
+
+For **one discrete varaible** = **Factor**:
+
+* geom_bar()
+
+```{r load library}
+library(ggplot2)
+library(dplyr)
+```
+
+
+## Area Plots
+**alpha, color, fill, linetype, size**
+```{r}
+set.seed(1234)
+wdata = as_data_frame(data.frame(sex = factor(rep(c("F", "M"), each=200)), weight = c(rnorm(200,55),rnorm(200,58))))
+wdata
+
+mu <- wdata %>% group_by(sex) %>% summarize(grp.mean = mean(weight))
+mu
+
+a <- ggplot(wdata, aes(x = weight))
+
+a + geom_area(stat = "bin", color = "black", fill = "#00AFBB")
+#a + geom_area() will not get right result, object 'y' not found. Use stat to specify the count as y 
+#Note that, by default y axis corresponds to the count of weight values. If you want to change the plot in order to have the density on y axis, the R code would be as follow.
+a + geom_area(aes(y = ..density..), stat = "bin")
+
+data("diamonds")
+diamonds <- as_data_frame(diamonds)
+diamonds
+p <- ggplot(diamonds, aes(x = price, fill = cut))
+# Bar plot
+p + geom_bar(stat = "bin")
+# Area plot
+p + geom_area(stat = "bin")
+```
+
+## Density Plots
+**alpha, color, fill, linetype, size**
+
+* scale_color_manual(), scale_fill_manual()
+* scale_color_brewer(), scale_fill_brewer() RColor-Brewer
+* scale_color_grey(), scale_fill_grey()
+
+
+```{r}
+# Basic plots
+a + geom_density()
+
+# Add color and mean xintercept and median xintercept
+a + geom_density(color = "black", fill = "gray") + geom_vline(aes(xintercept = mean(weight)), color = "#FC4E08", linetype = "dashed", size = 1) + geom_vline(aes(xintercept = median(weight)), color = "blue", linetype = 4, size = 1)
+
+# Change color by group
+a + geom_density(aes(fill = sex), alpha = 0.4) 
+
+# Add mean lines and color by sex
+a + geom_density(aes(fill = sex), alpha = 0.4) + geom_vline(data = mu, aes(xintercept = grp.mean, color = sex), linetype = "dashed")
+
+# Change manually 
+# change line manually
+a2 <- a + geom_density(aes(color = sex)) + geom_vline(data = mu, aes(xintercept = grp.mean, color = sex), linetype = "dashed") + theme_minimal()
+
+a2 + scale_color_manual(values = c("#999999", "#E69F00"))
+
+a2 + scale_color_brewer(palette = "Paired")
+
+a2 + scale_color_grey()
+
+# change fill manually
+a3 <- a + geom_density(aes(fill = sex), alpha = 0.4) + theme_minimal()
+
+a3 + scale_fill_manual(values = c("#999999", "#E69F00"))
+
+a3 + scale_fill_brewer(palette = "Dark2")
+
+a3 + scale_fill_grey()
+```
+
+## Histogram Plots
+**identity(position\_identity()), stack(position\_stack()), dodge(position\_dodge()); Default values is "stack"**
+
+**alpha, color, fill, linetype, size**
+```{r}
+# Basic plot
+a + geom_histogram()
+
+a + geom_histogram(bins = 50)
+
+#Note that by default, stat_bin uses 30 bins - this might not be good default. You can change the number of bins (e.g.: bins = 50 or the bin width e.g.: binwidth = 0.5.
+a + geom_histogram(bins = 50, color = "black", fill = "grey") + geom_vline(aes(xintercept = mean(weight)), color = "#FC4E07", linetype = "dashed", size = 1) + theme_minimal()
+
+a + geom_histogram(aes(y = ..density..), bins = 50)
+
+# Change color by sex
+a + geom_histogram(aes(color = sex), fill = "white", bins = 50) + theme_minimal()
+
+# Position adjustment "identity"(overlaid)
+a + geom_histogram(aes(color = sex), fill = "white", bins = 50, alpha = 0.6, position = "identity")
+
+# Position adjustment "dodge" (Interleaved)
+# Add mean lines and color by sex
+a + geom_histogram(aes(color = sex), fill = "white", alpha = 0.6, position = "dodge", bins = 50) + geom_vline(aes(xintercept = mean(weight)), linetype = "dashed")
+
+# Change fill, color manually
+# Change outline color manually
+a + geom_histogram(aes(color = sex), fill = "white", alpha = 0.4, position = "identity", bins = 50) + scale_color_manual(values = c("#00AFBB","#E7B800"))
+
+# Change fill and outline color manually
+# a + geom_histogram(aes(color = sex), fill = "white", alpha =0.4, position = "identity", bins = 50) + scale_fill_manual(values = c("#00AFBB", "#E7B800")) + scale_color_manual(values = c("#00AFBB", "#E7B800")) 
+# wrong command, I have to assign fill first by group
+
+a + geom_histogram(aes(color = sex, fill = sex), alpha =0.4, position = "identity", bins = 50) + scale_fill_manual(values = c("#00AFBB", "#E7B800")) + scale_color_manual(values = c("#00AFBB", "#E7B800")) 
+
+
+## Combine Histogram and Density Plots
+
+# Plot histogram with density values on y-axis(instead of count values).
+# Add density plot with transparent density plot
+
+# Histogram with density plot
+a + geom_histogram(aes(y = ..density..),color = "black", fill = "white") + geom_density(alpha = 0.2, fill = "#FF6666") + theme_minimal()
+
+# Color by groups
+a + geom_histogram(aes(y = ..density.., color = sex, fill = sex),  alpha = 0.4, position = "identity") + geom_density(aes(color = sex), size =1)
+
+
+```
+
+## Frequency Polygon
+Very close to histogram plots
+
+* Histogram use bars
+* Frequency polygons use lines.
+
+**alpha, color, linetype, size**
+```{r}
+# Basic plot
+a + geom_freqpoly(bins = 30) + theme_minimal()
+
+# Change color and linetype by sex
+# Use custom color palettes
+a + geom_freqpoly(aes(color = sex, linetype = sex), bins = 30 ) +  scale_color_manual(values = c("#999999", "#E69F00"))+theme_minimal()
+
+# y density
+a + geom_freqpoly(aes(y = ..density.., color = sex, linetype = sex), bins = 30 ) +  scale_color_manual(values = c("#999999", "#E69F00"))+theme_minimal()
+```
+
+## Dot Plots for One Variable
+Not suitable for one variable, it's ugly.
+```{r}
+a + geom_dotplot(aes(fill = sex))
+```
+
+## ECDF Plots
+Empirical Cumulative Density Function
+
+**alpha, color, linetype, size**
+
+```{r}
+a + stat_ecdf(geom = "point")
+
+a + stat_ecdf(geom = "step")
+```
+
+## QQ Plots
+Quantile - Quantie plots to chech whether a given data follows normal distribution.
+
+**alpha, color, shape, size**
+```{r}
+data(mtcars)
+mtcars <- as_data_frame(mtcars)
+mtcars
+mtcars <- mutate(mtcars, cyl = as.factor(cyl))
+mtcars
+
+p <- ggplot(mtcars, aes(sample = mpg))
+
+# Basic plot
+p + stat_qq()
+
+# Change point shapes by groups
+# Use custom color palettes
+p + stat_qq(aes(shape = cyl, color = cyl)) + scale_color_manual(values = c("#00AFBB", "#E7B800", "#FC4E07"))
+```
+
+## Bar Plots of Counts
+For one discrete variable
+
+**alpha, color, fill, linetype, size**
+
+```{r}
+data(mpg)
+mpg <- as_data_frame(mpg)
+mpg
+
+ggplot(mpg, aes(fl)) + geom_bar(fill = "steelblue") + theme_minimal()
+```
+
+
+# Plot Two Variables -X & Y: Both Continuous or Discrete
+
+## Scatter plots: Continuous X and Y
+
+* geom_pint()
+* geom_smooth()
+* geom_quantile()
+* geom_rug()
+* geom_jitter()
+* geom_text()
+
+geom_point  
+**alpha, color, fill, shape, size**
+```{r}
+# Data format
+mtcars
+b <- ggplot(mtcars, aes(x = wt, y= mpg))
+# x weight
+# y miles/gallon
+#Basic scatter plots
+b + geom_point(color = "#00AFBB")
+
+# Change the point size, and shape
+b + geom_point(color = "#00AFBB", size = 2, shape = 23)
+
+# Control point size by continuous variable values
+# qsec 1/4 mile time
+b + geom_point(aes(size = qsec), color = "#00AFBB")
+
+# Label text
+b + geom_point() + geom_text(label = rownames(mtcars), nudge_y = 0.8)
+
+# Change shape, color, size automatically
+# Change point shape by the level of cyl
+b + geom_point(aes(shape = cyl))
+
+# Change point shape and colors
+b + geom_point(aes(color = cyl, shape = cyl))
+
+# Change shape, color, size manually
+# Change the point sizes manually
+b + geom_point(aes(color = cyl, shape = cyl, size = cyl)) + scale_size_manual(values = c(2,3,4))
+
+# Change the point shapes and colors manually
+b + geom_point(aes(color = cyl, shape = cyl)) + scale_shape_manual(values = c(3,16,17)) + scale_color_manual(values = c('#999999','#E69F00', '#56B4E9'))
+
+# Use brewer color palettes
+b + geom_point(aes(color = cyl, shape = cyl)) + scale_color_brewer(palette = "Dark2") + theme_minimal()
+
+# Use grey scale
+b + geom_point(aes(color = cyl, shape = cyl)) + scale_color_grey() + theme_minimal()
+
+#####################################################
+##Add regression line or smoothed conditional mean###
+#####################################################
+#geom_smooth(), geom_abline()
+#alpha, color, fill, shape, linetype, size
+#geom_smooth(method = "auto")
+#method:loess->local regression, lm-> linear regression
+
+# Add regression line
+b + geom_point() + geom_smooth(method = lm)
+
+# Point + regression line
+# Remove the confidence interval
+b + geom_point() + geom_smooth(method = lm, se = FALSE)
+
+# loess method, local regression fitting
+b + geom_point() + geom_smooth()
+
+# Change the color and shape by groups 吧
+b + geom_point(aes(color = cyl, shape = cyl)) + geom_smooth(aes(color = cyl, fill = cyl), method = lm)
+
+# Remove confidence intervals
+# Extend the regression lines: fullrage
+b + geom_point(aes(color = cyl, shape = cyl)) + geom_smooth(aes(color = cyl), method = lm, se = FALSE, fullrange = TRUE)
+
+# Add marginal rugs to a scatter plot
+#geom_rug(sides = "bl")
+# sides: a string, "trbl", top, right, bottom, left.
+# Add marginal rugs
+b + geom_point() + geom_rug()
+
+# Change the color by group
+b + geom_point(aes(color = cyl)) + geom_rug(aes(color = cyl))
+
+# Add marginal rugs using faithful data
+data(faithful)
+faithful <- as_data_frame(faithful)
+faithful
+ggplot(faithful, aes(x = eruptions, y = waiting)) + geom_point() + geom_rug()
+
+# Jitter points to reduce overplotting
+# geom_jitter(), position_jitter()
+#alpha, color, fill, shape, size
+
+# Use mpg data
+p <- ggplot(mpg, aes(displ, hwy))
+
+# Default sactter plot
+p + geom_point()
+
+# Use jitter to reduce overplotting
+p + geom_jitter(position = position_jitter(width = 0.5, height = 0.5))
+select(mpg, displ, hwy) %>% arrange(-hwy) %>% filter(displ == 1.9)
+
+
+##
+#Text annotation
+#geom_text()
+#label, alpha, angle, color, family, fontface, hjust, lineheight, size, vjust
+
+b + geom_text(aes(label = rownames(mtcars)), size = 3)
+
+```
+
+## Continuous bivariate distribution
+
+* geom_bin2d()
+* geom_hex()
+* geom\_density\_2d()
+
+
+```{r}
+c <- ggplot(diamonds, aes(carat, price))
+# Add heatmap of 2d bin counts
+# geom_bin2d produce a scatter plot with rectangular bins.
+# stat_bin_2d(), stat_summary_2d()
+# max, xmin, ymax, ymin, alpha, color, fill, linetype, size
+c + geom_bin2d()
+
+# Change the number of bins
+c + geom_bin2d(bins = 15)
+
+# Specify the width of bins
+c + geom_bin2d(binwidth = c(1,1000))
+c + stat_bin_2d()
+c + stat_summary_2d(aes(z = depth))
+
+# Add hexagon bining
+#geom_hex()
+# stat_bin_hex(), stat_summary_hex()
+# alpha, color, fill, size
+require(hexbin)
+c + geom_hex()
+
+# Change the number of bins
+c + geom_hex(bins = 10)
+c + stat_bin_hex()
+c + stat_summary_hex(aes(z = depth))
+
+# 2D density estimation
+# geom_density_2d()
+# stat_density_2d()
+# alpha, color, linetype, size
+
+# Scatter plot
+sp <- ggplot(faithful, aes(x = eruptions, y = waiting))
+select(faithful, eruptions, waiting)
+# Default plot
+sp + geom_density_2d(color = "#E7B800")
+# Add points
+sp + geom_point(color = "#00AFBB") + geom_density_2d(color = "#E7B800")
+# Use stat_density_2d with geom = "polygon"
+sp + geom_point() + stat_density_2d(aes(fill = ..level..), geom = "polygon")
+# Change the gradient color
+sp + geom_point() + stat_density_2d(aes(fill = ..level..), geom = "polygon") + scale_fill_gradient(low = "#00AFBB", high = "#FC3E07")
+# Gradient
+```
+
+## Two variables: Discrete X, Discrete Y
+geom_jitter  
+alpha, color, fill, shape, size  
+```{r}
+ggplot(diamonds, aes(cut, color)) + geom_jitter(aes(color = cut), size = 0.5)
+select(diamonds, cut, color)
+```
+
+
+# Plot Two Variables - X & Y: Discrete X and Continuous Y
+
+* geom_boxplot()
+* geom_violin()
+* geom_dotplot()
+* geom_jitter()
+* geom_line()
+* geom_bar()
+
+```{r}
+data("ToothGrowth")
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+ToothGrowth <- as_data_frame(ToothGrowth)
+ToothGrowth
+e <- ggplot(ToothGrowth, aes(x = dose, y = len))
+```
+
+## Box Plots
+
+**alpha, color, linetype, shape, size, fill**
+```{r}
+# Basic box plot
+e + geom_boxplot()
+# Rotate the box plot
+e + geom_boxplot() + coord_flip()
+# Notched box plot
+e + geom_boxplot(notch = TRUE)
+# Box plot with mean points
+e + geom_boxplot() + stat_summary(fun.y = mean, geom = "point", shape = 18, size = 4, color = "blue")
+```
+
+

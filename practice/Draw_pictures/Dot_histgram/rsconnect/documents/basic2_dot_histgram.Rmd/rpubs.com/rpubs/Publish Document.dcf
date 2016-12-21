@@ -1,0 +1,8 @@
+name: Publish Document
+title:
+account: rpubs
+server: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/225780/903e351f15f9455cbcf4025f2ad658bc
+bundleId: https://api.rpubs.com/api/v1/document/225780/903e351f15f9455cbcf4025f2ad658bc
+url: http://rpubs.com/edwardhust/225780
+when: 1478732206.90282
