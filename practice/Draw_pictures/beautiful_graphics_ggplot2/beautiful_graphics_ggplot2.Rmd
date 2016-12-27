@@ -536,19 +536,191 @@ e  + geom_violin(aes(fill = dose), trim = FALSE)
 
 # Change outline and fill color manually.
 e2 <- e + geom_violin(aes(color = dose), trim = FALSE) + theme_minimal()
+e2 + scale_color_brewer(palette = "Dark2")
 
+# Change manually fill colors
+e3 <- e + geom_violin(aes(fill = dose), trim = FALSE) + theme_minial()
+e3 + scale_fill_brewer(palette = "Dark2")
 
+## Violin plot with multiple groups
+# Change the color by groups
+e + geom_violin(aes(fill = supp), trim = FALSE)
 
-
-
-
+# Change fill colors
+e + geom_violin(aes(fill = supp), trim = FALSE) + scale_fill_brewer(palette = "Dark2")
 ```
 
+## Dot plots
+`geom_dotplot(), stat_summary()`  
+**alpha, color, dotsize and fill**
+```{r dot plot}
+#Basic dot plot
+e + geom_dotplot(binaxis ="y", stackdir = "center")
+
+# Change dotsize and stack ratio
+e + geom_dotplot(binaxis = "y", stackdir = "center", stackratio = 1.5, dotsize = 1.1)
+
+# stat_summary can be used to add mean/median points and more on a violin plot
+# Add mean and median points: use fun.y = mean or fun.y = median
+e + geom_dotplot(binaxis = "y", stackdir = "center") + stat_summary(fun.y = mean, geom = "point", shape = 18, size = 3, color = "red")
+
+# Add mean points with +/- SD
+# Use geom = "pointrange" or geom = "crossbar"
+e + geom_dotplot(binaxis = "y", stackdir = "center") + stat_summary(fun.data = "mean_sdl", fun.args = list(mult = 1), geom = "pointrange", color = "red")
+
+## Combine with box plot and dot plot:
+# Combine with boxplot
+e + geom_boxplot() + geom_dotplot(binaxis = "y", stackdir ="center")
+
+# Combine with violin plot
+e + geom_violin(trim = FALSE) + geom_dotplot(binaxis = "y", stackdir ="center")
+
+# Dotplot + violin plot + stat summary
+e + geom_violin(trim = FALSE) + geom_dotplot(binaxis = "y", stackdir ="center") + stat_summary(fun.data = "mean_sdl", fun.args = list(mult = 1), geom = "pointrange", color = "red", shape = 11)
+
+# use scale to change the outlien and fill color automatically controlled byt the levels of the grouping variable dose
+# scale_color_munual(), scale_color_brewer(), scale_color_grey()
+# scale_fill_munual(), sclae_fill_brewer(), scale_fill_grey()
+
+e + geom_dotplot(binaxis = "y", stackdir = "center", aes(color = dose), fill = "white") + theme_minimal()
+
+## dotplot with multiple groups
+# just like boxplot and violin plot
+```
+
+## Stripcharts
+Stripecharts are also known as one dimensional scatter plots. These plots are suitable compared to box plot when sample sizes are small.  
+`geom_jitter(), stat_summary()`  
+**alpha, color, size and fill**
+```{r stripecharts}
+e + geom_jitter()
+
+# Change the position
+# 0.2 is the degree of jitter in x direction
+e + geom_jitter(position = position_jitter(0.2))
+
+# Change point shapes and size
+e  + geom_boxplot()+ geom_jitter(position = position_jitter(0.2), shape = 11, size = 1.2)
+
+# Add summary statistics
+# Add mean or median point
+e + geom_jitter(position = position_jitter(0.2)) + stat_summary(fun.y = mean, geom = "point", shape = 18, size = 3, color = "red")
+
+# use geom = "pointrange"
+e + geom_jitter(position = position_jitter(0.2)) + stat_summary(fun.data = "mean_sdl", fun.args = list(mult = 1), shape = 18, color = "red")
+
+# Combine with boxplot and violin plot
+e + geom_violin(trim = FALSE) + geom_jitter(position = position_jitter(0.1)) + stat_summary(fun.data = "mean_sdl", fun.args = list(mult = 1), shape = 18, color = "red")
+
+# Change point shape by group
+e + geom_jitter(aes(shape = dose), position = position_jitter(0.2)) + scale_shape_manual(values = c(1,17,19))
+
+# Change color by groups
+e + geom_jitter(aes(color = dose, shape = dose), position = position_jitter(0.2)) + theme_minimal()
+
+# Change the outlien and fill color by scale
+
+##Stripchar with multiple groups
+#Change colors and shapes by groups
+e + geom_jitter(aes(color = supp, shape = supp), position = position_jitter(0.2))
+
+# Add boxplot
+e + geom_boxplot(aes(color = supp), position = position_dodge()) + geom_jitter(aes(color = supp, shape = supp), position = position_jitter(0.2)) + theme_minimal()
+```
+
+## Line plots
+In a line graph, observations are ordered by x value and connected.  
+x value can be:
+
+* date: for a time series data
+* texts
+* discrete numeric values
+* continuous numeric values
+
+`geom_line(), geom_path(), geom_step()`
+
+**alpha, color, linetype and size**
+
+```{r line}
+df <- data.frame(dose = c("D0.5", "D1", "D2"), len = c(4.2,10, 29.5))
+df2 <- data.frame(supp = rep(c("VC", "OJ"), each = 3), dose = rep(c("D0.5", "D1", "D2"),2 ), len = c(6.8, 15, 33, 4.2, 10, 29.5))
+
+p<- ggplot(data = df, aes(x = dose, y = len, group = 1))
+p + geom_line() + geom_point()
+
+# Change the line color and line type
+p + geom_line(linetype = "dashed", color = "steelblue") + geom_point(color = "steelblue")
+
+# use geom_step()
+p + geom_step() + geom_point()
+
+# use paht
+p + geom_path() 
+
+# Line plot with multiple groups
+# line tpye and point shape automatically controlled by groups.
+p <- ggplot(df2, aes(x = dose, y= len, group = supp))
+p + geom_line(aes(linetype = supp)) + geom_point(aes(shape = supp))
+
+# Change the line type, point shapes and colors
+p + geom_line(aes(linetype = supp, color = supp)) + geom_point(aes(shape = supp, color = supp)) + scale_color_brewer(palette = "Dark2")
+
+# X-axis is date; use economics
+head(economics)
+ggplot(data = economics, aes(x = date, y = pop)) + geom_line()
+
+# subset data
+ss <- subset(economics, date > as.Date("2006-1-1"))
+ggplot(data = ss, aes(x = date, y = pop)) + geom_line()
+
+# line size
+ggplot(data = economics, aes(x = date, y = pop, size = unemploy/ pop)) + geom_line()
+
+# multiple time series data:
+# Solution 1
+ggplot(economics, aes(x = date)) + geom_line(aes(y = psavert, color = "darkred")) + geom_line(aes(y = uempmed), color = "steelblue", linetype = "twodash") + theme_minimal()
+
+# Solution 2: melt by date
+
+# Area plot
+ggplot(economics, aes(x = date)) + geom_area(aes(y = psavert), fill = "#999999", color = "#999999", alpha = 0.5) + geom_area(aes(y = uempmed), fill = "#E69F00", color = "#E69F00", alpha = 0.5) + theme_minimal()
+```
+
+## Bar plots
+`geom_bar()`  
+**alpha, color, fill, linetype and size**
+```{r bar plot}
+df <- data.frame(dose = c("D0.5", "D1", "D2"), len = c(4.2,10, 29.5))
+df2 <- data.frame(supp = rep(c("VC", "OJ"), each = 3), dose = rep(c("D0.5", "D1", "D2"),2 ), len = c(6.8, 15, 33, 4.2, 10, 29.5))
+
+f <- ggplot(df, aes(x = dose, y = len))
+
+f + geom_bar(stat = "identity")
+#Change fill color and add labels at the top
+f + geom_bar(stat= "identity", fill = "steelblue") + geom_text(aes(label = len), vjust = -0.3, size = 3.5) + theme_minimal()
+f + geom_bar(stat= "identity", fill = "steelblue") + geom_text(aes(label = len), vjust = 1.6, size = 3.5, color = "white") + theme_minimal() + scale_x_discrete(limits = c("D2", "D0.5", "D1"))
+
+# change the color by groups
+f + geom_bar(aes(color = dose), stat = "identity", fill = "white")
 
 
+#bar plot with multiple groups
+g <- ggplot(data =df2, aes(x = dose, y = len, fill = supp))
 
+# Statcked bar plot
+g + geom_bar(stat = "identity")
+# Use position = position_dodge()
+g + geom_bar(stat = "identity", position = position_dodge()) + geom_text(aes(label = len), vjust = 1.6, color = "white", position = position_dodge(0.9), size = 3.5)
 
+library(dplyr)
+library(plyr)
+df_sorted <- arrange(df2, dose, supp)
+df_cumsum <- ddply(df_sorted, "dose", transform, label_ypos = cumsum(len))
 
+# Create the bar plot
+ggplot(data = df_cumsum, aes(x = dose, y = len, fill = supp)) + geom_bar(stat = "identity") + geom_text(aes(label = len, y = label_ypos), vjust = 1.6, color = "white", size = 3.5)
+
+```
 
 
 
