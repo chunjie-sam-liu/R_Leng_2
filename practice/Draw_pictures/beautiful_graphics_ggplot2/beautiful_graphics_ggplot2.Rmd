@@ -423,7 +423,9 @@ e <- ggplot(ToothGrowth, aes(x = dose, y = len))
 
 ## Box Plots
 
-**alpha, color, linetype, shape, size, fill**
+**alpha, color, linetype, shape, size, fill**  
+`geom_boxplot(outlier.colour = "black", outlier.shape = 16, outlier.size = 2, notch = FALSE)`
+
 ```{r}
 # Basic box plot
 e + geom_boxplot()
@@ -433,6 +435,128 @@ e + geom_boxplot() + coord_flip()
 e + geom_boxplot(notch = TRUE)
 # Box plot with mean points
 e + geom_boxplot() + stat_summary(fun.y = mean, geom = "point", shape = 18, size = 4, color = "blue")
+
+# chose which item to display
+e + geom_boxplot() + scale_x_discrete(limits = c("0.5", "2"))
+# change default order of items
+e + geom_boxplot() + scale_x_discrete(limits = c("2", "0.5", "1"))
+
+e + stat_boxplot(coeff = 1.5)
+
+# change the color by group
+# box plot outline and fill colors can be automatically controlled by the levels of the grouping variable *dose*
+
+# Use single color
+e + geom_boxplot(color = "black", fill = "steelblue")
+
+# Change outline colors by dose (groups)
+e + geom_boxplot(aes(color = dose))
+
+# Change the fill color by dose (groups)
+e + geom_boxplot(aes(fill = dose))
+
+# Change munually outline colors:
+# Use custom color palettes
+e2 <- e + geom_boxplot(aes(color = dose)) + theme_minimal()
+e2 + scale_color_manual(values = c("#999999", "#E69F00", "#56B4E9"))
+
+# Use brewer color palettes
+e2 + scale_color_brewer(palette  = "Dark2")
+
+# Use grey scale
+e2 + scale_color_grey()
+
+## Change manually by fill color
+# Use the custom color palettes
+e3 <- e + geom_boxplot(aes(fill = dose)) + theme_minimal()
+e3 + scale_fill_manual(values = c("#999999", "#E69F00", "#56B4E9"))
+
+# Use brewer color palettes
+e3 + scale_fill_brewer(palette = "Dark2")
+
+# Use grey color
+e3 + scale_fill_grey()
+
+
+## Boxplot with multiple groups
+#The grouping variable *dose* and *supp* are used:
+
+# Change box plot colors by groups
+e + geom_boxplot(aes(fill = supp))
+# Change the position
+e + geom_boxplot(aes(fill = supp), position = position_dodge(1.1))
+# Change the fill color
+e + geom_boxplot(aes(fill = supp), position = position_dodge(1.1)) + scale_fill_brewer("BrBG")
+
 ```
+
+
+
+
+## Violin Plots
+Violin plots is similar to boxplot, except that they also show the kernel probability density of the data at different values. Tipically, violin plots will include a marker for the median of the data and a box indicating the interquartile range, as in standard boxplots.
+
+**alpha, color, fill, linetype, size, and fill**
+
+```{r violin plot}
+# Basic plot
+e + geom_violin()
+
+# Rotate the violin plot
+e + geom_violin() + coord_flip()
+
+# Set trim argument to FALSE
+e + geom_violin(trim = FALSE, fill = "steelblue")
+
+## Add summary statistics
+# Funtion stat_summary can be used to add mean/median points and more on a violin plot
+
+# Add mean and median points: use fun.y = mean or fun.y = median
+e + geom_violin(trim = FALSE) + stat_summary(fun.y = mean, geom = "point", shape = 23, size = 2, color = "blue")
+
+# Add mean points +/- SD
+# Use geom = "pointrange" or geom = "crossbar"
+e + geom_violin(trim = FALSE) + stat_summary(fun.data = "mean_sdl", fun.args = list(mult = 1), geom = "pointrange", color = "red")
+# The function mean_sdl is used for adding mean and standard deviation. 
+# It computes the mean plus or minus a constant times the standard deviation. The constant is specified using the argument mult (mult = 1). Default mult = 2.
+# The mean +/- SD can be added as crossbar or a pointrange. 
+
+
+# Combine with box plot to add median and quartiles
+e + geom_violin(trim = FALSE) + geom_boxplot(width = 0.2)
+
+## Change colors by groups
+# The color and fill can be automatically controlled by the levels  of the grouping variable dose
+
+# Change the outline colors by dose (groups)
+e + geom_violin(aes(color = dose), trim = FALSE)
+
+# Change the fill color by dose
+e  + geom_violin(aes(fill = dose), trim = FALSE)
+
+# Change outline and fill color manually.
+e2 <- e + geom_violin(aes(color = dose), trim = FALSE) + theme_minimal()
+
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
