@@ -91,6 +91,29 @@ ggplot(brca.stat, aes(x="tumor", y = tumor.extracted_size / tumor.file_size)) + 
 
 
 ggplot(brca.stat, aes(x="normal", y = normal.extracted_size /normal.file_size)) + geom_violin() + theme_minimal() + scale_x_discrete(name="Normal") + scale_y_continuous(name = "File size of regulatory region / WXS")
+
+brca.stat.a <- transmute(brca.stat, subID = subID, ratio = tumor.extracted_size / tumor.file_size, type = "Tumor")
+brca.stat.b <- transmute(brca.stat, subID = subID, ratio = normal.extracted_size / normal.file_size, type = "Normal")
+
+brca.stat.c <- rbind(brca.stat.a, brca.stat.b)
+
+ggplot(brca.stat.c, aes(x=type, y = ratio)) + geom_violin(aes(color = type)) + theme_minimal() + scale_x_discrete(name="Type") + scale_y_continuous(name = "File size of regulatory region / WXS") 
+
+# load regulatory median depth
+tumor.depth <- read.table("/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/7.case.statistics/tumor.total.extracted.depth")
+colnames(tumor.depth) <- c("Median","mean", "bam")
+tumor.depth$type <- "Tumor"
+
+normal.depth <- read.table("/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/7.case.statistics/normal.total.extracted.depth")
+colnames(normal.depth) <- c("Median","mean", "bam")
+normal.depth$type <- "Normal"
+
+total.depth <- rbind(tumor.depth, normal.depth)
+
+ggplot(total.depth, aes(x = type, y = Median)) + geom_boxplot(aes(color = type)) + theme_minimal() + scale_x_discrete(name="Type") + scale_y_continuous(name = "Median Coverage") + geom_jitter(aes(color = type),position = position_jitter(0.2))
+
+ggplot(total.depth, aes(x = type, y = mean)) + geom_boxplot(aes(color = type)) + theme_minimal() + scale_x_discrete(name="Type") + scale_y_continuous(name = "Mean Coverage") + geom_jitter(aes(color = type),position = position_jitter(0.2))
+
 ```
 
 
