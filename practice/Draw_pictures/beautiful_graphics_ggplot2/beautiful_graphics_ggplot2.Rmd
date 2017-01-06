@@ -539,7 +539,7 @@ e2 <- e + geom_violin(aes(color = dose), trim = FALSE) + theme_minimal()
 e2 + scale_color_brewer(palette = "Dark2")
 
 # Change manually fill colors
-e3 <- e + geom_violin(aes(fill = dose), trim = FALSE) + theme_minial()
+e3 <- e + geom_violin(aes(fill = dose), trim = FALSE) + theme_minimal()
 e3 + scale_fill_brewer(palette = "Dark2")
 
 ## Violin plot with multiple groups
