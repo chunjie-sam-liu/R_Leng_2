@@ -71,3 +71,30 @@ ls
 LS
 ls
 cd
+ls
+cd mutationInPromoter/
+ls
+cp practice
+mkdir practice
+ls
+cd practice/`
+cd practice/
+l
+git statusw
+git status
+ls
+git add practice
+git status
+ls
+git status
+git add mutationInPromoter/BRCA.filesize.variant.statistics.Rmd mutationInPromoter/mutation_number_with_case_size.png
+git status
+ls
+git commit -m "add practice"
+git push origin master
+ls
+liucj
+ls
+c dmu
+l
+cd mutationInPromoter/
