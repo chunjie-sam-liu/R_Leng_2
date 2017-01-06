@@ -1,0 +1,251 @@
+TARGET USI	Gender	Race	Ethnicity	Age at enrollment (days)	Disease at diagnosis	Metastasis site	Primary tumor site	Specific tumor site	Specific tumor side	Specific tumor region	Time to first relapse (days)	Time to first enrollment on relapse protocol (days)	Time to first SMN (days)	Time to death (days)	Follow-up time (days)	DAFE status	Study	Percent necrosis	Definitive surgery	Primary site progression	Site of initial relapse	Histologic response	Time to First Event/Event Free Survival	First Event	Overall Survival	Vital Status
+TARGET-40-PAKFVX	Male	Unknown	Not Hispanic or Latino	5407	Non-metastatic (confirmed)		Leg/foot	Femur	Left	Distal	361				922		P9754	90	Limb sparing	Yes	Other bone		361	Relapse	922	Alive
+TARGET-40-PAKUZU	Male	Asian	Not Hispanic or Latino	7270	Non-metastatic (confirmed)		Leg/foot	Femur							0		P9851						0	Censored	0	Alive
+TARGET-40-PAKXLD	Female	White	Not Hispanic or Latino	5245	Non-metastatic (confirmed)		Arm/hand	Humerus	Right	Proximal	578				2462		P9754	30		Yes	Lung		578	Relapse	2462	Alive
+TARGET-40-PAKZZK	Male	White	Not Hispanic or Latino	4864	Non-metastatic (confirmed)		Leg/foot	Femur	Right	Distal	452			1515	1515		P9754	30	Limb sparing	Yes	Lung		452	Relapse	1515	Dead
+TARGET-40-PALECC	Female	Unknown	Hispanic or Latino	3661	Non-metastatic (confirmed)		Arm/hand	Arm NOS	Left		384			754	754		P9851			Yes	Lung		384	Relapse	754	Dead
+TARGET-40-PALFYN	Female	White	Unknown	4841	Non-metastatic (confirmed)		Leg/foot	Femur	Left		651			1003	1003		P9851			Yes			651	Relapse	1003	Dead
+TARGET-40-PALHRL	Male	Black or African American	Not Hispanic or Latino	6019	Metastatic	Lung only	Leg/foot	Femur	Left						4006		P9851						4006	Censored	4006	Alive
+TARGET-40-PALKDP	Female	White	Not Hispanic or Latino	3388	Non-metastatic (confirmed)		Leg/foot	Femur	Left	Distal					3282		P9851						3282	Censored	3282	Alive
+TARGET-40-PALKGN	Male	White	Not Hispanic or Latino	6190	Non-metastatic (confirmed)		Leg/foot	Foot NOS							2122		P9851						2122	Censored	2122	Alive
+TARGET-40-PALWWX	Female	White	Not Hispanic or Latino	4464	Metastatic	Lung only	Leg/foot	Femur	Right	Distal					2163		AOST0121	98	Limb sparing				2163	Censored	2163	Alive
+TARGET-40-PALZGU	Male	White	Not Hispanic or Latino	5603	Non-metastatic (confirmed)		Leg/foot	Femur	Right	Distal	1452			2882	2882		P9851			Yes	Other bone		1452	Relapse	2882	Dead
+TARGET-40-PAMEKS	Male	Asian	Not Hispanic or Latino	3942	Metastatic	Lung only	Leg/foot	Femur	Right	Distal	385			857	857		AOST0121	50	Limb sparing		Lung		385	Relapse	857	Dead
+TARGET-40-PAMHLF	Male	White	Not Hispanic or Latino	3233	Non-metastatic (confirmed)		Leg/foot	Leg NOS							1913		P9851						1913	Censored	1913	Alive
+TARGET-40-PAMHYN	Female	Asian	Not Hispanic or Latino	3499	Non-metastatic (confirmed)		Leg/foot	Leg NOS							3209		P9851						3209	Censored	3209	Alive
+TARGET-40-PAMJXS	Male	Black or African American	Not Hispanic or Latino	4100	Non-metastatic (confirmed)		Leg/foot	Leg NOS			3184				3184		P9851			Yes			3184	Relapse	3184	Alive
+TARGET-40-PAMLKS	Female	White	Not Hispanic or Latino	4509	Metastatic	Bone and lung	Leg/foot	Femur	Right	Distal	71			180	180		AOST0121						71	Relapse	180	Dead
+TARGET-40-PAMRHD	Female	Unknown	Not Hispanic or Latino	3942	Metastatic	Bone and lung	Leg/foot	Femur	Right	Distal	39			74	74		AOST0121				Lung		39	Relapse	74	Dead
+TARGET-40-PAMTCM	Female	Black or African American	Not Hispanic or Latino	4938	Non-metastatic (confirmed)		Leg/foot	Leg NOS							2791		P9851						2791	Censored	2791	Alive
+TARGET-40-PAMYYJ	Male	White	Not Hispanic or Latino	6477	Metastatic	Lung only	Leg/foot	Leg NOS			128			271	271		AOST0121	67			Lung		128	Relapse	271	Dead
+TARGET-40-PANGPE	Male	White	Not Hispanic or Latino	4794	Non-metastatic (confirmed)		Leg/foot	Femur	Right				833		2722		P9851						833	SMN	2722	Alive
+TARGET-40-PANGRW	Male	White	Not Hispanic or Latino	6088	Non-metastatic (confirmed)		Leg/foot	Femur	Left	Distal					2901		P9851						2901	Censored	2901	Alive
+TARGET-40-PANMIG	Male	White	Not Hispanic or Latino	5360	Metastatic	Lung only	Leg/foot	Tibia	Right	Proximal	513			776	776		AOST0121	95	Limb sparing		Lung		513	Relapse	776	Dead
+TARGET-40-PANPUM	Male	White	Not Hispanic or Latino	5996	Metastatic	Lung only	Pelvis	Ilium	Left		46			295	295		AOST0121						46	Relapse	295	Dead
+TARGET-40-PANSEN	Male	White	Not Hispanic or Latino	5234	Non-metastatic (confirmed)		Leg/foot	Tibia	Left	Proximal					2256		P9851						2256	Censored	2256	Alive
+TARGET-40-PANVJJ	Female	White	Unknown	5044	Non-metastatic (confirmed)		Leg/foot	Tibia	Left						2647		P9851						2647	Censored	2647	Alive
+TARGET-40-PANXSC	Male	White	Not Hispanic or Latino	5545	Non-metastatic (confirmed)		Leg/foot	Femur	Right	Distal	366	373			1217		P9851			Yes	Lung		366	Relapse	1217	Alive
+TARGET-40-PANZHX	Female	Asian	Not Hispanic or Latino	5127	Metastatic	Bone and lung	Leg/foot	Tibia	Left		812				1323		AOST0121	70	Limb sparing		"Non-bone, non-lung"		812	Relapse	1323	Alive
+TARGET-40-PANZZJ	Male	White	Not Hispanic or Latino	6855	Non-metastatic (confirmed)		Leg/foot	Leg NOS							1538		P9851						1538	Censored	1538	Alive
+TARGET-40-PAPFLB	Male	White	Not Hispanic or Latino	5496	Non-metastatic (confirmed)		Leg/foot										Other osteosarcoma									
+TARGET-40-PAPIJR	Female	White	Hispanic or Latino	4597	Non-metastatic (confirmed)		Leg/foot	Femur	Left	Distal							AOST0331									
+TARGET-40-PAPKWD	Male	White	Not Hispanic or Latino	3478	Non-metastatic (confirmed)		Leg/foot	Femur	Left	Distal							AOST0331									
+TARGET-40-PAPNVD	Female	White	Hispanic or Latino	5289	Non-metastatic (confirmed)		Leg/foot	Fibula	Left	Proximal							AOST0331									
+TARGET-40-PAPVYW	Male	Black or African American	Not Hispanic or Latino	2803	Metastatic	Bone and lung	Leg/foot	Femur	Left		69			78	78		P9851						69	Relapse	78	Dead
+TARGET-40-PAPWWC	Female	White	Not Hispanic or Latino	3595	Non-metastatic (confirmed)		Leg/foot	Femur	Left	Distal							AOST0331									
+TARGET-40-PAPXGT	Female	Black or African American	Not Hispanic or Latino	4172	Non-metastatic (confirmed)		Leg/foot	Tibia	Left	Proximal							AOST0331									
+TARGET-40-PARBGW	Female	Unknown	Hispanic or Latino	4634	Metastatic	Bone only	Leg/foot	Femur	Right	Distal							AOST0331									
+TARGET-40-PARDAX	Male	White	Not Hispanic or Latino	3680	Metastatic	Lung only	Leg/foot	Femur	Left	Distal							AOST0331									
+TARGET-40-PARFTG	Female	Asian	Not Hispanic or Latino	4987	Non-metastatic (confirmed)		Leg/foot	Femur	Right	Distal							AOST0331									
+TARGET-40-PARGTM	Male	White	Not Hispanic or Latino	5925	Non-metastatic (confirmed)		Leg/foot	Tibia	Right	Proximal							AOST0331									
+TARGET-40-PARJXU	Female	White	Not Hispanic or Latino	4624	Metastatic	Lung only	Leg/foot	Femur	Right	Distal							AOST0331									
+TARGET-40-PARKAF	Male	White	Not Hispanic or Latino	6085	Non-metastatic (confirmed)		Leg/foot	Femur	Left	Distal							AOST0331									
+TARGET-40-PASEBY	Male	White	Not Hispanic or Latino	4249	Non-metastatic (confirmed)		Leg/foot	Femur	Left	Distal							AOST0331									
+TARGET-40-PASEFS	Male	White	Not Hispanic or Latino	6625	Non-metastatic (confirmed)		Leg/foot	Tibia	Right	Proximal							AOST0331									
+TARGET-40-PASFCV	Female	White	Not Hispanic or Latino	3849	Non-metastatic (confirmed)		Leg/foot	Tibia	Right	Proximal							AOST0331									
+TARGET-40-PASKZZ	Female	White	Hispanic or Latino	4808	Non-metastatic (confirmed)		Leg/foot	Fibula	Left	Proximal							AOST0331									
+TARGET-40-PASNZV	Male	White	Not Hispanic or Latino	5947	Non-metastatic (confirmed)		Leg/foot	Femur							1176		AOST06B1						1176	Censored	1176	Alive
+TARGET-40-PASRNE	Female	White	Not Hispanic or Latino	1299	Non-metastatic (confirmed)		Leg/foot	Femur			512				1049		AOST06B1						512	Relapse	1049	Alive
+TARGET-40-PASSLM	Male	White	Not Hispanic or Latino	3538	Metastatic	Lung only	Arm/hand	Humerus	Right	Proximal							AOST0331									
+TARGET-40-PASUUH	Female	White	Not Hispanic or Latino	5143	Non-metastatic (confirmed)		Leg/foot	Fibula	Left	Proximal							AOST0331									
+TARGET-40-PASYUK	Female	Unknown	Hispanic or Latino	5931	Non-metastatic (confirmed)		Leg/foot	Tibia	Right	Proximal							AOST0331									
+TARGET-40-PATAWV	Male	White	Not Hispanic or Latino	5667	Non-metastatic (confirmed)		Leg/foot	Tibia	Right	Proximal							AOST0331									
+TARGET-40-PATEEM	Male	White	Not Hispanic or Latino	5875	Non-metastatic (confirmed)		Arm/hand	Humerus			961				1059		AOST06B1						961	Relapse	1059	Alive
+TARGET-40-PATJVI	Male	White	Not Hispanic or Latino	5755	Metastatic	Lung only	Leg/foot	Fibula	Left	Proximal							AOST0331									
+TARGET-40-PATKSS	Male			4889	Non-metastatic (confirmed)		Pelvis	Ilium	Right	Not appl							AOST0331									
+TARGET-40-PATMIF	Female	White	Not Hispanic or Latino	4383	Non-metastatic (confirmed)		Leg/foot	Femur	Left	Distal							AOST0331									
+TARGET-40-PATMPU	Male	Unknown	Unknown	5060	Non-metastatic (confirmed)		Leg/foot	Fibula	Left	Proximal							AOST0331									
+TARGET-40-PATMXR	Female	Unknown	Hispanic or Latino	7631	Metastatic	Bone and lung	Leg/foot	Femur			68			386	386		AOST06P1			Yes			68	Relapse	386	Dead
+TARGET-40-PATPBS	Male	White	Not Hispanic or Latino	5513	Non-metastatic (confirmed)		Leg/foot	Fibula	Left	Proximal							AOST0331									
+TARGET-40-PATUXZ	Female	Unknown	Hispanic or Latino	6345	Metastatic	Bone and lung	Leg/foot	Femur			327			510	510		AOST06B1						327	Relapse	510	Dead
+TARGET-40-PATXFN	Female			4964	Non-metastatic (confirmed)		Leg/foot	Tibia	Right	Proximal							AOST0331									
+TARGET-40-PAUBIT	Female			4513	Non-metastatic (confirmed)		Leg/foot	Femur							335		AOST06B1						335	Censored	335	Alive
+TARGET-40-PAUTWB	Male			5064	Non-metastatic (confirmed)		Leg/foot	Tibia							178		AOST06B1						178	Censored	178	Alive
+TARGET-40-PAUTYB	Female			4418	Non-metastatic (confirmed)		Leg/foot	Tibia							252		AOST06B1						252	Censored	252	Alive
+TARGET-40-PAUUML	Male			2177	Non-metastatic (confirmed)		Leg/foot	Femur							79		AOST06B1						79	Censored	79	Alive
+TARGET-40-PAUVUL	Female			2027	Metastatic	Lung only	Leg/foot	Femur							1		AOST06B1						1	Censored	1	Alive
+TARGET-40-PAUXPZ	Female			4507	Metastatic	Lung only	Leg/foot	Tibia							0		AOST06B1 no follow-up						0	Censored	0	Alive
+TARGET-40-PAUYTT	Female			6702	Non-metastatic (confirmed)		Leg/foot	Fibula							67		AOST06B1						67	Censored	67	Alive
+TARGET-40-PAVALD	Male			5924	Non-metastatic (confirmed)		Leg/foot	Femur							42		AOST06B1						42	Censored	42	Alive
+TARGET-40-PAVCLP	Female			4062	Non-metastatic (confirmed)		Leg/foot	Tibia							0		AOST06B1 no follow-up						0	Censored	0	Alive
+TARGET-40-PAVDTY	Male			4898	Non-metastatic (confirmed)		Leg/foot	Tibia							0		AOST06B1 no follow-up						0	Censored	0	Alive
+TARGET-40-PAVECB	Female			3272	Non-metastatic (confirmed)		Arm/hand	Radius							0		AOST06B1 no follow-up						0	Censored	0	Alive
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										

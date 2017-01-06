@@ -98,3 +98,10 @@ ls
 c dmu
 l
 cd mutationInPromoter/
+ls
+mkdir 2.Osteosarcoma
+ls
+cd 2.Osteosarcoma/
+l
+ls
+git status

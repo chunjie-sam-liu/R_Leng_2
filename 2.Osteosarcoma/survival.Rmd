@@ -1,0 +1,203 @@
+---
+title: "Survival analysis"
+author: "C.J. Liu"
+date: "11/7/2016"
+output: html_document
+---
+
+## Survival analysis of TARGET Osteosarcoma (TARGET-OS) data.
+
+### Requirement
+Focus on 12 ribosomal proteins are: RPL11, RPL15, RPL26, RPL31, RPL35A, RPL5, RPS10, RPS17, RPS19, RPS24, RPS26, and RPS7. 1 transcription factor is GATA1.
+
+1. ~~Are they mutated (nonsense, missense, frameshift, etc) in osteosarcoma?~~
+2. ~~Are they downregulated in osteosarcoma (v.s. wild-type osteoblasts if TCGA have)?~~
+3. **Is mutation/downregulation of these genes correlated to ~~tumor size~~, poor prognosis. etc?**
+
+### Description
+The TARGET-OS data was download from [TARGET-OS](https://ocg.cancer.gov/programs/target/data-matrix). The data was controlled, we can only download limited public data without WXS and WGS data. What i got is mRNA L3 expression and clinical data. clinical data has no tumor size infromation.
+
+* Question1, we don't have mutation data.  
+* Question2, we don't have wild-type data. TCGA does not contain OS normal sample. TARGET only has tumor sample according to TARGET name code.  
+* Question3, we can combine expression clinical data to perform survival analysis. 
+
+### Data location
+Expression: /extraspace/TARGET/OS/mRNA-seq/L3/expression/NCI-Meltzer; based on gene.  
+Clinical: /extraspace/TARGET/OS/clinical/harmonized; validation data; Converted to txt /home/cliu18/liucj/projects/Osteosarcoma/clinic/TARGET_OS_ClinicalData_Discovery_20150729.txt
+
+### Convert Symbol to Ensembl ID
+```{r Convert_ID}
+library("biomaRt")
+ENSEMBL = useMart("ENSEMBL_MART_ENSEMBL", dataset = "hsapiens_gene_ensembl")
+
+ENSEMBL.ATTRIBUTES = listAttributes(ENSEMBL)
+ENSEMBL.FILTERS = listFilters(ENSEMBL)
+
+genes <- c("RPL11","RPL15","RPL26","RPL31","RPL35A","RPL5","RPS10","RPS17","RPS19","RPS24","RPS26","RPS7","GATA1")
+genes.ens <- getBM(c("ensembl_gene_id","ensembl_transcript_id","hgnc_symbol"), filters = "hgnc_symbol", values = genes, mart = ENSEMBL)
+# write.table(genes.ens, file = "OS.genes.ens", col.names = T, quote = F, sep = "\t", row.names = F)
+head(genes.ens)
+```
+
+
+
+### Survival analysis
+
+#### Data preparation
+```{r Load_library}
+suppressMessages(library(gdata, warn.conflicts = FALSE))
+suppressMessages(library(doParallel, warn.conflicts = FALSE))
+suppressMessages(library(doMC, warn.conflicts = FALSE))
+library(foreach)
+library(methods)
+library(survival)
+library(reshape)
+library(ggplot2)
+folder <- "Survival_new"
+if (!file.exists(folder)) { dir.create(folder) }
+registerDoMC()
+
+OS.exp.path <- "/extraspace/TARGET/OS/mRNA-seq/L3/expression/NCI-Meltzer"
+filenameall <- list.files(path =  OS.exp.path, pattern = '-01A-01R.gene.quantification.txt')
+genelist <- read.table("/home/cliu18/liucj/projects/Osteosarcoma/geneList/osteosarcoma.genelist.ensg", header=T, row.names = 1 )
+genelist[,1] <- as.vector(genelist[,1])
+genelist
+```
+#### Read and merge data
+```{r Read_and_merge_data}
+# Read all expression data
+exp.data <- data.frame()
+for(i in filenameall){
+    tmp <- read.table(file.path(OS.exp.path, i), header = T)
+    name <- gsub('-01A-01R.gene.quantification.txt', '', i)
+    tmp$mean_length <- NULL
+    tmp$mean_eff_length <- NULL
+    tmp$est_counts <- NULL
+    colnames(tmp)[2] <- name
+    if(i == "TARGET-40-0A4HLD-01A-01R.gene.quantification.txt"){
+        exp.data <- tmp
+    }
+    else{
+        exp.data <- merge(exp.data, tmp, by = "ensembl_gene_id")
+    }
+}
+rownames(exp.data) <- exp.data[,1]
+exp.data <- exp.data[-1]
+
+exp.data <- exp.data[which(rownames(exp.data) %in% row.names(genelist)),]
+
+rownames(exp.data) <- genelist[rownames(exp.data),1]
+
+# head(exp.data)
+write.table(exp.data, file =file.path(folder,'merged.expr.data'), sep="\t", quote=FALSE, row.names=T)
+
+
+# Read clinical data
+clinic.file <- '/home/cliu18/liucj/projects/Osteosarcoma/clinic/TARGET_OS_ClinicalData_Discovery_20150729.txt'
+if(file.exists(clinic.file)){clinic.data <- read.table(clinic.file, sep="\t", header = T, comment.char = "", quote="", fill = T)}
+clinic.id <- as.vector(clinic.data[,1])
+commonSample <- intersect(clinic.id, colnames(exp.data))
+data.exp.clinic <- exp.data[,match(commonSample, colnames(exp.data))]
+clinic.data <- clinic.data[match(commonSample,clinic.id),]
+write.table(clinic.data, file = file.path(folder, paste("Clinic", "-Match-Subtype-Info.txt", sep = "")), sep = "\t", quote=FALSE, row.names=FALSE)
+# head(clinic.data)
+```
+
+**Note:** There is a problem. The clinical data in `/extraspace/TARGET/OS/clinical/harmonized` has `TARGET_OS_ClinicalData_Discovery_20150729.xlsx` and `TARGET_OS_ClinicalData_Validation_20160401.xlsx`. `TARGET_OS_ClinicalData_Validation_20160401.xlsx` is new in this year, but the TARGET USI is diferent from `TARGET_OS_ClinicalData_Discovery_20150729.xlsx` and expression file name. The common name between Validation and expression is 1. But, the common name between Discovery and expression filename is 86. I use old Discovery data.
+
+
+#### Survival analysis
+```{r Survival_analysis}
+Result <- matrix(NA, nrow(data.exp.clinic), 8, byrow=TRUE)
+rownames(Result) <- rownames(data.exp.clinic)
+
+colnames(Result) <- c("coef", "Exp(coef)", "Coxp", "KMp", "N", "low", "high", "FC")
+pdf(paste(folder,"/Survival_analysis_13_gene.pdf",sep=""),width=12,height = 12)
+par(mfrow = c(4,4))
+
+for(i in 1: nrow(Result)){
+    RNA.expr <- as.vector(t(data.exp.clinic[i,]))
+    keepLink <- which(!is.na(clinic.data[,"Vital.Status"]) & !is.na(clinic.data[,"Overall.Survival.Time.in.Days"]) & (clinic.data[,"Overall.Survival.Time.in.Days"]) >= 0 & !is.na(RNA.expr))
+    Time.dfs <- as.numeric(as.vector(clinic.data[keepLink,"Overall.Survival.Time.in.Days"]))
+    cen.status <- ifelse(as.vector(clinic.data[keepLink,"Vital.Status"]) == "Dead", 1,0)
+    RNA.expr.refined <-  RNA.expr[keepLink]
+    
+    Result[i, "N"] <- length(RNA.expr.refined)
+    
+    test.expr <- list(time = Time.dfs, status = cen.status, group = RNA.expr.refined)
+    tempresult<-try(model1 <- coxph(Surv(time, status) ~ group, data=test.expr, na.action=na.exclude),silent=TRUE)
+    
+    if(!is(tempresult, "try-error")){
+        Result[i, c("coef", "Exp(coef)", "Coxp")] <- summary(model1)$coefficients[1,c("coef", "exp(coef)", "Pr(>|z|)" )]
+        cutgroup <- ifelse(as.vector(RNA.expr.refined) <= median(as.vector(RNA.expr.refined)), "Low","High")
+        if(length(unique(cutgroup)) >1){
+            test.low.high <- list(time = Time.dfs, status = cen.status, group = as.factor(cutgroup))
+            
+            model1 <- survdiff(Surv(time, status) ~ group, data= test.low.high, na.action=na.exclude)
+            
+            Result[i, c("KMp")] <- 1-pchisq(model1$chisq, df=length(levels(factor(cutgroup)))-1)
+            Result[i, "low"] <- mean(RNA.expr.refined[cutgroup == "Low"])
+            Result[i, "high"] <- mean(RNA.expr.refined[cutgroup == "High"])
+            Result[i, "FC"] <- log2((mean(RNA.expr.refined[cutgroup == "High"])+1)/(mean(RNA.expr.refined[cutgroup == "Low"])+1))
+            
+            fit <- survfit(Surv(time, status) ~ group, data=test.low.high, na.action=na.exclude)
+            
+            # if(Result[i, c("KMp")] < 0.05){
+                # pdf(paste(folder,"/", rownames(Result)[i], ".pdf",sep=""),width=6,height = 6)
+                # plot(fit,col=c("red","blue"),lty=1,lwd=2,mark.time=TRUE,main=paste("Kaplan-Meier Curves ",rownames(Result)[i],sep=""),xlab = "Survival in days",cex.lab=1.5,cex.axis=1.2)
+                plot(fit,col=c("red","blue"),lty=1,mark.time=TRUE,main=paste("Kaplan-Meier Curves ",rownames(Result)[i],sep=""),xlab = "Survival in days")
+                legend("topright", attributes(as.factor(test.low.high$group))$levels, col=c("red","blue"),lty=1)
+                text(max(Time.dfs)/6,0.1,paste("KMp = ",signif(as.numeric(Result[i, c("KMp")]),digits = 2),sep=""))
+                text(max(Time.dfs)/6,0.2,paste("Coxp = ",signif(as.numeric(Result[i, c("Coxp")]),digits = 2),sep=""))
+                # dev.off()
+              # }
+        }
+    }
+    
+}
+dev.off()
+```
+
+#### Adjust p-value FDR method.
+```{r FDR}
+# Adjust P-value
+tmp <- as.numeric(as.vector(Result[, "Coxp"]))
+CoxFDRAdjustPvalue <- p.adjust(tmp, method="fdr")
+CoxOtherAdjustPvalue <- p.adjust(tmp, method="bonferroni")
+tmp <- as.numeric(as.vector(Result[, "KMp"]))
+KMpFDRAdjustPvalue <- p.adjust(tmp, method="fdr")
+KMpOtherAdjustPvalue <- p.adjust(tmp, method="bonferroni")
+
+Result <- cbind(Marker = rownames(Result), Result,  FDR = CoxFDRAdjustPvalue, Bonferroni = CoxOtherAdjustPvalue,
+KMFDR = KMpFDRAdjustPvalue, KMBonferroni = KMpOtherAdjustPvalue)
+nameused <- paste("OS", "-Survival.txt", sep = "")
+
+write.table(Result, file =file.path(folder,nameused), sep="\t", quote=FALSE, row.names=FALSE)
+
+keeplink <- which((as.numeric(CoxFDRAdjustPvalue) < 0.05 & !is.na(CoxFDRAdjustPvalue)) & (abs(as.numeric(as.vector(Result[, "FC"]))) >= log2(3/2)))
+
+if(length(keeplink) > 0){
+    nameused <- paste(Cond, "-Survival-Select.txt", sep = "")
+    if(length(keeplink) == 1){
+        write.table(data.frame(t(as.matrix(Result[keeplink,]))), file =file.path(folder,nameused), sep="\t", quote=FALSE, row.names=FALSE)
+    }
+    else{
+          write.table(Result[keeplink,], file =file.path(folder,nameused), sep="\t", quote=FALSE, row.names=FALSE)
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

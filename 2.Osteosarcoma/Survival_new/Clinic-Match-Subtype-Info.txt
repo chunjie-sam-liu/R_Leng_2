@@ -1,0 +1,87 @@
+TARGET.USI	Gender	Race	Ethnicity	Age.at.Diagnosis.in.Days	First.Event	Time.to.First.Event.in.Days	Vital.Status	Overall.Survival.Time.in.Days	Year.of.Diagnosis	Year.of.Last.Follow.Up	Protocol	Disease.at.diagnosis	Metastasis.site	Primary.tumor.site	Specific.tumor.site	Specific.tumor.side	Specific.tumor.region	Definitive.Surgery	Primary.site.progression	Site.of.initial.relapse	Time.to.first.relapse.in.days	Time.to.first.enrollment.on.relapse.protocol.in.days	Time.to.first.SMN.in.days	Time.to.death.in.days	Histologic.response	Percent.necrosis	Relapse.Type	Therapy	Comment	X	X.1
+TARGET-40-PALWWX	Female	White	Not Hispanic or Latino	4464	Censored	2163	Alive	2163	2002	2008	AOST0121	Metastatic	Lung only	Leg/foot	Femur	Right	Distal	Limb sparing			NA	NA	NA	NA		98			NA	NA	NA
+TARGET-40-PAMEKS	Male	Asian	Not Hispanic or Latino	3942	Relapse	385	Dead	857	2003	2005	AOST0121	Metastatic	Lung only	Leg/foot	Femur	Right	Distal	Limb sparing		Lung	385	NA	NA	857		50			NA	NA	NA
+TARGET-40-PAMLKS	Female	White	Not Hispanic or Latino	4509	Relapse	71	Dead	180	2003	2004	AOST0121	Metastatic	Bone and lung	Leg/foot	Femur	Right	Distal				71	NA	NA	180					NA	NA	NA
+TARGET-40-PAMRHD	Female	Unknown	Not Hispanic or Latino	3942	Relapse	39	Dead	74	2003	2003	AOST0121	Metastatic	Bone and lung	Leg/foot	Femur	Right	Distal			Lung	39	NA	NA	74					NA	NA	NA
+TARGET-40-PAMYYJ	Male	White	Not Hispanic or Latino	6477	Relapse	128	Dead	271	2004	2005	AOST0121	Metastatic	Lung only	Leg/foot	Leg NOS					Lung	128	NA	NA	271		67			NA	NA	NA
+TARGET-40-PANMIG	Male	White	Not Hispanic or Latino	5360	Relapse	513	Dead	776	2005	2007	AOST0121	Metastatic	Lung only	Leg/foot	Tibia	Right	Proximal	Limb sparing		Lung	513	NA	NA	776		95			NA	NA	NA
+TARGET-40-PANPUM	Male	White	Not Hispanic or Latino	5996	Relapse	46	Dead	295	2005	2006	AOST0121	Metastatic	Lung only	Pelvis	Ilium	Left					46	NA	NA	295					NA	NA	NA
+TARGET-40-PANZHX	Female	Asian	Not Hispanic or Latino	5127	Relapse	812	Alive	1323	2005	2009	AOST0121	Metastatic	Bone and lung	Leg/foot	Tibia	Left		Limb sparing		"Non-bone, non-lung"	812	NA	NA	NA		70			NA	NA	NA
+TARGET-40-PAPIJR	Female	White	Hispanic or Latino	4597	No event	1719	Alive	1719	2006	2010	AOST0331	Non-metastatic (confirmed)		Leg/foot	Femur		Distal	Limb sparing			NA	NA	NA	NA	0-90				NA	NA	NA
+TARGET-40-PAPKWD	Male	White	Not Hispanic or Latino	3478	Relapse	192	Dead	422	2006	2007	AOST0331	Non-metastatic (confirmed)		Leg/foot	Femur		Distal	Limb sparing	No	"Non-bone, non-lung"	192	NA	NA	422	0-90				NA	NA	NA
+TARGET-40-PAPNVD	Female	White	Hispanic or Latino	5289	Relapse	594	Dead	922	2006	2009	AOST0331	Non-metastatic (confirmed)		Leg/foot	Fibula		Proximal	Limb sparing	Yes		594	NA	NA	922	0-90				NA	NA	NA
+TARGET-40-PAPWWC	Female	White	Not Hispanic or Latino	3595	Relapse	1933	Alive	2520	2006	2013	AOST0331	Non-metastatic (confirmed)		Leg/foot	Femur		Distal	Limb sparing	No	Lung	1933	NA	NA	NA	0-90				NA	NA	NA
+TARGET-40-PAPXGT	Female	Black or African American	Not Hispanic or Latino	4172	No event	2526	Alive	2526	2006	2013	AOST0331	Non-metastatic (confirmed)		Leg/foot	Tibia		Proximal	Limb sparing			NA	NA	NA	NA	0-90				NA	NA	NA
+TARGET-40-PARBGW	Female	Unknown	Hispanic or Latino	4634	No event	286	Alive	286	2007	2007	AOST0331	Metastatic (confirmed)	Bone only	Leg/foot	Femur		Distal	Limb sparing			NA	NA	NA	NA	0-90				NA	NA	NA
+TARGET-40-PARDAX	Male	White	Not Hispanic or Latino	3680	Relapse	105	Dead	679	2007	2009	AOST0331	Metastatic (confirmed)	Lung only	Leg/foot	Femur		Distal		Yes	Other bone	105	NA	582	679					NA	NA	NA
+TARGET-40-PARFTG	Female	Asian	Not Hispanic or Latino	4987	Relapse	53	Dead	653	2007	2009	AOST0331	Non-metastatic (confirmed)		Leg/foot	Femur		Distal	Limb sparing	Yes		53	NA	NA	653	0-90				NA	NA	NA
+TARGET-40-PARGTM	Male	White	Not Hispanic or Latino	5925	No event	2610	Alive	2610	2007	2014	AOST0331	Non-metastatic (confirmed)		Leg/foot	Tibia		Proximal	Limb sparing			NA	NA	NA	NA	91-100				NA	NA	NA
+TARGET-40-PARJXU	Female	White	Not Hispanic or Latino	4624	Relapse	811	Dead	1631	2007	2012	AOST0331	Metastatic (confirmed)	Lung only	Leg/foot	Femur		Distal	Limb sparing	No		811	NA	NA	1631	91-100				NA	NA	NA
+TARGET-40-PARKAF	Male	White	Not Hispanic or Latino	6085	Relapse	56	Dead	1061	2007	2010	AOST0331	Non-metastatic (confirmed)		Leg/foot	Femur		Distal	Limb sparing	Yes		56	NA	NA	1061	0-90				NA	NA	NA
+TARGET-40-PASEBY	Male	White	Not Hispanic or Latino	4249	Relapse	42	Alive	2049	2008	2014	AOST0331	Non-metastatic (confirmed)		Leg/foot	Femur		Distal		Yes		42	NA	NA	NA					NA	NA	NA
+TARGET-40-PASEFS	Male	White	Not Hispanic or Latino	6625	No event	2112	Alive	2112	2008	2014	AOST0331	Non-metastatic (confirmed)		Leg/foot	Tibia		Proximal	Limb sparing			NA	NA	NA	NA	0-90				NA	NA	NA
+TARGET-40-PASFCV	Female	White	Not Hispanic or Latino	3849	No event	2062	Alive	2062	2008	2014	AOST0331	Non-metastatic (confirmed)		Leg/foot	Tibia		Proximal	Amputation			NA	NA	NA	NA	0-90				NA	NA	NA
+TARGET-40-PASKZZ	Female	White	Hispanic or Latino	4808	No event	542	Alive	542	2009	2010	AOST0331	Non-metastatic (confirmed)		Leg/foot	Fibula		Proximal	Limb sparing			NA	NA	NA	NA	91-100				NA	NA	NA
+TARGET-40-PASSLM	Male	White	Not Hispanic or Latino	3538	Relapse	1865	Alive	1865	2009	2014	AOST0331	Metastatic (confirmed)	Lung only	Arm/hand	Humerus		Proximal	Amputation	No		1865	NA	NA	NA	91-100				NA	NA	NA
+TARGET-40-PASUUH	Female	White	Not Hispanic or Latino	5143	No event	1625	Alive	1625	2009	2013	AOST0331	Non-metastatic (confirmed)		Leg/foot	Fibula		Proximal	Limb sparing			NA	NA	NA	NA	91-100				NA	NA	NA
+TARGET-40-PASYUK	Female	Unknown	Hispanic or Latino	5931	No event	1870	Alive	1870	2009	2014	AOST0331	Non-metastatic (confirmed)		Leg/foot	Tibia		Proximal	Limb sparing			NA	NA	NA	NA	91-100				NA	NA	NA
+TARGET-40-PATAWV	Male	White	Not Hispanic or Latino	5667	No event	1702	Alive	1702	2009	2014	AOST0331	Non-metastatic (confirmed)		Leg/foot	Tibia		Proximal	Limb sparing			NA	NA	NA	NA	91-100				NA	NA	NA
+TARGET-40-PATJVI	Male	White	Not Hispanic or Latino	5755	No event	1575	Alive	1575	2010	2014	AOST0331	Metastatic (confirmed)	Lung only	Leg/foot	Fibula		Proximal	Limb sparing			NA	NA	NA	NA	91-100				NA	NA	NA
+TARGET-40-PATKSS	Male	White	Not Hispanic or Latino	4889	Relapse	63	Dead	758	2010	2012	AOST0331	Non-metastatic (confirmed)		Pelvis	Pelvis / Sacrum			Limb sparing	Yes		63	NA	NA	758	0-90				NA	NA	NA
+TARGET-40-PATMIF	Female	White	Not Hispanic or Latino	4383	No event	1580	Alive	1580	2010	2014	AOST0331	Non-metastatic (confirmed)		Leg/foot	Femur		Distal	Limb sparing			NA	NA	NA	NA	91-100				NA	NA	NA
+TARGET-40-PATMPU	Male	Unknown	Unknown	5060	Relapse	498	Dead	1579	2010	2014	AOST0331	Non-metastatic (confirmed)		Leg/foot	Fibula		Proximal	Limb sparing	No	"Non-bone, non-lung"	498	NA	NA	1579	0-90				NA	NA	NA
+TARGET-40-PATPBS	Male	White	Not Hispanic or Latino	5513	No event	1468	Alive	1468	2010	2014	AOST0331	Non-metastatic (confirmed)		Leg/foot	Fibula		Proximal	Limb sparing			NA	NA	NA	NA	91-100				NA	NA	NA
+TARGET-40-PASNZV	Male	White	Not Hispanic or Latino	5947	No event	1747	Alive	1747	2009	2014	AOST06B1	Non-metastatic (confirmed)		Leg/foot	Femur						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PASRNE	Female	White	Not Hispanic or Latino	1299	Relapse	512	Alive	1707	2009	2014	AOST06B1	Non-metastatic (confirmed)		Leg/foot	Femur						512	NA	NA	NA					NA	NA	NA
+TARGET-40-PATEEM	Male	White	Not Hispanic or Latino	5875	Relapse	961	Alive	1451	2009	2013	AOST06B1	Non-metastatic (confirmed)		Arm/hand	Humerus						961	NA	NA	NA					NA	NA	NA
+TARGET-40-PATUXZ	Female	Unknown	Hispanic or Latino	6345	Death	510	Dead	510	2010	2012	AOST06B1	Metastatic (confirmed)	Bone and lung	Leg/foot	Femur						NA	NA	NA	510					NA	NA	NA
+TARGET-40-PAUBIT	Female	White	Not Hispanic or Latino	4513	No event	1029	Alive	1029	2011	2014	AOST06B1	Non-metastatic (confirmed)		Leg/foot	Femur						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PAUTWB	Male	White	Not Hispanic or Latino	5064	Relapse	598	Alive	687	2012	2014	AOST06B1	Non-metastatic (confirmed)		Leg/foot	Tibia						598	NA	NA	NA					NA	NA	NA
+TARGET-40-PAUTYB	Female	White	Hispanic or Latino	4418	Relapse	527	Dead	537	2012	2013	AOST06B1	Non-metastatic (confirmed)		Leg/foot	Tibia						527	NA	NA	537					NA	NA	NA
+TARGET-40-PAUUML	Male	Unknown	Hispanic or Latino	2177	No event	672	Alive	672	2012	2014	AOST06B1	Non-metastatic (confirmed)		Leg/foot	Femur						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PAUVUL	Female	Black or African American	Not Hispanic or Latino	2027	Relapse	237	Dead	347	2012	2013	AOST06B1	Metastatic (confirmed)	Lung only	Leg/foot	Femur						237	NA	NA	347					NA	NA	NA
+TARGET-40-PAUXPZ	Female	Unknown	Unknown	4507	Relapse	419	Alive	606	2012	2014	AOST06B1	Metastatic (confirmed)	Lung only	Leg/foot	Tibia						419	NA	NA	724					NA	NA	NA
+TARGET-40-PAUYTT	Female	White	Not Hispanic or Latino	6702	No event	579	Alive	579	2012	2014	AOST06B1	Non-metastatic (confirmed)		Leg/foot	Fibula						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PAVALD	Male	White	Hispanic or Latino	5924	No event	551	Alive	551	2012	2014	AOST06B1	Non-metastatic (confirmed)		Leg/foot	Femur						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PAVCLP	Female	Black or African American	Not Hispanic or Latino	4062	No event	511	Alive	511	2012	2014	AOST06B1	Non-metastatic (confirmed)		Leg/foot	Tibia						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PAVDTY	Male	White	Not Hispanic or Latino	4898	No event	369	Alive	369	2012	2013	AOST06B1	Non-metastatic (confirmed)		Leg/foot	Tibia						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PAVECB	Female	White	Not Hispanic or Latino	3272	No event	476	Alive	476	2012	2014	AOST06B1	Non-metastatic (confirmed)		Arm/hand	Radius						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PATMXR	Female	Unknown	Hispanic or Latino	7631	Relapse	68	Dead	386	2010	2011	AOST06P1	Metastatic	Bone and lung	Leg/foot	Femur				Yes		68	NA	NA	386					NA	NA	NA
+TARGET-40-0A4HLD	Male 			7254	Censored	3946	Alive	3946	2000	2011	IHRT	Non-metastatic (confirmed)	   	Leg/Foot	Tibia 		Proximal	Limb sparing	No		NA	NA	NA	NA	Stage 3/4	99		MTX/Adria/Ifos/±Plat 	NA	NA	NA
+TARGET-40-0A4HMC	Male 	White		10205	Censored	377	Alive	377	NA	NA	IHRT	Non-metastatic (confirmed)	   	Leg/Foot	Fibula 		"Other, Not specified"	Amputation 	No		NA	NA	NA	NA	Stage 1/2	60		Adria/Plat	NA	NA	NA
+TARGET-40-0A4HX8	Male 	White		10635	Censored	1750	Alive	1750	2003	2011	IHRT	Non-metastatic (confirmed)	   	Leg/Foot	Femur   		Distal	Limb sparing	No		NA	NA	NA	NA	Stage 3/4	100		Pre-op Adria/Ifos/MTX + Adria/Plat; Post-op Adria/Plat + Adria/Ifos	NA	NA	NA
+TARGET-40-0A4HXS	Male 	White		8470	Censored	2948	Alive	2948	2004	2014	IHRT	Non-metastatic (confirmed)	   	Leg/Foot	Femur   		Distal	Limb sparing	No		NA	NA	NA	NA	Stage 1/2	40		Adria/Plat/MTX	NA	NA	NA
+TARGET-40-0A4HY5	Male 			7264	Relapse	218	Dead	290	2004	2005	IHRT	Metastatic	Lung only	Leg/Foot	Pelvis 		"Other, Posterior"	Limb sparing	No	Regional Lymph nodes 	218	NA	NA	290	Stage 1/2	50		Adria/Plat/MTX	NA	NA	NA
+TARGET-40-0A4I0Q	Female 			7269	Death	519	Dead	519	2005	2006	IHRT	Metastatic	Lung only	Leg/Foot	Femur   		Distal	Limb sparing	No		NA	NA	NA	519	Stage 1/2	< 50 		MTX/Adria/Ifos/±Plat	NA	NA	NA
+TARGET-40-0A4I0W	Male 	Asian		7330	Censored	683	Alive	683	2006	2010	IHRT	Non-metastatic (confirmed)	   	Leg/Foot	Femur   		Distal	Limb sparing	No		NA	NA	NA	NA				Adria/Plat/MTX	NA	NA	NA
+TARGET-40-0A4I3S	Male 	Black or African American		8313	Censored	1844	Alive	1844	2007	2014	IHRT	Non-metastatic (confirmed)	   	Leg/Foot	Pelvis - ilium  		"Other, Posterior"	Limb sparing	No		NA	NA	NA	NA				Adria/Plat	NA	NA	NA
+TARGET-40-0A4I42	Female 			6268	Relapse	351	Dead	619	2007	2009	IHRT	Non-metastatic (confirmed)	   	Arm/hand	Humerus 		Proximal	Limb sparing	No		351	NA	NA	619			Systemic	Adria/Plat/MTX	NA	NA	NA
+TARGET-40-0A4I48	Female 			5854	Censored	1616	Alive	1616	2008	2014	IHRT	Metastatic	Lung only	Leg/Foot	Femur   		Distal	Limb sparing	No		NA	NA	NA	NA	Stage 3/4	99		Adri/Plat/VP-16/Ifos 	NA	NA	NA
+TARGET-40-0A4I4E	Male 			5978		NA		NA	2009	NA	IHRT	Metastatic	Lung only	Leg/Foot	Femur 		Proximal	N/A - No surgery	No		NA	NA	NA	NA				Unknown	NA	NA	NA
+TARGET-40-0A4I4M	Female 	Asian		6916	Censored	708	Alive	708	2010	2014	IHRT	Non-metastatic (confirmed)	   	Leg/Foot	Tibia 		Proximal	Limb sparing	No		NA	NA	NA	NA	Stage 3/4	98		Adria/Plat/MTX	NA	NA	NA
+TARGET-40-0A4I4O	Male 	White		11828	Relapse	235	Dead	627	2010	2012	IHRT	Non-metastatic (confirmed)	   	Leg/Foot	Femur   		Distal	Limb sparing	No	Lung 	235	NA	NA	627	Stage 3/4	95	Systemic	Adria/Plat	NA	NA	NA
+TARGET-40-0A4I5B	Male 			7615	Censored	619	Alive	619	2010	2014	IHRT	Non-metastatic (confirmed)	   	Leg/Foot	Tibia 		Proximal	Limb sparing	No		NA	NA	NA	NA	Stage 3/4	95		MTX/Adria/Ifos/±Plat	NA	NA	NA
+TARGET-40-0A4I6O	Male 			6738	Relapse	484	Dead	1906	2004	2009	IHRT	Non-metastatic (confirmed)	   	Leg/Foot	Tibia   		Distal	Amputation 	No	Lung 	484	NA	NA	1906			Systemic	Adria/Plat/MTX	NA	NA	NA
+TARGET-40-PAPFLB	Male	White	Not Hispanic or Latino	5496		NA		NA	NA	NA	Other osteosarcoma	Non-metastatic (confirmed)		Leg/foot							NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PAKFVX	Male	Unknown	Not Hispanic or Latino	5407	Relapse	361	Alive	922	2000	2003	P9754	Non-metastatic (confirmed)		Leg/foot	Femur	Left	Distal	Limb sparing	Yes	Other bone	361	NA	NA	NA		90			NA	NA	NA
+TARGET-40-PAKXLD	Female	White	Not Hispanic or Latino	5245	Relapse	578	Alive	2462	2001	2008	P9754	Non-metastatic (confirmed)		Arm/hand	Humerus	Right	Proximal		Yes	Lung	578	NA	NA	NA		30			NA	NA	NA
+TARGET-40-PAKZZK	Male	White	Not Hispanic or Latino	4864	Relapse	452	Dead	1515	2001	2005	P9754	Non-metastatic (confirmed)		Leg/foot	Femur	Right	Distal	Limb sparing	Yes	Lung	452	NA	NA	1515		30			NA	NA	NA
+TARGET-40-PAKUZU	Male	Asian	Not Hispanic or Latino	7270	No event	0	Alive	0	2001	2001	P9851	Non-metastatic (confirmed)		Leg/foot	Femur						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PALECC	Female	Unknown	Hispanic or Latino	3661	Relapse	384	Dead	754	2001	2003	P9851	Non-metastatic (confirmed)		Arm/hand	Arm NOS	Left			Yes	Lung	384	NA	NA	754					NA	NA	NA
+TARGET-40-PALFYN	Female	White	Unknown	4841	Relapse	651	Dead	1003	2001	2004	P9851	Non-metastatic (confirmed)		Leg/foot	Femur	Left			Yes		651	NA	NA	1003					NA	NA	NA
+TARGET-40-PALHRL	Male	Black or African American	Not Hispanic or Latino	6019	No event	4374	Alive	4374	2002	2013	P9851	Metastatic	Lung only	Leg/foot	Femur	Left					NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PALKDP	Female	White	Not Hispanic or Latino	3388	No event	3282	Alive	3282	2002	2011	P9851	Non-metastatic (confirmed)		Leg/foot	Femur	Left	Distal				NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PALKGN	Male	White	Not Hispanic or Latino	6190	No event	2122	Alive	2122	2002	2007	P9851	Non-metastatic (confirmed)		Leg/foot	Foot NOS						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PALZGU	Male	White	Not Hispanic or Latino	5603	Relapse	1452	Dead	2882	2002	2010	P9851	Non-metastatic (confirmed)		Leg/foot	Femur	Right	Distal		Yes	Other bone	1452	NA	NA	2882					NA	NA	NA
+TARGET-40-PAMHLF	Male	White	Not Hispanic or Latino	3233	No event	1913	Alive	1913	2003	2008	P9851	Non-metastatic (confirmed)		Leg/foot	Leg NOS						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PAMHYN	Female	Asian	Not Hispanic or Latino	3499	No event	3900	Alive	3900	2003	2014	P9851	Non-metastatic (confirmed)		Leg/foot	Leg NOS						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PAMJXS	Male	Black or African American	Not Hispanic or Latino	4100	Relapse	3184	Alive	3862	2003	2014	P9851	Non-metastatic (confirmed)		Leg/foot	Leg NOS				Yes		3184	NA	NA	3976					NA	NA	NA
+TARGET-40-PAMTCM	Female	Black or African American	Not Hispanic or Latino	4938	No event	3002	Alive	3002	2003	2012	P9851	Non-metastatic (confirmed)		Leg/foot	Leg NOS						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PANGPE	Male	White	Not Hispanic or Latino	4794	SMN	833	Alive	3378	2004	2014	P9851	Non-metastatic (confirmed)		Leg/foot	Femur	Right					NA	NA	833	NA					NA	NA	NA
+TARGET-40-PANGRW	Male	White	Not Hispanic or Latino	6088	No event	3378	Alive	3378	2004	2014	P9851	Non-metastatic (confirmed)		Leg/foot	Femur	Left	Distal				NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PANSEN	Male	White	Not Hispanic or Latino	5234	No event	2256	Alive	2256	2005	2011	P9851	Non-metastatic (confirmed)		Leg/foot	Tibia	Left	Proximal				NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PANVJJ	Female	White	Unknown	5044	No event	3095	Alive	3095	2005	2014	P9851	Non-metastatic (confirmed)		Leg/foot	Tibia	Left					NA	NA	NA	NA					NA	NA	NA
+TARGET-40-PANXSC	Male	White	Not Hispanic or Latino	5545	Relapse	366	Alive	1217	2005	2008	P9851	Non-metastatic (confirmed)		Leg/foot	Femur	Right	Distal		Yes	Lung	366	373	NA	NA					NA	NA	NA
+TARGET-40-PANZZJ	Male	White	Not Hispanic or Latino	6855	No event	1538	Alive	1538	2005	2009	P9851	Non-metastatic (confirmed)		Leg/foot	Leg NOS						NA	NA	NA	NA					NA	NA	NA
+TARGET-40-0A4I65	Male			6520	Relapse	1993	Alive	2895	NA	NA	STB	Non-metastatic (Confirmed)	Lung only	Leg/foot	Tibia		PRoximal	Amputation	No	Lung	1993	NA	NA	NA	Stage 1/2	80	Systemic	Adria/Plat	NA	NA	NA
+TARGET-40-0A4I9K	Male			8237		2257	Alive	2257	NA	NA	STB	Non-metastatic (Confirmed)		Leg/foot	Tibia		Proximal	Limb Sparing	No		NA	NA	NA	NA	Stage 1/2	50		Adria/Plat	NA	NA	NA
