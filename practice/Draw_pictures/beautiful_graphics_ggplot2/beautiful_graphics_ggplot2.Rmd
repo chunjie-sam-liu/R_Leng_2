@@ -722,11 +722,290 @@ ggplot(data = df_cumsum, aes(x = dose, y = len, fill = supp)) + geom_bar(stat = 
 
 ```
 
+## Visualizing Error
+Use ToothGrowth data set.
+```
+#ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+df <- ToothGrowth
+# Compute mean and standard deviation
+df2 <- ToothGrowth %>% group_by(dose) %>% summarize(sd = sd(len), len = mean(len))
+# Create plot
+f <- ggplot(df2, aes(x = dose, y = len, ymin = len-sd, ymax = len + sd))
+# geom_crossbar() 
+# geom_errorbar()
+# geom_errorbarh()
+# geom_linerange()
+# geom_pointrange()
+
+f + geom_crossbar(aes(color = dose)) + scale_color_manual(values = c('#999999', "#E69F00", "#56B4E9")) + theme_minimal()
 
 
+# Cross bar with multiple groups
+df3 <- ToothGrowth %>% group_by(supp, dose) %>% summarise(sd = sd(len), len = mean(len))
+f <- ggplot(df3, aes(x = dose, y = len, ymin = len-sd, ymax = len + sd))
+f + geom_crossbar(aes(color = supp))
+f + geom_crossbar(aes(color = supp), position = position_dodge(1))
+
+# use summary
+f <- ggplot(ToothGrowth, aes(x = dose, y = len, color = supp))
+
+f + stat_summary(fun.data = "mean_sdl", fun.args = list(mult = 1), geom = "crossbar", width = 0.6, position = position_dodge(0.8))
 
 
+## Error bar
+f <- ggplot(df2, aes(x = dose, y = len, ymin = len - sd, ymax = len + sd))
+f + geom_errorbar(aes(color = dose), width = 0.2)
 
+# combine with line plot
+f + geom_line(aes(group = 1)) + geom_errorbar(width = 0.2)
+
+# combine with bar error, color by groups
+f + geom_bar(aes(color = dose), stat = "identity", fill = "white") + geom_errorbar(aes(color = dose), width = 0.2)
+
+# Keep only upper error bars
+f + geom_bar(aes(color = dose), stat = "identity", fill = "white") + geom_errorbar(aes(color = dose, ymin = len), width = 0.2)
+
+# error bar with multiple groups
+f <- ggplot(df3, aes(x = dose, y = len, ymin = len - sd, ymax = len + sd))
+
+# bar plot with error bar
+f + geom_bar(aes(fill = supp), stat = "identity", position = "dodge") + geom_errorbar(aes(color = supp), position = "dodge")
+
+# line plot with error bar
+f + geom_line(aes(group = supp, color = supp)) + geom_point(aes(color = supp)) + geom_errorbar(aes(color = supp), width = 0.2, position = position_dodge(0.05))
+
+
+# Horizontal error bar
+f <- ggplot(df2, aes(x = len, y = dose, xmin = len - sd, xmax = len + sd))
+
+
+# Interval represented by a vertical line
+# geom_linerange()
+# geom_pointrange()
+f <- ggplot(df2, aes(x = dose, y = len, ymin = len - sd, ymax = len + sd))
+# line range
+f + geom_linerange()
+# point range
+f + geom_pointrange()
+
+# plot dot plot and error bars.
+g <- ggplot(df, aes(x = dose, y = len)) + geom_dotplot(binaxis = 'y', stackdir = 'center')
+# use geom_crossbar
+g + stat_summary(fun.data = "mean_sdl", fun.args = list(mult = 1), geom = "crossbar", width = 0.5)
+# use geom_errorbar
+g + stat_summary(fun.data = "mean_sdl", fun.args = list(mult = 1), geom = "errorbar",color = "red", width = 0.2) + stat_summary(fun.y = mean, geom = "point", color = "red")
+# use geom_pointrange()
+g + stat_summary(fun.data = "mean_sdl", fun.args = list(mult = 1), geom = "pointrange", color = "red")
+```
+
+## Pie Charts
+Function coord_polar() is used to produce a pie chart, which is just a stacked bar chart.
+```{r pie chart}
+df <- data.frame(group = c("Male", "Female", "Child"), value = c(25,25,50))
+
+# create a pie chart
+p <- ggplot(df, aes(x = "", y = value, fill = group)) + geom_bar(width = 1, stat = 'identity') + coord_polar("y", start = 0)
+print(p)
+p + scale_fill_brewer(palette = "Dark2")
+
+# customized pie charts
+blank_theme <- theme_minimal() + theme(
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_blank(),
+  panel.border = element_blank(),
+  panel.grid = element_blank(),
+  axis.ticks = element_blank(),
+  plot.title = element_text(size = 14, face = "bold")
+  )
+require(scales)
+p+ scale_fill_brewer("Blues") + blank_theme + geom_text(aes(y = value/3 + c(0, cumsum(value)[-length(value)]),label = percent(value/100)), size = 5)
+
+
+```
+
+# Graphical Parameters
+Add graphical elements(polygon, path, ribbon, segment and rectangle) to a plot.
+## Graphical Paramters
+
+- geom_polygon(): add polygon
+- geom_path(): connect observations in original order
+- geom_ribbon(): add ribbons
+- geom_curve(): add curves
+- geom_rect(): add 2d rectangles
+- geom_segment(): add a single line segments. 
+
+Customize the plot: alpha, color, fill, linetype, size
+```{r paramters}
+require(maps)
+china = map_data('world2', region = "China")
+ggplot(china, aes(x = long, y = lat, group = group)) + geom_polygon(fill = 'white', color = 'black')
+
+# WTF, why Taiwan is outside of china??
+
+h <- ggplot(economics, aes(date, unemploy))
+h + geom_path(size = 0.8, color = "#E46726") + theme_minimal()
+
+# combine path, ribbon and rectangle
+h + geom_rect(aes(xmin = as.Date('1980-01-01'), ymin = -Inf, xmax = as.Date('1985-01-01'), ymax = Inf), fill = "#A29B32", color = "#D8DA9E", size = 1.5) + geom_ribbon(aes(ymin = unemploy - 900, ymax = unemploy + 900), fill = "#F3BF94") + geom_path(size = 0.8, color = "#E46726") + theme_minimal()
+
+# Add line segments and curve between points (x1, y1) and (x2, y2):
+# Create scatter plot
+i <- ggplot(mtcars, aes(wt, mpg)) + geom_point()
+# Add segment
+i + geom_segment(aes(x = 2, y = 15, xend = 3, yend = 15))
+# Add arrow
+require(grid)
+i + geom_segment(aes(x = 5, y = 30, xend = 3.5, yend = 25), arrow = arrow(length = unit(0.5, "cm")))
+# Add curves
+i + geom_curve(aes(x = 2, y = 15, xend =3, yend = 15))
+
+```
+
+## Main Title, Axis Labels and Legend Title
+ggtitle(), xlab(), ylab(), labs()
+```{r title }
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+p <- ggplot(ToothGrowth, aes(x = dose, y = len, fill = dose)) + geom_boxplot()
+
+# Change title and axis labels
+p <- p + labs(title = "Plot of length \n by dose", x = "Dose (mg)", y = "Teeth length")
+print(p)
+# Change the appearance of labels.
+# color, size, face
+# theme() and element_text() can be used, element_blank() hides the labels
+
+# Change the appearance of labels.
+# values for face are one of 'plain', 'italic', 'bold' and 'bold.italic'
+p + theme(
+  plot.title = element_text(color = 'red', size = 12, face = 'bold.italic'),
+  axis.title.x = element_text(color = 'blue', size = 12, face = 'bold'),
+  axis.title.y = element_text(color = '#993333', size = 12, face = 'bold')
+)
+# Hide labels
+p + theme(
+  plot.title = element_blank(),
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank()
+)
+
+```
+## Legend Position and Appearance
+```{r legend}
+# Change the legend title
+# use labs and scale functions to update the legend
+p + labs(fill = "Dose (mg)")
+
+
+# Legen position and Appearance
+# Convert the variable dose form numeric to factor variable
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+p <- ggplot(ToothGrowth, aes(x = dose, y = len, fill = dose)) + geom_boxplot()
+
+# Change the legend positions: 'left', 'right', 'top', 'bottom', 'none'
+p + theme(legend.position = 'top')
+# Legend position as numeric vector c(x,y)
+p + theme(legend.position = c(0.8, 0.2))
+# Remove the legend 
+p + theme(legend.position = 'none')
+# Change the appearance of legend title and labels
+p + theme(legend.title = element_text(color = 'blue'),legend.text = element_text(color = 'red'))
+# Change the legend box background color
+p + theme(legend.background = element_rect(fill = 'lightblue'))
+# Change the order of legend items
+p + scale_x_discrete(limits = c("2", "0.5", "1"))
+# Set legend title and labels
+p + scale_fill_discrete(name = "Dose", labels = c("A", "B", "C"))
+
+
+# gyudes(): set or remove the legend for a specific aestheic
+mtcars$cyl <- as.factor(mtcars$cyl)
+mtcars$gear <- as.factor(mtcars$gear)
+# Plot with multiple aestheics
+p <- ggplot(data = mtcars, aes(x = mpg, y = wt, color = cyl, size = qsec, shape = gear)) + geom_point()
+print(p)
+# Change the order of  guides using guide_legend()
+p + guides(color = guide_legend(order = 1),
+           size = guide_legend(order = 2),
+           shape = guide_legend(order = 3)
+           )
+# Remove a legend for a particular aestheic(color and size)
+p + guides(color = F, size = F)
+
+```
+
+## Colors
+Use Wes Anderson color palettes. The color options:
+![Wes Adderson](wesanderson.png)
+
+```{r colors}
+require(wesanderson)
+# Convert dose and cyl columns from numeric to factor variables
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+mtcars$cyl <- as.factor(mtcars$cyl)
+# Box plot 
+bp <- ggplot(ToothGrowth, aes(x=dose, y=len)) + geom_boxplot(aes(fill = dose))
+# Scatter plot 
+sp <- ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point(aes(color = cyl))
+
+bp + scale_fill_manual(values = wes_palette(n = 3, name = "GrandBudapest"))
+
+sp + scale_color_manual(values = wes_palette(n = 3, name = "GrandBudapest"))
+
+
+# Gradient between two colors
+# The graphs are colored using the qsec continuouse variable:
+sp2 <- ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point(aes(color = qsec))
+print(sp2)
+# Change the low and high colors
+# Sequnetial color scheme
+sp2 + scale_color_gradient(low = "blue", high = "red")
+
+# Diverging color scheme
+mid <- mean(mtcars$qsec)
+sp2 + scale_color_gradient2(midpoint = mid, low = 'blue', mid = "white", high = "red", space = "Lab")
+```
+
+## Facets: split a plot into a matrix of panels
+
+- facet_grid(supp ~ .): two rows
+- facet_grid(. ~ supp): two columns
+- facet_grid(dose ~ supp): two columns and three rows
+- facet_grid( ~ fl): Place facet side by sie into a rectangular layout
+
+```{r facet}
+# Load data and convert dose to a factor variable 
+data("ToothGrowth") 
+ToothGrowth$dose <- as.factor(ToothGrowth$dose) 
+# Box plot 
+p <- ggplot(ToothGrowth, aes(x=dose, y=len, group=dose)) + geom_boxplot(aes(fill=dose))
+print(p)
+p + facet_grid(supp ~ .)
+
+p + facet_grid(.~ supp)
+
+p + facet_grid(dose ~ supp)
+
+```
+
+# Extenssion to ggplot2
+
+
+## Arrange Multiple Graphs on the Same Page
+```{r}
+
+```
+
+
+## Correlation Matrix Visualization
+```{r}
+
+```
+
+## Ploting Survival Curves
+```{r}
+
+```
 
 
 
