@@ -46,3 +46,8 @@ cd beautiful_graphics_ggplot2/
 l
 cd beautiful_graphics_ggplot2/
 l
+cd ../
+ls
+cd beautiful_graphics_ggplot2/
+l
+cd ../

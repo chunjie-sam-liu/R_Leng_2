@@ -1053,7 +1053,7 @@ ggdraw() +
   
 # Save multi-figure plots
 plot2by2 <- plot_grid(bxp,dp,lp, labels = c('A','B','C'), ncol=2, nrow = 2)
-save_plot('practice/Draw_pictures/beautiful_graphics_ggplot2/plot2by2.png', plot2by2, ncol = 2, nrow = 2, base_aspect_ratio = 1.3)
+save_plot('/home/cliu18/liucj/github/RstudioWithGit/practice/Draw_pictures/beautiful_graphics_ggplot2/plot2by2.png', plot2by2, ncol = 2, nrow = 2, base_aspect_ratio = 1.3)
 
 
 ```
@@ -1123,17 +1123,115 @@ blankPlot <- ggplot()+geom_blank()+ theme_void()
 require("gridExtra") 
 grid.arrange(xdensity, blankPlot, scatterPlot, ydensity, ncol=2, nrow=2, widths=c(4, 1.4), heights=c(1.4, 4))
 
+# ggExtra: Add marginal distributions plots.
+require('ggExtra')
+ggMarginal(scatterPlot)
+
+# Marginal histogram plot
+ggMarginal(scatterPlot, type = "histogram", fill = "#6D9EC1", color= "#BFD5E3")
+
+# Insert an external graphical element inside a ggplot.
+# annotation_custom(grob, xmin, xmax, ymin, ymax)
+# - grob: the external graphical element to display
+
+# Create a transparent theme object
+transparent_theme <- theme(axis.title.x = element_blank(), axis.title.y = element_blank(), axis.text.x = element_blank(), axis.text.y = element_blank(), axis.ticks = element_blank(), panel.grid = element_blank(), axis.line = element_blank(), panel.background = element_rect(fill = "transparent",colour = NA), plot.background = element_rect(fill = "transparent",colour = NA))
+
+p1 <- scatterPlot
+# box plot of the x variable
+p2 <- ggplot(df2, aes(factor(1),x)) + geom_boxplot(width = 0.3) + coord_flip() + transparent_theme
+# box plot of the y variable
+p3 <- ggplot(df2, aes(factor(1), y)) + geom_boxplot(width = 0.3) + transparent_theme
+
+# Create the external graphical elements
+# called a 'grop' in Grid terminology
+p2_grob = ggplotGrob(p2)
+p3_grob = ggplotGrob(p3)
+
+# Insert p2_grob inside the scatter plot
+xmin <- min(x); xmax <- max(x)
+ymin <- min(y); ymax <- max(y)
+p1 + annotation_custom(grob = p2_grob, xmin = xmin, xmax = xmax, ymin = ymin - 1.5, ymax = ymin + 1.5)
+
+# Insert p3_grob inside the scatter plot
+p1 + annotation_custom(grob = p3_grob, xmin = xmin - 1.5, xmax = xmin + 1.5, ymin = ymin, ymax = ymax)
+
+
 
 ```
 
 
 ## Correlation Matrix Visualization
-```{r}
+`GGally` and `ggcorrplot` for displaying a correlation matrix.  
+Compared to GGally, the ggcorrplot package provides many options for visualizing a correlation matrix.
+```{r correlation}
+# Coorelation matrix
+require("GGally")
+mydata <- mtcars[, c(1,3,4,5,6,7)]
+ggcorr(mydata, palette = "Set3", label = TRUE)
+
+# Matrix of scatter plot
+ggpairs(mydata)
+
+
+## ggcorrplot
+require('ggcorrplot')
+mydata <- mtcars[, c(1,3,4,5,6,7)]
+corr <- round(cor(mydata),1)
+head(corr[,1:6],3)
+
+# Compute a matrix of correlation p-values
+p.mat <- cor_pmat(mydata)
+head(p.mat[,1:4],3)
+
+# correlation matrix visualization
+ggcorrplot(corr)
+# reordering the correlation matrix
+# use hierarchical clustering
+ggcorrplot(corr, hc.order = T, outline.col = "white")
+
+# Types of correlogram layout and customization
+# Add correlation coefficients
+ggcorrplot(corr, hc.order = T, 
+           type = 'lower',
+           outline.color = 'white',
+           ggtheme = ggplot2::theme_bw,
+           colors = c('#6D9EC1', 'white', '#E46726'),
+           lab = T)
+
+# Add correlation significance level
+# Argument p.mat
+# Barring the no significant coefficient
+ggcorrplot(corr, hc.order = T, type = 'lower', p.mat = p.mat)
+
 
 ```
 
 ## Ploting Survival Curves
-```{r}
+**Survival analysis** focuses on the expected duration of time until occurrence of an event of interest. However, this failure time may not be observed within the study time period, producing the so-called censored observations.
+```{r survival analysis}
+require('survival')
+data(lung, package = 'survival')
+# - time: Survival time in days.
+# - status: censoring status 1 = censored, 2 = dead
+# - sex: Male = 1; Female = 2
+fit = survfit(Surv(time, status) ~ sex, data = lung)
+
+# Drawing survival curves with survminer
+# The R package survminer contains the function ggsurvplot() for easily drawing beautiful and ready-to-publish survival curves using ggplot2. ggsurvplot() includes also some options for displaying the p-value and the ‘number at risk’ table, under the survival curves. 
+require(survminer)
+
+# ggsurvplot: drawing survival curves
+ggsurvplot(fit)
+# customize survival curves
+ggsurvplot(fit, size = 1, # change line size 
+           palette = c("#E7B800", "#2E9FDF"), # custom color palette 
+           conf.int = TRUE, # Add confidence interval 
+           pval = TRUE, # Add p-value 
+           risk.table = TRUE, # Add risk table 
+           risk.table.col = "strata", # Risk table color by groups 
+           ggtheme = theme_bw() # Change ggplot2 theme 
+           )
 
 ```
 

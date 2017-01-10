@@ -105,3 +105,18 @@ cd 2.Osteosarcoma/
 l
 ls
 git status
+git add -A
+git commit -m "add Osteosarcoma"
+git push origin master
+ls
+cd
+ls
+cd practice/
+l
+rm plot2by2.png 
+ls
+cd practice/
+l
+cd ../
+ls
+git status
