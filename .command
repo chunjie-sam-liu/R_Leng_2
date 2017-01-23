@@ -1,2 +1,0 @@
-rm .command 
-git status
