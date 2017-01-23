@@ -1,0 +1,83 @@
+---
+title: "FindTargetOfMutation"
+author: "C.J. Liu"
+date: "1/20/2017"
+output:
+  html_document:
+    depth: 3
+    highlight: tango
+    number_sections: yes
+    theme: united
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    word_document:
+      toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r library packages}
+suppressMessages(library(dplyr))
+suppressMessages(library(ggplot2))
+suppressMessages(library(biomaRt))
+```
+
+## Load filtered data
+```{r load data}
+dataPath = '/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/5.recalibrateRecurrencyWithCoverage/LUAD/SNP/refined_goc'
+
+recur <- read.table(file.path(dataPath,"somatic5.recur0.1"), header = T, sep = "\t")
+recur <- as_data_frame(recur)
+
+ggplot(recur, aes(x = factor(recurrent))) + geom_bar(aes(fill = feature)) + geom_text(stat = 'count', aes(label = ..count..), vjust = -0.3) + theme_minimal() + xlab("Recurrent") + ylab("Count") + ggtitle(paste("Total ",nrow(recur)," (Recurrent >= 5 & Recurrent Ratio > 10 %)"))
+
+recur$chrom <- gsub('chr','',recur$chrom)
+```
+
+## Annotation from biomaRt
+### Ensembl Genes
+Find genes up and down stream(1M bp) of mutation site.
+```{r genes}
+GENES = useMart("ENSEMBL_MART_ENSEMBL", dataset = "hsapiens_gene_ensembl", host = "useast.ensembl.org")
+GENES.ATTRIBUTES <- listAttributes(GENES)
+GENES.FILTERS <- listFilters(GENES)
+
+getAroundGenes <- function(x, len){
+  
+  around.genes<-getBM(attributes = c("ensembl_gene_id","chromosome_name", "start_position", "end_position", "strand","hgnc_symbol","entrezgene", "gene_biotype"), filters = c("chromosome_name", "start", "end", "biotype"), values = list(chromosome_name=x["chrom"], start=as.numeric(x["pos"]) - as.numeric(len), end = as.numeric(x["pos"]) + as.numeric(len), biotype = "protein_coding"), mart = GENES)
+  
+  strand.plus <- filter(around.genes, strand == 1 & start_position - as.numeric(x["pos"]) > 0) %>% slice(which.min(start_position - as.numeric(x["pos"]))) %>% mutate(distance = start_position - as.numeric(x["pos"]))
+  
+  strand.minus <- filter(around.genes, strand == -1 & end_position - as.numeric(x["pos"]) < 0) %>% slice(which.max(end_position - as.numeric(x["pos"]))) %>% mutate(distance = end_position - as.numeric(x["pos"]))
+  
+   cbind(t(x), rbind(strand.plus, strand.minus))
+ 
+}
+
+
+getAroundGenesBeta <- function(x, len){
+  
+  around.genes<-getBM(attributes = c("ensembl_gene_id","chromosome_name", "start_position", "end_position", "strand","hgnc_symbol","entrezgene", "gene_biotype"), filters = c("chromosome_name", "start", "end", "biotype"), values = list(chromosome_name=x["chrom"], start=as.numeric(x["pos"]) - as.numeric(len), end = as.numeric(x["pos"]) + as.numeric(len), biotype = "protein_coding"), mart = GENES)
+  mutate(around.genes, distance = as.numeric(end_position) - as.numeric(x["pos"]))
+}
+
+# Find nearest gene to the mutation
+nearestGene <- apply(recur, 1, getAroundGenes, len = "100000000")
+
+nearestGene.data.frame <-Reduce(function(...) rbind(...), nearestGene)
+
+write.table(nearestGene.data.frame, file = '/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/6.mapMutationToGenes/SNP/nearestProteinCodingGene.txt', row.names = F, quote = F, sep = "\t")
+# gene.list.expr <- read.table("/extraspace/TCGA/WXS_RAW/BRCA/RNA-seq/gene.list.cases.expr.txt", header = T, sep = "\t")
+
+# ENSG00000000460 <- read.table("/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/5.recalibrateRecurrencyWithCoverage/SNP/refined_goc/13_chr1_169539274.10.mtwt.barcode.test")
+
+# colnames(ENSG00000000460)<-c("type","case")
+
+# ENSG00000000460$expr <- gene.list.expr[gene.list.expr$ensid == "ENSG00000000460",][, ENSG00000000460$case]
+```

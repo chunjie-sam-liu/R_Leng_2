@@ -10,3 +10,9 @@ ls
 cd Draw_pictures/
 l
 cd ../
+ls
+cd d
+ls
+cd Draw_pictures/
+ls
+cd Draw_pictures/

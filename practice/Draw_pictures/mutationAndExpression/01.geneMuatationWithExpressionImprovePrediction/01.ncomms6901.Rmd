@@ -1,0 +1,57 @@
+---
+title: "ncomms6901"
+author: "C.J. Liu"
+date: "1/12/2017"
+output:
+  html_document:
+    depth: 3
+    highlight: tango
+    number_sections: yes
+    theme: united
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    word_document:
+      toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+```{r load library}
+ROOT=file.path(getwd(),'practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction')
+library(limma)
+library(org.Hs.eg.db)
+library(RColorBrewer)
+library(AnnotationDbi)
+library(affy)
+library(gcrma)
+library(hgu133plus2.db )
+library(VennDiagram)
+library(GenomicRanges)
+library(GenomicFeatures)
+library(rtracklayer)
+library(biomaRt)
+library(glmnet)
+library(survival)
+library(Hmisc)
+library(randomForestSRC)
+set1 = c(brewer.pal(9,"Set1"), brewer.pal(8, "Dark2"))
+source(file.path(ROOT,"suppData/mg14.R"))
+```
+```{r}
+celFiles <- dir(file.path(ROOT,"GSE58831"), pattern = ".CEL", full.names = T)
+celFiles
+affyBatch <- read.affybatch(filenames = celFiles)
+gset = gcrma(affyBatch)
+
+mdsData <- read.table(file.path(ROOT,"suppData/SuppTableS1GEO.txt"), sep="\t", header=TRUE, check.names=FALSE)
+
+samples = sub("_.+","", sampleNames(gset))
+sampleNames(gset) = samples
+```
+
+

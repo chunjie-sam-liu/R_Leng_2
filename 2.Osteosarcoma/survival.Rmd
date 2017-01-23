@@ -59,7 +59,7 @@ registerDoMC()
 
 OS.exp.path <- "/extraspace/TARGET/OS/mRNA-seq/L3/expression/NCI-Meltzer"
 filenameall <- list.files(path =  OS.exp.path, pattern = '-01A-01R.gene.quantification.txt')
-genelist <- read.table("/home/cliu18/liucj/projects/Osteosarcoma/geneList/osteosarcoma.genelist.ensg", header=T, row.names = 1 )
+genelist <- read.table("/home/cliu18/liucj/projects/2.Osteosarcoma/geneList/osteosarcoma.genelist.ensg", header=T, row.names = 1 )
 genelist[,1] <- as.vector(genelist[,1])
 genelist
 ```
@@ -89,17 +89,17 @@ exp.data <- exp.data[which(rownames(exp.data) %in% row.names(genelist)),]
 rownames(exp.data) <- genelist[rownames(exp.data),1]
 
 # head(exp.data)
-write.table(exp.data, file =file.path(folder,'merged.expr.data'), sep="\t", quote=FALSE, row.names=T)
+#write.table(exp.data, file =file.path(folder,'merged.expr.data'), sep="\t", quote=FALSE, row.names=T)
 
 
 # Read clinical data
-clinic.file <- '/home/cliu18/liucj/projects/Osteosarcoma/clinic/TARGET_OS_ClinicalData_Discovery_20150729.txt'
+clinic.file <- '/home/cliu18/liucj/projects/2.Osteosarcoma/clinic/TARGET_OS_ClinicalData_Discovery_20150729.txt'
 if(file.exists(clinic.file)){clinic.data <- read.table(clinic.file, sep="\t", header = T, comment.char = "", quote="", fill = T)}
 clinic.id <- as.vector(clinic.data[,1])
 commonSample <- intersect(clinic.id, colnames(exp.data))
 data.exp.clinic <- exp.data[,match(commonSample, colnames(exp.data))]
 clinic.data <- clinic.data[match(commonSample,clinic.id),]
-write.table(clinic.data, file = file.path(folder, paste("Clinic", "-Match-Subtype-Info.txt", sep = "")), sep = "\t", quote=FALSE, row.names=FALSE)
+#write.table(clinic.data, file = file.path(folder, paste("Clinic", "-Match-Subtype-Info.txt", sep = "")), sep = "\t", quote=FALSE, row.names=FALSE)
 # head(clinic.data)
 ```
 

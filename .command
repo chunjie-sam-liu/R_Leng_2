@@ -120,3 +120,34 @@ l
 cd ../
 ls
 git status
+git add -A
+git commit -m 'guide to create beautiful graphics'
+git push origin master
+exit
+ls
+cd practice/
+ls
+cd practice/
+ls
+ll
+mkdir mutationInPromoter2
+cd mutationInPromoter
+l
+cd mutationInPromoter2/
+l
+c dS
+ll
+ll Survival_new/
+ls
+ll
+cdll Survival_new/
+ll Survival_new/
+rm Survival_new
+l
+ll
+ps xf
+cd /home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/5.recalibrateRecurrencyWithCoverage/SNP/
+ls
+ll
+ls
+git status
