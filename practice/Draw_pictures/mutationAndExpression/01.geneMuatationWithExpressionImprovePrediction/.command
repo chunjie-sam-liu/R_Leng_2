@@ -31,3 +31,7 @@ l
 ll
 l
 exit
+ls
+ll
+rm ncomms6901.RData 
+cd ../

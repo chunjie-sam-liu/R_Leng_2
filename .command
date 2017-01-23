@@ -161,3 +161,17 @@ ls
 vim cjFun.R 
 git push origin master
 git status
+git add -A
+git statu
+git commit -m "target of mutation"
+ps xf
+l
+tcga
+git push origin master
+exit
+ls
+dc practice/Draw_pictures/
+ls
+cd practice/Draw_pictures/
+l
+git status

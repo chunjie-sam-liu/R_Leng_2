@@ -16,3 +16,4 @@ ls
 cd Draw_pictures/
 ls
 cd Draw_pictures/
+cd ../
