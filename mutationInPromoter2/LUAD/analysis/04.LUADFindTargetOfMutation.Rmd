@@ -72,7 +72,7 @@ nearestGene <- apply(recur, 1, getAroundGenes, len = "100000000")
 
 nearestGene.data.frame <-Reduce(function(...) rbind(...), nearestGene)
 
-write.table(nearestGene.data.frame, file = '/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/6.mapMutationToGenes/SNP/nearestProteinCodingGene.txt', row.names = F, quote = F, sep = "\t")
+write.table(nearestGene.data.frame, file = '/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/6.mapMutationToGenes/LUAD/SNP/nearestProteinCodingGene.txt', row.names = F, quote = F, sep = "\t")
 # gene.list.expr <- read.table("/extraspace/TCGA/WXS_RAW/BRCA/RNA-seq/gene.list.cases.expr.txt", header = T, sep = "\t")
 
 # ENSG00000000460 <- read.table("/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/5.recalibrateRecurrencyWithCoverage/SNP/refined_goc/13_chr1_169539274.10.mtwt.barcode.test")

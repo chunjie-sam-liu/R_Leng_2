@@ -175,3 +175,18 @@ ls
 cd practice/Draw_pictures/
 l
 git status
+git add -A
+git commit -m 'rm RData'
+git push origin master
+ls
+ll
+git status
+l
+git commit -m 'upload' 
+git push origin master
+ls
+cd practice/
+l
+cd .git
+l
+git status

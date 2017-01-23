@@ -17,3 +17,6 @@ cd Draw_pictures/
 ls
 cd Draw_pictures/
 cd ../
+ls
+rm practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/ncomms6901.RData
+cd ../
