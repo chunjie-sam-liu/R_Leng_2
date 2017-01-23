@@ -151,3 +151,13 @@ ls
 ll
 ls
 git status
+git add -A
+git status
+git commit -m 'LUAD analysis'
+ls
+git status
+git push origin master
+ls
+vim cjFun.R 
+git push origin master
+git status
