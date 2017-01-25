@@ -1,0 +1,93 @@
+---
+title: "nearestGeneExpression"
+author: "C.J. Liu"
+date: "1/23/2017"
+output:
+  html_document:
+    depth: 3
+    highlight: tango
+    number_sections: yes
+    theme: united
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    word_document:
+      toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Load library
+```{r Library}
+suppressMessages(require(dplyr))
+suppressMessages(require(tidyr))
+suppressMessages(library(ggplot2))
+suppressMessages(library(data.table))
+```
+
+
+## Load nearest protein coding genes
+```{r Data}
+dataPath = '/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/6.mapMutationToGenes/LUAD/SNP'
+
+nearestProteinCodingGene <- read.table(file=file.path(dataPath,"nearestProteinCodingGene.txt"), header = T, sep = "\t")
+
+coln <- c("uuid", "chrom", "pos", "depth", "type", "barcode")
+
+loadBarcode <- function(x, directory){
+  path <- file.path(directory,paste(paste(as.numeric(x["recurr"]), paste("chr", as.numeric(x["chrom"]), sep = ""), as.numeric(x["pos"]), sep = "_"), ".10.mtwt.barcode", sep = ""))
+  # print(path)
+  if(file.exists(path)){
+    #print(path)
+    tmp <- read.table(file = path, header = F, sep = "\t")
+    colnames(tmp) <- coln
+    tmp$barcode <- gsub("-", ".", tmp$barcode)
+    tmp$ensembl_gene_id <- x["ensembl_gene_id"]
+    tmp$hgnc_symbol <- x["hgnc_symbol"]
+    return(tmp)
+  }
+}
+
+nearestProteinCodingGene.distinct <- distinct(nearestProteinCodingGene, ensembl_gene_id, .keep_all = T)
+
+expr.candidate <- apply(nearestProteinCodingGene.distinct, 1, loadBarcode, directory = "/home/cliu18/liucj/projects/1.Mutation_calling_in_non-condig_region_through_EXOME/5.recalibrateRecurrencyWithCoverage/LUAD/SNP/refined_goc")
+
+names(expr.candidate) <- nearestProteinCodingGene.distinct$ensembl_gene_id
+```
+
+```{r Expression}
+expr <- fread('/extraspace/TCGA/WXS_RAW/LUAD/RNA-seq/luad.fpkm.dedup.txt')
+
+getGeneExpression <- function(x){
+  tmp <- dplyr::select(expr, one_of(c("ensid",x$barcode))) %>% filter(ensid %in% x$ensembl_gene_id)
+  tmp <- gather(tmp, barcode, expression, -ensid)
+  inner_join(x,tmp, by = "barcode")
+}
+
+total.expr <- lapply(expr.candidate,getGeneExpression)
+
+```
+
+```{r plot}
+for(gene in total.expr){
+  gene.se <- select(gene, barcode, type, expression) %>% distinct(barcode, .keep_all = T) 
+  
+  if(length(unique(gene.se$type)) == 2)
+    { 
+    te <- wilcox.test(data = gene.se, expression ~ type)
+    p.value = te$p.value
+    if(p.value < 0.05){
+      print(te)
+    }
+  }
+}
+```
+
+# There is no significant expression differences in these genes.
+
+
