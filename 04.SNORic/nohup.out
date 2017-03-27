@@ -1,0 +1,849 @@
+Loading tidyverse: ggplot2
+Loading tidyverse: tibble
+Loading tidyverse: tidyr
+Loading tidyverse: readr
+Loading tidyverse: purrr
+Loading tidyverse: dplyr
+Conflicts with tidy packages ---------------------------------------------------
+filter(): dplyr, stats
+lag():    dplyr, stats
+Warning message:
+In .doLoadActions(where, attach) :
+  trying to execute load actions without 'methods' package
+[1] "ACC_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X48 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "BLCA_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X346 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "BRCA_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X1137 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "CESC_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X175 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "CHOL_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X32 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "COAD_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X366 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "DLBC_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X35 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "ESCA_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X128 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "HNSC_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X359 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "KICH_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X65 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "KIRC_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X480 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "KIRP_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X218 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "LGG_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X437 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "LIHC_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X186 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "LUAD_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X367 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "LUSC_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X330 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "MESO_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X65 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "OV_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X445 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "PAAD_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X125 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "PCPG_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X84 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "PRAD_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X354 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "READ_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X135 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "SARC_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X229 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "SKCM_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X522 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "STAD_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X394 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "TGCT_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X124 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "THCA_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X432 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "THYM_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X92 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "UCEC_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X442 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "UCS_protein.re_20160627"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  protein = col_character(),
+  X50 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "UVM_protein.re_20160627"
+Parsed with column specification:
+cols(
+  protein = col_character(),
+  `TCGA-V3-A9ZX-01A-21-A41Z-20` = col_double(),
+  `TCGA-V4-A9E9-01A-21-A41Z-20` = col_double(),
+  `TCGA-V4-A9EA-01A-21-A41Z-20` = col_double(),
+  `TCGA-V4-A9EH-01A-21-A41Z-20` = col_double(),
+  `TCGA-V4-A9EJ-01A-21-A41Z-20` = col_double(),
+  `TCGA-V4-A9EL-01A-21-A41Z-20` = col_double(),
+  `TCGA-V4-A9EO-01A-21-A41Z-20` = col_double(),
+  `TCGA-V4-A9F4-01A-21-A41Z-20` = col_double(),
+  `TCGA-VD-A8KF-01A-21-A41Z-20` = col_double(),
+  `TCGA-WC-A885-01A-21-A41Z-20` = col_double(),
+  `TCGA-WC-A88A-01A-21-A41Z-20` = col_double(),
+  `TCGA-WC-AA9E-01A-21-A41Z-20` = col_double(),
+  X14 = col_character()
+)
+There were 34 warnings (use warnings() to see them)
+Loading tidyverse: ggplot2
+Loading tidyverse: tibble
+Loading tidyverse: tidyr
+Loading tidyverse: readr
+Loading tidyverse: purrr
+Loading tidyverse: dplyr
+Conflicts with tidy packages ---------------------------------------------------
+filter(): dplyr, stats
+lag():    dplyr, stats
+Warning message:
+In .doLoadActions(where, attach) :
+  trying to execute load actions without 'methods' package
+Parsed with column specification:
+cols(
+  snorna = col_character(),
+  chrom = col_character(),
+  strand = col_character(),
+  start = col_integer(),
+  end = col_integer(),
+  source = col_character(),
+  distance = col_integer(),
+  chip = col_character(),
+  fuck = col_character(),
+  pos = col_integer()
+)
+[1] "ACC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X83 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "BLCA_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X466 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "BRCA_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X815 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "CESC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X333 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "CHOL_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X48 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "COAD_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X360 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "DLBC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X55 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "ESCA_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X214 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "HNSC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X600 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "KICH_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X69 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "KIRC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X498 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "KIRP_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X338 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "LGG_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X553 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "LIHC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X452 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "LUAD_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X527 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "LUSC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X434 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "MESO_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X91 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "OV_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  gene = col_character(),
+  `TCGA-07-0227-20A-01D-A409-05` = col_double(),
+  `TCGA-13-A5FT-01A-11D-A409-05` = col_double(),
+  `TCGA-13-A5FU-01A-11D-A409-05` = col_double(),
+  `TCGA-29-A5NZ-01A-11D-A409-05` = col_double(),
+  `TCGA-3P-A9WA-01A-11D-A409-05` = col_double(),
+  `TCGA-59-A5PD-01A-11D-A409-05` = col_double(),
+  `TCGA-5X-AA5U-01A-11D-A409-05` = col_double(),
+  `TCGA-OY-A56P-01A-12D-A409-05` = col_double(),
+  `TCGA-OY-A56Q-01A-11D-A409-05` = col_double(),
+  `TCGA-VG-A8LO-01A-11D-A409-05` = col_double(),
+  `TCGA-WR-A838-01A-12D-A409-05` = col_double(),
+  X13 = col_character()
+)
+[1] "PAAD_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X209 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "PCPG_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X191 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "PRAD_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X575 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "READ_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X115 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "SARC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X287 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "SKCM_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X495 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "STAD_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X415 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "TGCT_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X160 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "THCA_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X590 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "THYM_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X130 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "UCEC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X510 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "UCS_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X60 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "UVM_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X83 = col_character()
+)
+See spec(...) for full column specifications.
+There were 31 warnings (use warnings() to see them)
+sending incremental file list
+methylation.tsv.n
+       32768   0%    0.00kB/s    0:00:00    11829248   0%    6.24MB/s    0:10:33    13828096   0%    4.31MB/s    0:15:16    15237120   0%    3.47MB/s    0:18:59    16908288   0%    3.10MB/s    0:21:10    19562496   0%    1.68MB/s    0:39:02    23265280   0%    2.11MB/s    0:31:06    27590656   0%    2.36MB/s    0:27:49    35815424   0%    3.61MB/s    0:18:08    42565632   1%    4.39MB/s    0:14:53    48726016   1%    4.98MB/s    0:13:05    55279616   1%    5.74MB/s    0:11:20    63930368   1%    5.75MB/s    0:11:18    70844416   1%    5.69MB/s    0:11:24    74579968   1%    5.04MB/s    0:12:51    83394560   2%    6.20MB/s    0:10:26    89653248   2%    5.71MB/s    0:11:18    94109696   2%    5.27MB/s    0:12:14    98926592   2%    5.17MB/s    0:12:28   104857600   2%    4.56MB/s    0:14:06   108494848   2%    3.90MB/s    0:16:28   113377280   2%    3.99MB/s    0:16:05   117276672   2%    4.17MB/s    0:15:22   121503744   2%    3.77MB/s    0:17:00   122912768   3%    2.86MB/s    0:22:22   133267456   3%    3.91MB/s    0:16:20   137854976   3%    3.94MB/s    0:16:11   141000704   3%    3.36MB/s    0:18:59   146931712   3%    4.77MB/s    0:13:20   153485312   3%    4.04MB/s    0:15:44   157417472   3%    3.81MB/s    0:16:38   163282944   4%    4.91MB/s    0:12:53   166920192   4%    3.80MB/s    0:16:40   172425216   4%    3.38MB/s    0:18:42   178749440   4%    4.01MB/s    0:15:45   185532416   4%    4.14MB/s    0:15:14   188022784   4%    4.54MB/s    0:13:52   194838528   4%    5.02MB/s    0:12:31   199753728   4%    4.68MB/s    0:13:24   204668928   5%    4.36MB/s    0:14:23   209223680   5%    4.60MB/s    0:13:36   213647360   5%    3.91MB/s    0:16:01   220266496   5%    4.26MB/s    0:14:38   225476608   5%    4.14MB/s    0:15:02   229146624   5%    4.08MB/s    0:15:17   232947712   5%    3.71MB/s    0:16:46   241041408   5%    3.91MB/s    0:15:52   246120448   6%    4.00MB/s    0:15:31   248709120   6%    3.85MB/s    0:16:06   255655936   6%    5.16MB/s    0:12:00   260603904   6%    4.50MB/s    0:13:44   265879552   6%    4.57MB/s    0:13:29   271122432   6%    5.18MB/s    0:11:53   276856832   6%    4.92MB/s    0:12:29   278626304   6%    4.19MB/s    0:14:41   288849920   7%    5.24MB/s    0:11:42   292192256   7%    4.70MB/s    0:13:02   300941312   7%    5.34MB/s    0:11:26   304644096   7%    5.81MB/s    0:10:30   310050816   7%    4.86MB/s    0:12:33   318930944   7%    6.22MB/s    0:09:47   324796416   8%    5.46MB/s    0:11:07   330694656   8%    6.02MB/s    0:10:04   336723968   8%    6.11MB/s    0:09:54   339607552   8%    4.73MB/s    0:12:47   348651520   8%    5.46MB/s    0:11:03   354385920   8%    5.07MB/s    0:11:53   361201664   8%    5.12MB/s    0:11:45   364249088   8%    5.03MB/s    0:11:56   369819648   9%    4.27MB/s    0:14:03   379387904   9%    5.33MB/s    0:11:13   384139264   9%    4.63MB/s    0:12:55   392101888   9%    5.76MB/s    0:10:21   398000128   9%    5.95MB/s    0:10:00   403111936   9%    5.04MB/s    0:11:48   407568384  10%    4.15MB/s    0:14:19   419790848  10%    4.93MB/s    0:11:59   421330944  10%    4.17MB/s    0:14:11   427524096  10%    4.13MB/s    0:14:17   434929664  10%    6.01MB/s    0:09:48   439123968  10%    4.20MB/s    0:14:00   443416576  10%    4.75MB/s    0:12:22   446267392  10%    4.23MB/s    0:13:52   451936256  11%    3.84MB/s    0:15:16   455966720  11%    3.81MB/s    0:15:23   460423168  11%    3.87MB/s    0:15:07   463437824  11%    3.80MB/s    0:15:23   467894272  11%    3.41MB/s    0:17:08   475398144  11%    4.15MB/s    0:14:02   477298688  11%    3.41MB/s    0:17:05   485261312  11%    4.10MB/s    0:14:10   490504192  12%    4.33MB/s    0:13:24   495452160  12%    3.85MB/s    0:15:04   499777536  12%    4.61MB/s    0:12:33   502300672  12%    3.98MB/s    0:14:33   506560512  12%    3.70MB/s    0:15:38   513245184  12%    4.09MB/s    0:14:06   518324224  12%    4.23MB/s    0:13:37   523436032  12%    4.75MB/s    0:12:07   527859712  13%    4.91MB/s    0:11:42   533102592  13%    4.46MB/s    0:12:52   537559040  13%    3.95MB/s    0:14:29   545030144  13%    4.46MB/s    0:12:49   550174720  13%    4.62MB/s    0:12:21   551714816  13%    3.80MB/s    0:15:00   561217536  13%    4.47MB/s    0:12:44   569966592  14%    4.75MB/s    0:11:57   573112320  14%    4.32MB/s    0:13:07   577536000  14%    4.91MB/s    0:11:32   580681728  14%    4.41MB/s    0:12:49   583401472  14%    2.98MB/s    0:19:00   586383360  14%    2.74MB/s    0:20:38   589725696  14%    2.56MB/s    0:22:00   590512128  14%    1.87MB/s    0:30:08   596377600  14%    2.45MB/s    0:22:57   599392256  14%    2.62MB/s    0:21:28   602537984  14%    2.49MB/s    0:22:33   604274688  14%    2.96MB/s    0:18:57   606175232  14%    2.13MB/s    0:26:23   606994432  14%    1.46MB/s    0:38:23   611844096  15%    1.88MB/s    0:29:50   614432768  15%    1.94MB/s    0:28:50   616890368  15%    2.09MB/s    0:26:47   619315200  15%    2.73MB/s    0:20:31   622002176  15%    2.20MB/s    0:25:21   623607808  15%    2.08MB/s    0:26:48   630259712  15%    2.96MB/s    0:18:52   632455168  15%    2.88MB/s    0:19:21   639533056  15%    3.92MB/s    0:14:12   643727360  15%    4.41MB/s    0:12:36   647036928  15%    3.51MB/s    0:15:49   652738560  16%    4.28MB/s    0:12:57   657195008  16%    3.58MB/s    0:15:26   661618688  16%    3.70MB/s    0:14:55   666042368  16%    4.22MB/s    0:13:04   671121408  16%    4.02MB/s    0:13:42   676331520  16%    4.26MB/s    0:12:55   681574400  16%    4.49MB/s    0:12:14   683802624  16%    3.91MB/s    0:14:03   693600256  17%    4.98MB/s    0:11:00   698023936  17%    4.58MB/s    0:11:55   706871296  17%    5.36MB/s    0:10:10   713654272  17%    6.43MB/s    0:08:27   720175104  17%    5.11MB/s    0:10:38   730005504  17%    6.48MB/s    0:08:21   736493568  18%    5.38MB/s    0:10:02   745996288  18%    5.88MB/s    0:09:09   752353280  18%    5.95MB/s    0:09:02   762609664  18%    6.10MB/s    0:08:47   766607360  18%    6.09MB/s    0:08:47   776110080  19%    6.08MB/s    0:08:46   781320192  19%    5.92MB/s    0:09:00   789708800  19%    5.53MB/s    0:09:37   793018368  19%    5.08MB/s    0:10:27   800325632  19%    4.69MB/s    0:11:17   806780928  19%    5.42MB/s    0:09:45   812154880  20%    4.77MB/s    0:11:03   817561600  20%    5.77MB/s    0:09:08   823361536  20%    5.41MB/s    0:09:43   827195392  20%    4.83MB/s    0:10:53   833847296  20%    5.03MB/s    0:10:25   839385088  20%    5.05MB/s    0:10:21   845250560  20%    4.99MB/s    0:10:28   851279872  20%    5.08MB/s    0:10:15   859471872  21%    5.44MB/s    0:09:33   863240192  21%    4.90MB/s    0:10:37   872611840  21%    5.69MB/s    0:09:06   876511232  21%    5.67MB/s    0:09:08   884310016  21%    5.55MB/s    0:09:18   890470400  21%    6.32MB/s    0:08:09   896270336  22%    5.48MB/s    0:09:23   902266880  22%    5.29MB/s    0:09:42   911245312  22%    5.63MB/s    0:09:05   916488192  22%    4.99MB/s    0:10:15   925302784  22%    5.50MB/s    0:09:15   931135488  22%    6.11MB/s    0:08:19   936968192  23%    5.37MB/s    0:09:27   943292416  23%    6.02MB/s    0:08:25   947716096  23%    4.88MB/s    0:10:21   955744256  23%    5.09MB/s    0:09:55   960167936  23%    4.62MB/s    0:10:54   967868416  23%    4.91MB/s    0:10:13   972128256  23%    4.71MB/s    0:10:39   979894272  24%    4.79MB/s    0:10:27   985235456  24%    5.11MB/s    0:09:47   988545024  24%    4.31MB/s    0:11:35   995360768  24%    5.07MB/s    0:09:49  1000407040  24%    4.54MB/s    0:10:57  1004503040  24%    3.99MB/s    0:12:27  1010958336  24%    4.58MB/s    0:10:49  1015382016  25%    4.23MB/s    0:11:42  1018888192  25%    3.94MB/s    0:12:33  1022984192  25%    4.09MB/s    0:12:04  1028030464  25%    3.78MB/s    0:13:03  1031077888  25%    3.48MB/s    0:14:09  1035763712  25%    3.63MB/s    0:13:33  1039400960  25%    3.70MB/s    0:13:17  1043333120  25%    3.42MB/s    0:14:21  1047134208  25%    3.58MB/s    0:13:42  1050771456  25%    2.80MB/s    0:17:29  1058963456  26%    3.57MB/s    0:13:39  1060536320  26%    3.17MB/s    0:15:22  1067745280  26%    3.81MB/s    0:12:45  1070170112  26%    4.17MB/s    0:11:39  1075576832  26%    3.61MB/s    0:13:25  1080950784  26%    4.35MB/s    0:11:07  1085079552  26%    3.58MB/s    0:13:30  1089175552  26%    4.03MB/s    0:11:59  1093140480  26%    3.72MB/s    0:12:59  1097465856  27%    3.60MB/s    0:13:22  1100578816  27%    3.49MB/s    0:13:48  1101365248  27%    2.64MB/s    0:18:13  1109426176  27%    3.53MB/s    0:13:34  1113227264  27%    2.73MB/s    0:17:32  1121452032  27%    3.35MB/s    0:14:16  1127448576  27%    3.88MB/s    0:12:18  1135804416  27%    3.65MB/s    0:13:02  1143242752  28%    4.46MB/s    0:10:38  1149534208  28%    3.88MB/s    0:12:10  1158709248  28%    4.47MB/s    0:10:33  1164541952  28%    4.28MB/s    0:11:00  1169915904  28%    4.39MB/s    0:10:41  1175289856  28%    4.98MB/s    0:09:24  1177944064  29%    4.18MB/s    0:11:13  1181908992  29%    3.90MB/s    0:12:00  1189183488  29%    4.30MB/s    0:10:51  1193279488  29%    3.42MB/s    0:13:37  1199603712  29%    4.06MB/s    0:11:27  1203535872  29%    4.06MB/s    0:11:26  1206845440  29%    3.33MB/s    0:13:55  1209696256  29%    3.68MB/s    0:12:35  1211891712  29%    2.37MB/s    0:19:32  1219166208  30%    2.48MB/s    0:18:39  1226735616  30%    3.15MB/s    0:14:38  1230077952  30%    3.23MB/s    0:14:15  1234567168  30%    3.77MB/s    0:12:10  1240563712  30%    4.47MB/s    0:10:15  1244954624  30%    3.78MB/s    0:12:07  1247608832  30%    3.46MB/s    0:13:12  1254883328  30%    4.33MB/s    0:10:32  1258815488  31%    3.56MB/s    0:12:47  1265762304  31%    4.07MB/s    0:11:09  1270513664  31%    4.69MB/s    0:09:39  1273036800  31%    3.51MB/s    0:12:55  1281130496  31%    3.79MB/s    0:11:54  1290469376  31%    4.13MB/s    0:10:53  1296465920  31%    4.28MB/s    0:10:29  1300103168  32%    4.56MB/s    0:09:50  1306263552  32%    5.29MB/s    0:08:27  1311506432  32%    4.52MB/s    0:09:53  1316716544  32%    4.40MB/s    0:10:08  1321795584  32%    5.01MB/s    0:08:53  1327005696  32%    4.78MB/s    0:09:18  1332215808  32%    4.75MB/s    0:09:19  1337262080  32%    4.74MB/s    0:09:20  1342472192  33%    4.76MB/s    0:09:16  1347715072  33%    4.77MB/s    0:09:14  1350729728  33%    3.52MB/s    0:12:30  1363902464  33%    5.04MB/s    0:08:42  1369014272  33%    4.70MB/s    0:09:18  1377763328  33%    5.18MB/s    0:08:25  1385889792  34%    7.27MB/s    0:05:58  1391919104  34%    5.81MB/s    0:07:27  1398472704  34%    6.44MB/s    0:06:42  1405091840  34%    6.26MB/s    0:06:53  1410400256  34%    5.60MB/s    0:07:41  1416265728  34%    5.53MB/s    0:07:46  1421967360  35%    5.49MB/s    0:07:48  1423736832  35%    3.97MB/s    0:10:47  1432977408  35%    4.80MB/s    0:08:53  1438384128  35%    4.67MB/s    0:09:07  1443299328  35%    4.45MB/s    0:09:33  1448247296  35%    5.54MB/s    0:07:40  1453490176  35%    4.56MB/s    0:09:17  1458536448  35%    4.56MB/s    0:09:16  1463615488  36%    4.58MB/s    0:09:13  1468858368  36%    4.56MB/s    0:09:14  1474101248  36%    4.59MB/s    0:09:09  1479147520  36%    4.53MB/s    0:09:15  1484390400  36%    4.56MB/s    0:09:10  1489633280  36%    4.62MB/s    0:09:02  1495498752  36%    4.79MB/s    0:08:42  1501364224  37%    5.05MB/s    0:08:14  1503559680  37%    4.38MB/s    0:09:29  1514045440  37%    5.55MB/s    0:07:27  1519910912  37%    5.14MB/s    0:08:02  1527709696  37%    5.50MB/s    0:07:29  1533575168  37%    6.29MB/s    0:06:32  1538523136  37%    5.20MB/s    0:07:52  1543733248  38%    5.41MB/s    0:07:33  1548812288  38%    4.84MB/s    0:08:26  1553399808  38%    4.49MB/s    0:09:04  1557856256  38%    4.28MB/s    0:09:30  1562279936  38%    4.03MB/s    0:10:05  1565949952  38%    3.34MB/s    0:12:07  1570701312  38%    3.42MB/s    0:11:50  1572896768  38%    3.01MB/s    0:13:26  1579417600  38%    3.54MB/s    0:11:22  1583841280  39%    4.17MB/s    0:09:38  1588592640  39%    4.08MB/s    0:09:50  1592229888  39%    4.09MB/s    0:09:49  1599209472  39%    4.07MB/s    0:09:49  1603633152  39%    4.05MB/s    0:09:50  1605533696  39%    3.24MB/s    0:12:18  1614577664  39%    4.56MB/s    0:08:43  1618051072  39%    3.73MB/s    0:10:38  1624834048  40%    3.91MB/s    0:10:07  1629257728  40%    4.64MB/s    0:08:31  1636073472  40%    4.26MB/s    0:09:14  1640497152  40%    4.70MB/s    0:08:21  1643184128  40%    4.07MB/s    0:09:39  1650622464  40%    4.76MB/s    0:08:13  1655504896  40%    4.27MB/s    0:09:09  1660256256  40%    4.36MB/s    0:08:57  1664483328  41%    4.83MB/s    0:08:03  1669267456  41%    4.29MB/s    0:09:04  1673986048  41%    4.32MB/s    0:08:59  1679065088  41%    4.31MB/s    0:08:59  1684111360  41%    3.88MB/s    0:09:57  1691549696  41%    4.45MB/s    0:08:38  1695186944  41%    4.03MB/s    0:09:31  1701969920  41%    4.23MB/s    0:09:03  1707966464  42%    5.03MB/s    0:07:36  1713504256  42%    4.31MB/s    0:08:50  1721106432  42%    5.36MB/s    0:07:05  1725988864  42%    5.18MB/s    0:07:19  1731624960  42%    5.14MB/s    0:07:22  1736900608  42%    5.46MB/s    0:06:55  1738342400  42%    3.89MB/s    0:09:41  1747189760  43%    4.70MB/s    0:08:00  1751941120  43%    4.50MB/s    0:08:20  1757478912  43%    4.53MB/s    0:08:15  1763311616  43%    4.57MB/s    0:08:09  1773436928  43%    4.78MB/s    0:07:46  1778647040  43%    4.76MB/s    0:07:47  1783693312  43%    4.64MB/s    0:07:58  1788772352  44%    5.45MB/s    0:06:46  1790345216  44%    3.58MB/s    0:10:17  1796800512  44%    3.83MB/s    0:09:36  1804402688  44%    4.36MB/s    0:08:24  1809154048  44%    3.84MB/s    0:09:31  1814986752  44%    4.66MB/s    0:07:50  1819115520  44%    4.13MB/s    0:08:49  1823670272  44%    3.61MB/s    0:10:04  1827962880  45%    3.58MB/s    0:10:07  1835270144  45%    4.00MB/s    0:09:02  1842446336  45%    4.80MB/s    0:07:30  1847263232  45%    4.81MB/s    0:07:28  1852047360  45%    5.42MB/s    0:06:37  1856503808  45%    4.79MB/s    0:07:28  1861615616  45%    3.71MB/s    0:09:37  1869086720  46%    4.20MB/s    0:08:28  1874198528  46%    4.25MB/s    0:08:21  1876918272  46%    3.66MB/s    0:09:42  1885700096  46%    4.87MB/s    0:07:15  1891139584  46%    3.92MB/s    0:09:00  1898840064  46%    4.47MB/s    0:07:51  1902149632  46%    4.60MB/s    0:07:37  1909653504  47%    4.43MB/s    0:07:53  1914732544  47%    5.04MB/s    0:06:55  1916502016  47%    3.76MB/s    0:09:15  1923973120  47%    4.99MB/s    0:06:57  1929084928  47%    4.44MB/s    0:07:47  1933869056  47%    4.38MB/s    0:07:53  1939111936  47%    5.07MB/s    0:06:47  1942159360  47%    3.62MB/s    0:09:30  1951694848  48%    4.52MB/s    0:07:35  1955201024  48%    4.27MB/s    0:08:00  1961754624  48%    4.59MB/s    0:07:25  1965424640  48%    4.72MB/s    0:07:13  1974370304  48%    4.62MB/s    0:07:20  1979678720  48%    5.04MB/s    0:06:42  1984561152  48%    4.60MB/s    0:07:20  1989672960  49%    5.44MB/s    0:06:11  1995702272  49%    4.22MB/s    0:07:57  2004647936  49%    4.81MB/s    0:06:56  2010808320  49%    5.20MB/s    0:06:24  2016116736  49%    5.33MB/s    0:06:14  2021851136  49%    6.00MB/s    0:05:31  2027749376  49%    5.35MB/s    0:06:10  2032730112  50%    5.07MB/s    0:06:29  2037776384  50%    4.98MB/s    0:06:36  2042888192  50%    4.78MB/s    0:06:51  2048294912  50%    4.64MB/s    0:07:02  2053537792  50%    4.64MB/s    0:07:01  2058485760  50%    4.65MB/s    0:06:59  2063269888  50%    4.63MB/s    0:07:00  2067005440  50%    4.37MB/s    0:07:25  2072772608  51%    4.55MB/s    0:07:06  2076639232  51%    4.29MB/s    0:07:31  2081914880  51%    4.40MB/s    0:07:18  2085650432  51%    4.40MB/s    0:07:17  2090958848  51%    3.59MB/s    0:08:54  2097020928  51%    3.95MB/s    0:08:04  2098298880  51%    3.00MB/s    0:10:38  2105278464  51%    3.51MB/s    0:09:02  2109112320  51%    3.72MB/s    0:08:30  2113404928  52%    3.37MB/s    0:09:23  2117238784  52%    4.18MB/s    0:07:33  2121826304  52%    3.66MB/s    0:08:36  2127233024  52%    4.06MB/s    0:07:44  2132344832  52%    4.35MB/s    0:07:12  2137260032  52%    4.29MB/s    0:07:16  2144894976  52%    4.47MB/s    0:06:57  2154332160  53%    5.31MB/s    0:05:50  2160328704  53%    5.42MB/s    0:05:41  2164457472  53%    5.55MB/s    0:05:33  2171469824  53%    5.47MB/s    0:05:36  2180218880  53%    5.24MB/s    0:05:49  2186117120  53%    5.22MB/s    0:05:49  2191360000  54%    5.37MB/s    0:05:39  2196275200  54%    4.99MB/s    0:06:04  2202861568  54%    4.63MB/s    0:06:31  2207383552  54%    4.40MB/s    0:06:50  2211414016  54%    4.11MB/s    0:07:18  2214756352  54%    3.91MB/s    0:07:39  2221277184  54%    3.88MB/s    0:07:41  2224128000  54%    3.31MB/s    0:09:00  2230845440  54%    3.98MB/s    0:07:28  2232090624  55%    3.68MB/s    0:08:03  2239070208  55%    3.74MB/s    0:07:55  2243690496  55%    4.16MB/s    0:07:06  2248769536  55%    3.64MB/s    0:08:04  2256896000  55%    4.76MB/s    0:06:09  2264236032  55%    4.90MB/s    0:05:57  2270068736  55%    5.32MB/s    0:05:27  2274394112  56%    5.41MB/s    0:05:22  2280423424  56%    5.41MB/s    0:05:20  2286452736  56%    5.04MB/s    0:05:43  2290122752  56%    4.60MB/s    0:06:15  2294743040  56%    4.65MB/s    0:06:10  2298249216  56%    3.98MB/s    0:07:12  2301722624  56%    3.36MB/s    0:08:30  2305130496  56%    3.32MB/s    0:08:34  2308374528  56%    2.95MB/s    0:09:38  2311553024  56%    2.95MB/s    0:09:38  2314731520  57%    2.93MB/s    0:09:40  2316468224  57%    2.22MB/s    0:12:44  2322202624  57%    2.76MB/s    0:10:13  2324267008  57%    2.56MB/s    0:11:00  2328526848  57%    2.77MB/s    0:10:08  2331705344  57%    3.14MB/s    0:08:56  2336161792  57%    2.79MB/s    0:10:02  2341076992  57%    3.22MB/s    0:08:40  2344419328  57%    3.07MB/s    0:09:04  2347597824  57%    3.41MB/s    0:08:10  2351235072  57%    3.28MB/s    0:08:28  2354249728  58%    3.00MB/s    0:09:13  2358083584  58%    3.03MB/s    0:09:08  2361393152  58%    3.02MB/s    0:09:07  2365521920  58%    3.06MB/s    0:09:00  2368700416  58%    3.11MB/s    0:08:50  2372534272  58%    3.20MB/s    0:08:33  2376335360  58%    3.31MB/s    0:08:15  2379972608  58%    3.34MB/s    0:08:10  2384429056  58%    3.61MB/s    0:07:32  2388787200  58%    3.74MB/s    0:07:15  2392358912  58%    3.71MB/s    0:07:18  2394259456  59%    3.30MB/s    0:08:11  2400780288  59%    3.79MB/s    0:07:06  2406154240  59%    3.94MB/s    0:06:49  2409988096  59%    3.61MB/s    0:07:25  2418999296  59%    4.81MB/s    0:05:32  2427715584  59%    5.26MB/s    0:05:02  2431975424  59%    5.05MB/s    0:05:14  2437349376  60%    5.20MB/s    0:05:04  2445901824  60%    5.42MB/s    0:04:50  2455011328  60%    5.43MB/s    0:04:48  2458615808  60%    5.36MB/s    0:04:51  2466840576  60%    6.72MB/s    0:03:51  2467659776  60%    4.85MB/s    0:05:20  2478637056  61%    5.21MB/s    0:04:55  2485649408  61%    5.89MB/s    0:04:20  2491514880  61%    5.47MB/s    0:04:39  2497740800  61%    6.82MB/s    0:03:43  2503311360  61%    4.98MB/s    0:05:04  2512846848  61%    5.52MB/s    0:04:33  2518417408  62%    5.37MB/s    0:04:39  2525429760  62%    5.44MB/s    0:04:34  2531622912  62%    6.26MB/s    0:03:58  2537521152  62%    5.45MB/s    0:04:32  2542895104  62%    5.53MB/s    0:04:27  2544828416  62%    4.46MB/s    0:05:31  2554494976  62%    5.35MB/s    0:04:34  2559705088  63%    4.95MB/s    0:04:55  2567438336  63%    4.96MB/s    0:04:53  2577399808  63%    6.52MB/s    0:03:41  2583527424  63%    5.81MB/s    0:04:07  2590507008  63%    6.46MB/s    0:03:41  2597519360  64%    6.98MB/s    0:03:24  2603614208  64%    6.04MB/s    0:03:55  2609283072  64%    5.55MB/s    0:04:14  2618621952  64%    6.01MB/s    0:03:53  2624782336  64%    5.41MB/s    0:04:18  2631434240  64%    5.51MB/s    0:04:12  2635890688  64%    5.40MB/s    0:04:17  2640969728  65%    4.62MB/s    0:04:59  2648604672  65%    5.30MB/s    0:04:19  2653061120  65%    4.58MB/s    0:04:59  2661711872  65%    5.70MB/s    0:03:59  2666889216  65%    5.69MB/s    0:03:58  2670395392  65%    4.82MB/s    0:04:41  2678194176  66%    5.87MB/s    0:03:49  2684059648  66%    5.16MB/s    0:04:20  2689466368  66%    5.20MB/s    0:04:16  2695790592  66%    5.83MB/s    0:03:48  2701688832  66%    5.05MB/s    0:04:22  2710896640  66%    5.53MB/s    0:03:57  2716467200  66%    5.57MB/s    0:03:55  2721218560  67%    5.26MB/s    0:04:08  2726166528  67%    5.42MB/s    0:03:59  2731114496  67%    4.73MB/s    0:04:34  2736652288  67%    4.26MB/s    0:05:02  2744123392  67%    4.77MB/s    0:04:28  2749235200  67%    4.86MB/s    0:04:23  2752249856  67%    4.39MB/s    0:04:50  2759852032  68%    5.33MB/s    0:03:57  2766536704  68%    5.14MB/s    0:04:05  2772893696  68%    5.42MB/s    0:03:51  2776858624  68%    5.73MB/s    0:03:38  2786394112  68%    6.15MB/s    0:03:21  2790359040  68%    5.41MB/s    0:03:48  2799566848  68%    5.81MB/s    0:03:31  2809888768  69%    7.17MB/s    0:02:50  2817196032  69%    6.73MB/s    0:03:00  2824962048  69%    7.75MB/s    0:02:35  2830041088  69%    6.83MB/s    0:02:55  2838298624  69%    6.24MB/s    0:03:10  2847178752  70%    6.25MB/s    0:03:09  2858942464  70%    7.05MB/s    0:02:45  2866380800  70%    7.75MB/s    0:02:30  2871164928  70%    7.06MB/s    0:02:44  2880339968  70%    7.51MB/s    0:02:33  2887286784  71%    6.44MB/s    0:02:57  2893938688  71%    6.31MB/s    0:03:00  2897117184  71%    6.02MB/s    0:03:08  2907799552  71%    6.38MB/s    0:02:55  2911371264  71%    5.57MB/s    0:03:20  2921824256  72%    5.84MB/s    0:03:09  2933751808  72%    7.65MB/s    0:02:23  2941222912  72%    6.95MB/s    0:02:36  2946793472  72%    7.47MB/s    0:02:25  2955542528  72%    7.87MB/s    0:02:16  2962358272  73%    6.01MB/s    0:02:58  2973499392  73%    6.80MB/s    0:02:35  2979856384  73%    6.91MB/s    0:02:32  2986835968  73%    6.51MB/s    0:02:40  2993061888  73%    7.12MB/s    0:02:26  2999418880  73%    5.90MB/s    0:02:55  3006234624  74%    5.96MB/s    0:02:52  3010527232  74%    4.74MB/s    0:03:35  3021799424  74%    5.78MB/s    0:02:54  3027369984  74%    5.71MB/s    0:02:56  3034185728  74%    5.75MB/s    0:02:53  3041034240  74%    7.03MB/s    0:02:21  3047882752  75%    5.97MB/s    0:02:45  3052142592  75%    5.68MB/s    0:02:52  3059318784  75%    5.37MB/s    0:03:01  3067576320  75%    5.55MB/s    0:02:54  3072196608  75%    5.03MB/s    0:03:11  3076489216  75%    4.80MB/s    0:03:19  3081732096  75%    4.76MB/s    0:03:20  3087466496  76%    4.05MB/s    0:03:53  3095429120  76%    4.75MB/s    0:03:17  3097952256  76%    4.53MB/s    0:03:26  3105259520  76%    4.94MB/s    0:03:08  3110371328  76%    5.12MB/s    0:03:00  3115450368  76%    4.49MB/s    0:03:24  3120234496  76%    4.50MB/s    0:03:23  3128983552  77%    4.78MB/s    0:03:09  3132620800  77%    3.85MB/s    0:03:54  3147890688  77%    5.64MB/s    0:02:37  3154444288  77%    6.61MB/s    0:02:13  3158540288  77%    5.72MB/s    0:02:33  3167223808  78%    8.13MB/s    0:01:46  3173122048  78%    5.97MB/s    0:02:24  3182886912  78%    6.18MB/s    0:02:18  3193798656  78%    7.72MB/s    0:01:49  3199401984  78%    7.04MB/s    0:01:58  3206578176  79%    6.77MB/s    0:02:02  3218341888  79%    7.68MB/s    0:01:46  3221880832  79%    6.09MB/s    0:02:14  3231678464  79%    6.96MB/s    0:01:55  3236134912  79%    6.94MB/s    0:01:55  3243769856  79%    6.01MB/s    0:02:12  3247603712  80%    5.85MB/s    0:02:15  3257401344  80%    5.87MB/s    0:02:12  3259990016  80%    5.39MB/s    0:02:24  3269394432  80%    5.74MB/s    0:02:14  3274964992  80%    6.23MB/s    0:02:02  3279912960  80%    4.68MB/s    0:02:42  3286925312  81%    5.61MB/s    0:02:14  3292659712  81%    4.89MB/s    0:02:32  3298852864  81%    4.99MB/s    0:02:28  3303800832  81%    5.01MB/s    0:02:26  3312549888  81%    5.35MB/s    0:02:16  3318251520  81%    5.35MB/s    0:02:14  3323691008  81%    5.32MB/s    0:02:14  3330539520  82%    6.11MB/s    0:01:56  3335618560  82%    4.85MB/s    0:02:25  3345481728  82%    5.73MB/s    0:02:01  3349479424  82%    5.32MB/s    0:02:10  3357900800  82%    5.70MB/s    0:01:59  3365404672  82%    6.72MB/s    0:01:40  3371597824  83%    5.82MB/s    0:01:54  3375267840  83%    5.70MB/s    0:01:56  3383230464  83%    5.31MB/s    0:02:04  3389620224  83%    5.16MB/s    0:02:06  3392471040  83%    4.45MB/s    0:02:25  3398205440  83%    4.98MB/s    0:02:09  3402498048  83%    4.40MB/s    0:02:25  3406004224  83%    3.53MB/s    0:03:00  3410624512  84%    3.19MB/s    0:03:17  3417276416  84%    3.32MB/s    0:03:08  3418554368  84%    2.68MB/s    0:03:53  3424714752  84%    3.14MB/s    0:03:16  3429269504  84%    3.76MB/s    0:02:43  3431792640  84%    2.64MB/s    0:03:50  3438575616  84%    3.76MB/s    0:02:40  3442835456  84%    3.53MB/s    0:02:50  3447259136  84%    3.48MB/s    0:02:51  3450896384  85%    3.48MB/s    0:02:50  3458957312  85%    3.75MB/s    0:02:35  3463872512  85%    3.48MB/s    0:02:46  3470655488  85%    3.76MB/s    0:02:32  3479502848  85%    5.37MB/s    0:01:45  3485204480  85%    4.95MB/s    0:01:52  3491561472  86%    5.90MB/s    0:01:33  3497132032  86%    5.41MB/s    0:01:41  3506044928  86%    5.04MB/s    0:01:46  3516071936  86%    5.89MB/s    0:01:29  3520364544  86%    4.94MB/s    0:01:46  3531177984  87%    6.32MB/s    0:01:21  3536912384  87%    6.23MB/s    0:01:21  3542614016  87%    5.10MB/s    0:01:38  3550085120  87%    6.36MB/s    0:01:17  3553918976  87%    4.84MB/s    0:01:41  3560112128  87%    4.90MB/s    0:01:39  3564404736  87%    4.84MB/s    0:01:39  3568697344  87%    4.21MB/s    0:01:53  3573481472  88%    4.40MB/s    0:01:47  3577774080  88%    4.00MB/s    0:01:57  3582033920  88%    4.04MB/s    0:01:54  3585703936  88%    3.33MB/s    0:02:18  3594158080  88%    3.69MB/s    0:02:02  3600515072  88%    3.70MB/s    0:02:00  3609427968  88%    4.37MB/s    0:01:40  3615490048  89%    5.36MB/s    0:01:20  3620241408  89%    5.24MB/s    0:01:21  3625025536  89%    5.48MB/s    0:01:17  3630137344  89%    4.73MB/s    0:01:28  3633938432  89%    3.95MB/s    0:01:44  3641245696  89%    4.49MB/s    0:01:30  3646226432  89%    4.57MB/s    0:01:27  3649994752  89%    3.92MB/s    0:01:41  3657138176  90%    4.80MB/s    0:01:21  3663364096  90%    4.57MB/s    0:01:24  3669229568  90%    4.75MB/s    0:01:19  3675127808  90%    5.65MB/s    0:01:06  3681157120  90%    5.47MB/s    0:01:07  3687219200  90%    5.46MB/s    0:01:06  3693248512  91%    5.48MB/s    0:01:04  3699277824  91%    5.52MB/s    0:01:03  3704946688  91%    5.46MB/s    0:01:03  3709632512  91%    4.74MB/s    0:01:11  3715825664  91%    4.75MB/s    0:01:10  3721527296  91%    4.41MB/s    0:01:14  3733946368  92%    5.72MB/s    0:00:55  3740729344  92%    6.58MB/s    0:00:46  3746889728  92%    5.45MB/s    0:00:55  3760750592  92%    7.38MB/s    0:00:39  3763011584  92%    5.16MB/s    0:00:55  3776610304  93%    6.40MB/s    0:00:42  3783426048  93%    7.89MB/s    0:00:33  3790372864  93%    6.33MB/s    0:00:41  3797352448  93%    6.87MB/s    0:00:36  3808919552  93%    6.46MB/s    0:00:37  3815604224  94%    6.49MB/s    0:00:36  3819339776  94%    5.75MB/s    0:00:40  3831234560  94%    7.66MB/s    0:00:28  3837263872  94%    5.60MB/s    0:00:38  3848536064  94%    6.05MB/s    0:00:33  3856596992  95%    6.79MB/s    0:00:28  3865935872  95%    5.96MB/s    0:00:31  3875438592  95%    7.15MB/s    0:00:24  3884810240  95%    6.91MB/s    0:00:24  3896836096  96%    7.14MB/s    0:00:21  3906011136  96%    7.32MB/s    0:00:20  3918036992  96%    7.99MB/s    0:00:17  3925377024  96%    8.05MB/s    0:00:16  3933077504  96%    8.10MB/s    0:00:14  3940679680  97%    8.11MB/s    0:00:14  3943071744  97%    5.40MB/s    0:00:20  3954966528  97%    6.38MB/s    0:00:15  3963027456  97%    6.39MB/s    0:00:14  3969187840  97%    6.07MB/s    0:00:14  3975708672  97%    7.58MB/s    0:00:10  3979509760  98%    5.53MB/s    0:00:13  3988881408  98%    5.86MB/s    0:00:11  3995205632  98%    5.89MB/s    0:00:10  4001497088  98%    5.84MB/s    0:00:09  4007591936  98%    6.53MB/s    0:00:07  4013850624  98%    5.82MB/s    0:00:07  4019945472  99%    5.79MB/s    0:00:06  4026073088  99%    5.72MB/s    0:00:05  4029677568  99%    4.99MB/s    0:00:05  4038262784  99%    5.51MB/s    0:00:03  4044357632  99%    5.53MB/s    0:00:02  4049862656  99%    5.44MB/s    0:00:01  4056612864  99%    6.26MB/s    0:00:00  4057389365 100%    4.75MB/s    0:13:34 (xfer#1, to-check=0/1)
+
+sent 717944836 bytes  received 31 bytes  871821.33 bytes/sec
+total size is 4057389365  speedup is 5.65
+Loading tidyverse: ggplot2
+Loading tidyverse: tibble
+Loading tidyverse: tidyr
+Loading tidyverse: readr
+Loading tidyverse: purrr
+Loading tidyverse: dplyr
+Conflicts with tidy packages ---------------------------------------------------
+filter(): dplyr, stats
+lag():    dplyr, stats
+Warning message:
+In .doLoadActions(where, attach) :
+  trying to execute load actions without 'methods' package
+Parsed with column specification:
+cols(
+  snorna = col_character(),
+  chrom = col_character(),
+  strand = col_character(),
+  start = col_integer(),
+  end = col_integer(),
+  source = col_character(),
+  distance = col_integer(),
+  chip = col_character(),
+  fuck = col_character(),
+  pos = col_integer()
+)
+[1] "ACC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X83 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "BLCA_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X466 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "BRCA_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X815 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "CESC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X333 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "CHOL_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X48 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "COAD_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X360 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "DLBC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X55 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "ESCA_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X214 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "HNSC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X600 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "KICH_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X69 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "KIRC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X498 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "KIRP_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X338 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "LGG_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X553 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "LIHC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X452 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "LUAD_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X527 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "LUSC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X434 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "MESO_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X91 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "OV_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  gene = col_character(),
+  `TCGA-07-0227-20A-01D-A409-05` = col_double(),
+  `TCGA-13-A5FT-01A-11D-A409-05` = col_double(),
+  `TCGA-13-A5FU-01A-11D-A409-05` = col_double(),
+  `TCGA-29-A5NZ-01A-11D-A409-05` = col_double(),
+  `TCGA-3P-A9WA-01A-11D-A409-05` = col_double(),
+  `TCGA-59-A5PD-01A-11D-A409-05` = col_double(),
+  `TCGA-5X-AA5U-01A-11D-A409-05` = col_double(),
+  `TCGA-OY-A56P-01A-12D-A409-05` = col_double(),
+  `TCGA-OY-A56Q-01A-11D-A409-05` = col_double(),
+  `TCGA-VG-A8LO-01A-11D-A409-05` = col_double(),
+  `TCGA-WR-A838-01A-12D-A409-05` = col_double(),
+  X13 = col_character()
+)
+[1] "PAAD_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X209 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "PCPG_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X191 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "PRAD_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X575 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "READ_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X115 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "SARC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X287 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "SKCM_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X495 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "STAD_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X415 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "TGCT_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X160 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "THCA_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X590 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "THYM_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X130 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "UCEC_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X510 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "UCS_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X60 = col_character()
+)
+See spec(...) for full column specifications.
+[1] "UVM_methy_probe_20160801"
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  gene = col_character(),
+  X83 = col_character()
+)
+See spec(...) for full column specifications.
+There were 31 warnings (use warnings() to see them)
+sending incremental file list
+methylation.tsv.n
+       32768   0%    0.00kB/s    0:00:00    13500416   0%    8.43MB/s    0:08:23    20938752   0%    7.90MB/s    0:08:55    25788416   0%    6.94MB/s    0:10:09    31981568   0%    6.66MB/s    0:10:34    38240256   0%    5.78MB/s    0:12:09    43909120   1%    5.23MB/s    0:13:25    52789248   1%    6.17MB/s    0:11:21    59113472   1%    6.22MB/s    0:11:13    65470464   1%    6.27MB/s    0:11:08    73465856   1%    6.90MB/s    0:10:05    82149376   1%    6.80MB/s    0:10:13    90996736   2%    6.99MB/s    0:09:56   107708416   2%    9.25MB/s    0:07:28   122060800   2%   10.60MB/s    0:06:30   134676480   3%   11.55MB/s    0:05:56   152305664   3%   14.16MB/s    0:04:49   168755200   3%   14.06MB/s    0:04:50   186220544   4%   14.85MB/s    0:04:34   201850880   4%   15.55MB/s    0:04:20   218660864   5%   15.53MB/s    0:04:20   236060672   5%   15.03MB/s    0:04:27   253788160   5%   15.14MB/s    0:04:24   277774336   6%   17.01MB/s    0:03:54   295108608   6%   15.96MB/s    0:04:08   317292544   7%   17.87MB/s    0:03:40   340197376   7%   18.94MB/s    0:03:27   361103360   8%   18.26MB/s    0:03:33   386007040   8%   19.96MB/s    0:03:14   414941184   9%   21.45MB/s    0:02:59   437518336  10%   21.52MB/s    0:02:57   452329472  10%   20.17MB/s    0:03:08   471793664  10%   20.38MB/s    0:03:06   486506496  11%   17.00MB/s    0:03:42   507576320  11%   16.71MB/s    0:03:44   523239424  12%   16.58MB/s    0:03:45   551813120  12%   18.72MB/s    0:03:18   569606144  13%   19.44MB/s    0:03:10   595197952  13%   20.50MB/s    0:02:59   614989824  14%   20.90MB/s    0:02:54   642416640  14%   19.41MB/s    0:03:06   669712384  15%   21.43MB/s    0:02:47   690913280  15%   20.49MB/s    0:02:54   714145792  16%   22.17MB/s    0:02:40   739770368  16%   23.21MB/s    0:02:32   767033344  17%   23.21MB/s    0:02:30   796655616  18%   25.22MB/s    0:02:17   823787520  18%   26.15MB/s    0:02:11   855572480  19%   27.62MB/s    0:02:03   892567552  20%   29.94MB/s    0:01:52   924876800  21%   30.58MB/s    0:01:49   955285504  21%   31.35MB/s    0:01:45   980287488  22%   28.71MB/s    0:01:54  1009156096  23%   25.95MB/s    0:02:05  1035173888  23%   24.55MB/s    0:02:12  1056473088  24%   22.52MB/s    0:02:23  1077477376  24%   21.82MB/s    0:02:26  1106116608  25%   22.53MB/s    0:02:20  1128890368  25%   20.28MB/s    0:02:35  1152286720  26%   20.49MB/s    0:02:32  1174536192  26%   20.30MB/s    0:02:32  1199276032  27%   19.17MB/s    0:02:40  1228341248  28%   21.86MB/s    0:02:19  1254031360  28%   22.64MB/s    0:02:13  1278017536  29%   24.19MB/s    0:02:04  1298071552  29%   22.90MB/s    0:02:10  1332215808  30%   24.10MB/s    0:02:02  1360429056  31%   24.69MB/s    0:01:58  1391230976  31%   26.28MB/s    0:01:50  1417412608  32%   28.46MB/s    0:01:40  1454800896  33%   29.24MB/s    0:01:36  1476624384  33%   27.72MB/s    0:01:41  1498775552  34%   25.65MB/s    0:01:48  1517223936  34%   21.87MB/s    0:02:06  1530363904  35%   16.55MB/s    0:02:46  1551695872  35%   16.09MB/s    0:02:50  1564147712  35%   13.29MB/s    0:03:25  1585217536  36%   14.81MB/s    0:03:02  1598062592  36%   14.75MB/s    0:03:02  1612644352  37%   13.21MB/s    0:03:22  1633452032  37%   15.89MB/s    0:02:47  1648885760  37%   13.81MB/s    0:03:11  1669103616  38%   15.41MB/s    0:02:50  1680703488  38%   15.05MB/s    0:02:53  1703641088  39%   15.52MB/s    0:02:46  1718222848  39%   16.40MB/s    0:02:37  1742831616  40%   17.44MB/s    0:02:26  1763049472  40%   19.64MB/s    0:02:08  1786249216  41%   19.47MB/s    0:02:08  1808891904  41%   21.37MB/s    0:01:56  1823473664  41%   19.00MB/s    0:02:10  1839136768  42%   17.93MB/s    0:02:17  1852604416  42%   15.82MB/s    0:02:34  1869774848  42%   14.08MB/s    0:02:52  1892155392  43%   15.85MB/s    0:02:31  1909686272  43%   16.14MB/s    0:02:27  1927544832  44%   16.97MB/s    0:02:19  1945436160  44%   17.54MB/s    0:02:14  1960116224  45%   15.39MB/s    0:02:31  1981775872  45%   16.46MB/s    0:02:20  2003992576  46%   17.54MB/s    0:02:10  2022998016  46%   17.69MB/s    0:02:08  2037743616  46%   17.78MB/s    0:02:07  2048491520  47%   15.28MB/s    0:02:27  2063138816  47%   13.62MB/s    0:02:44  2082111488  47%   13.68MB/s    0:02:42  2093481984  48%   12.79MB/s    0:02:52  2112028672  48%   14.58MB/s    0:02:30  2125791232  48%   14.39MB/s    0:02:31  2138046464  49%   12.61MB/s    0:02:51  2151677952  49%   13.52MB/s    0:02:39  2170880000  49%   13.66MB/s    0:02:36  2182905856  50%   13.17MB/s    0:02:41  2200010752  50%   14.54MB/s    0:02:24  2207612928  50%   12.93MB/s    0:02:42  2223013888  51%   11.95MB/s    0:02:54  2234548224  51%   11.92MB/s    0:02:53  2247393280  51%   10.84MB/s    0:03:09  2255486976  51%   10.99MB/s    0:03:06  2271707136  52%   11.27MB/s    0:03:00  2284224512  52%   11.39MB/s    0:02:57  2296905728  52%   11.45MB/s    0:02:55  2309750784  53%   12.60MB/s    0:02:38  2322595840  53%   11.04MB/s    0:02:59  2342584320  53%   12.78MB/s    0:02:33  2360311808  54%   13.91MB/s    0:02:20  2380922880  54%   15.66MB/s    0:02:03  2401894400  55%   18.69MB/s    0:01:42  2429616128  55%   20.51MB/s    0:01:31  2463039488  56%   24.41MB/s    0:01:15  2481913856  56%   22.79MB/s    0:01:20  2507112448  57%   23.74MB/s    0:01:16  2524577792  57%   21.06MB/s    0:01:24  2541420544  58%   17.22MB/s    0:01:42  2555904000  58%   16.96MB/s    0:01:43  2569076736  58%   14.11MB/s    0:02:03  2581954560  59%   13.30MB/s    0:02:10  2597715968  59%   12.94MB/s    0:02:12  2610266112  59%   12.64MB/s    0:02:14  2626879488  60%   13.53MB/s    0:02:04  2639036416  60%   12.63MB/s    0:02:12  2645753856  60%   10.75MB/s    0:02:35  2666397696  61%   12.42MB/s    0:02:12  2677735424  61%   11.16MB/s    0:02:26  2692087808  61%   12.21MB/s    0:02:12  2703097856  62%   13.10MB/s    0:02:03  2721185792  62%   12.63MB/s    0:02:06  2736685056  62%   13.57MB/s    0:01:56  2749792256  63%   12.04MB/s    0:02:10  2771746816  63%   14.41MB/s    0:01:47  2787672064  64%   13.88MB/s    0:01:50  2803433472  64%   13.94MB/s    0:01:48  2820046848  64%   16.15MB/s    0:01:32  2837446656  65%   15.12MB/s    0:01:38  2856681472  65%   15.87MB/s    0:01:32  2878996480  66%   17.38MB/s    0:01:22  2898427904  66%   18.21MB/s    0:01:18  2924085248  67%   19.95MB/s    0:01:10  2952101888  67%   21.87MB/s    0:01:02  2973532160  68%   21.69MB/s    0:01:02  2986213376  68%   19.97MB/s    0:01:06  3006398464  69%   19.03MB/s    0:01:09  3027009536  69%   16.91MB/s    0:01:16  3052666880  70%   18.03MB/s    0:01:10  3065479168  70%   17.82MB/s    0:01:10  3086254080  70%   17.95MB/s    0:01:09  3103195136  71%   17.76MB/s    0:01:08  3121840128  71%   16.03MB/s    0:01:15  3138682880  72%   16.84MB/s    0:01:10  3163717632  72%   17.82MB/s    0:01:05  3180986368  73%   17.89MB/s    0:01:04  3201499136  73%   18.33MB/s    0:01:01  3221749760  73%   18.38MB/s    0:01:00  3245047808  74%   17.17MB/s    0:01:03  3272212480  75%   19.08MB/s    0:00:55  3294199808  75%   19.37MB/s    0:00:53  3313074176  76%   20.39MB/s    0:00:49  3344039936  76%   23.22MB/s    0:00:42  3363373056  77%   21.62MB/s    0:00:44  3390078976  77%   22.87MB/s    0:00:41  3413999616  78%   24.07MB/s    0:00:38  3435429888  78%   21.55MB/s    0:00:41  3447947264  79%   18.59MB/s    0:00:47  3472261120  79%   17.79MB/s    0:00:48  3496607744  80%   17.85MB/s    0:00:46  3515711488  80%   17.54MB/s    0:00:46  3534684160  81%   20.30MB/s    0:00:39  3549954048  81%   18.50MB/s    0:00:42  3566632960  81%   16.11MB/s    0:00:47  3595403264  82%   18.33MB/s    0:00:40  3613261824  82%   18.08MB/s    0:00:40  3629580288  83%   18.15MB/s    0:00:39  3645636608  83%   17.54MB/s    0:00:39  3669131264  84%   16.25MB/s    0:00:41  3680174080  84%   14.22MB/s    0:00:46  3707338752  85%   16.50MB/s    0:00:38  3722903552  85%   17.40MB/s    0:00:35  3742433280  85%   16.63MB/s    0:00:35  3757113344  86%   17.65MB/s    0:00:33  3781787648  86%   17.13MB/s    0:00:32  3802234880  87%   18.09MB/s    0:00:29  3824189440  87%   18.49MB/s    0:00:28  3846275072  88%   20.72MB/s    0:00:23  3874160640  88%   21.65MB/s    0:00:21  3892314112  89%   19.92MB/s    0:00:22  3917316096  89%   20.36MB/s    0:00:20  3930324992  90%   17.54MB/s    0:00:23  3948576768  90%   15.41MB/s    0:00:25  3958734848  90%   14.45MB/s    0:00:26  3976134656  91%   12.96MB/s    0:00:28  3987439616  91%   13.13MB/s    0:00:27  4000776192  91%   11.97MB/s    0:00:28  4012539904  92%   11.82MB/s    0:00:28  4031348736  92%   12.13MB/s    0:00:26  4043931648  92%   11.81MB/s    0:00:25  4061396992  93%   12.13MB/s    0:00:23  4080959488  93%   14.30MB/s    0:00:18  4093116416  93%   12.43MB/s    0:00:20  4114055168  94%   14.66MB/s    0:00:16  4126081024  94%   14.04MB/s    0:00:15  4147871744  95%   14.65MB/s    0:00:13  4162027520  95%   15.65MB/s    0:00:12  4187389952  96%   16.10MB/s    0:00:10  4205477888  96%   17.75MB/s    0:00:08  4223336448  96%   16.89MB/s    0:00:07  4241817600  97%   18.06MB/s    0:00:06  4252762112  97%   15.41MB/s    0:00:06  4273537024  98%   15.04MB/s    0:00:05  4293722112  98%   15.56MB/s    0:00:03  4306731008  98%   14.04MB/s    0:00:03  4322459648  99%   15.17MB/s    0:00:02  4341858304  99%   14.04MB/s    0:00:00  4355022983 100%   16.94MB/s    0:04:05 (xfer#1, to-check=0/1)
+
+sent 711868829 bytes  received 31 bytes  2853181.80 bytes/sec
+total size is 4355022983  speedup is 6.12

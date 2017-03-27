@@ -1,0 +1,69 @@
+ls
+Rscript 01.prepare_clinical_data.R 
+l
+Rscript 02.prepare_snorna_exprssion.R 
+l
+ls
+mv mrna_expression.r 04.mrna_expression.r
+l
+s
+l
+Rscript 06.methylation.r &
+ps xf
+l
+ll
+ps xf
+l
+ps xf
+l
+nohup Rscript 07.protein.r &
+ps xf
+les nohup.out 
+l
+ps xf
+kill 95608
+ps xf
+l
+cat 06.methylation.r 
+ls
+vim 06.methylation.sh
+which leng2
+cat ~/liucj/scripts/leng2
+ls
+cat 06.methylation.r 
+l
+ps xf
+l
+ll
+nohup bash 06.methylation.sh &
+ps xf
+l
+les 06.methylation.sh
+cat 06.methylation.sh
+nohup bash 06.methylation.sh &
+ps xf
+l
+exit
+ll
+les 06.methylation.
+les 06.methylation.r
+nohup bash 06.methylation.sh &
+ps xf
+l
+les nohup.out 
+ls
+ll
+tail nohup.out 
+l
+exit 
+ls
+ll
+Rscript 04.mrna_expression.r &
+ps xf
+l
+ls
+cat 06.methylation.sh 
+l
+ps xf
+l
+ps xf
