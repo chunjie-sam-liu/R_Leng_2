@@ -1,0 +1,95 @@
+---
+title: "human miRNA subcellular location prediction"
+author: "C.J. Liu"
+date: "April 5, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r path and library}
+library(Biostrings)
+# library(DNAshapeR)
+library(rvest)
+library(tidyverse)
+library(ggthemes)
+library(stringr)
+
+root_path <- "/extraspace/liucj/github/RstudioWithGit/RNALocPred"
+```
+
+# Load miRNA location data
+
+1. rm mirna residing more than one subcellular
+2. filter out accession with un mature.
+```{r}
+mirna_location <- 
+  read_rds(path = file.path(root_path, "mirna_rnalocate_human.rds.gz")) %>% 
+  select(
+    oid = `Official ID`, 
+    osymbol = `Official Symbol`, 
+    subloc = `Subcellular Localization`, 
+    tissue = Tissue
+    ) 
+
+mirna_location %>% 
+  ggplot(aes(x = reorder(subloc, subloc, function(x)-length(x)))) +
+  geom_bar(aes(fill = subloc)) +
+  geom_text(stat = "count", aes(label = ..count..), vjust = -0.3) + 
+  scale_fill_gdocs() +
+  labs(
+    x = "Subcellular Localization",
+    y = "Count",
+    title = "miRNA filtered data"
+  ) +
+  theme_gdocs() +
+  theme(
+    axis.text.x = element_blank()
+  )
+```
+
+# Get miRNA sequence
+
+```{r rvest get html sequence}
+# get sequnce from RNALocate
+
+RNALocate_seq <- function(.d){
+  url <- "http://www.rna-society.org/rnalocate/sequence.php?Gene_ID"
+  id <- .d$oid
+  print(id)
+  url <- str_c(url, id,sep = "=")
+  
+  content <- read_html(url) %>% 
+    html_nodes("pre") %>% 
+    html_text() 
+  
+  if (length(content) == 0){
+    tibble(names = NA, seq = NA)
+  } else{
+  content %>%
+    as_tibble() %>% 
+    mutate(type = c("names", "seq")) %>% 
+    spread(type, value) %>% 
+    mutate(
+      names = str_replace(names, ">", ""),
+      seq = str_replace(seq, "\\r","")
+    )
+  }
+  
+}
+
+
+mirna_location %>% 
+  by_row(
+    RNALocate_seq
+  ) %>% 
+  unnest() ->
+  mirna_location_sequence
+
+write_rds(mirna_location_sequence, path = file.path(root_path, "mirna_location_sequence.rds.gz"), compress = "gz")
+
+```
+
+

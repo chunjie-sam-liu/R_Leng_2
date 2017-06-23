@@ -4,3 +4,34 @@ ls
 ll
 ls -al
 git status
+git add .cj_command 
+git log
+git commit -m "download from git"
+git push origin master
+l
+ll
+du -sh .
+cd 04.SNORic/
+l
+ll
+cd 2.Osteosarcoma/
+l
+ll
+cd mutationInPromoter
+l
+ll
+cd mutationInPromoter2/
+l
+cd practice/
+l
+du -sh 
+cd practice/
+l
+git status
+git add 2.Osteosarcoma/.cj_command mutationInPromoter/.cj_command mutationInPromoter2/.cj_command practice/.cj_command practice/Draw_pictures/.cj_command practice/Draw_pictures/mutationAndExpression/.cj_command practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/.cj_command practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/2017-03-11-SuppTable2.txt practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/geneExpr.rds practice/adv_r/ practice/mlr/
+git commit -m "add practice again"
+git push origin master
+l
+ll
+ls
+git status

@@ -1,0 +1,21 @@
+ls
+ll
+mv 01.mirna_data_processing.R rs_01_hsa_mirna_data_processing.R
+l
+ll
+ls
+ps fx
+ls
+cd ../
+ls
+ll
+l
+cd
+ls
+grep map *
+l
+cd ../human/mirna/
+l
+grep reorder *
+l
+cd /extraspace/liucj/projects/5.CRISPR/softwares/omictools

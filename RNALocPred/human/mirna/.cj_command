@@ -1,0 +1,88 @@
+l
+cd mirna
+ls
+ll
+cd ../
+ls
+ll
+cd ../
+ls
+ll
+cd ../
+ls
+ll
+l
+ll
+l
+ll
+rm 03.fig_hsa_all_mirna_tissue_distribution 
+ll
+l
+ll
+l
+ll
+mv 01.data_hsa_mirna_raw.rds.gz rds_01_hsa_mirna_raw.rds.gz
+l
+ll
+l
+ll
+rm 0*
+l
+ll
+l
+ll
+l
+ll
+rm rda_01_mirna_raw_data_scale.rda
+l
+ll
+gunzip rda_01_mirna_raw_data_scale.rda.gz
+l
+ll
+rm rda_01_mirna_raw_data_scale.rda
+ll
+ls
+ll
+ls
+ll
+cd ../
+ls
+ll
+cd ./
+cd ../
+ls
+ll
+top
+ls
+ll
+cd ../
+ls
+ll
+l
+ll
+rm rds_03_hsa_mirna_clean_seq.rds.gz
+top
+w
+l
+ll
+top
+ll
+top
+ps xf
+l
+ll
+ls
+ll
+rm dna.fa 
+l
+ll
+cd ../
+ls
+ll
+l
+ll
+l
+ll
+cd ../
+ls
+ll

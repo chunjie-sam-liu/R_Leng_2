@@ -1,0 +1,9 @@
+l
+cd ../
+l
+ll
+mkdir mirna lncrna mrna
+ls
+ll
+ll *
+cd ../

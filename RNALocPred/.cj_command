@@ -1,0 +1,135 @@
+l
+ll
+cd ./
+l
+cd ../
+l
+ll
+l
+ll
+l
+ll
+rm hsa.rds
+ll
+cd ../
+l
+ll
+ps xf
+ps xf|grep grep |wc -l
+ps xf
+ps xf|grep grep |wc -l
+ls
+ll
+rm mirna_rnalocate.rda 
+l
+ll
+l
+ll
+rm mirna_rnalocate.rds.gz
+l
+ps xf
+ks
+ls
+ll
+mkdir human
+mkdir mouse
+l
+cd human/
+l
+cd human/
+l
+cd human/
+l
+ll
+mkdir rscript
+l
+ll
+rm 01.NO_collected_data_distribution_within_species.png
+l
+ll
+l
+ll
+rm 01.figure_all_rnalocate_data_distribution.png
+ll
+cd human/
+l
+cd mouse/
+ll
+ll human/
+ccd ../
+l
+ll
+ll human/ mouse
+cd mouse/
+l
+rm 02.human_rna_category_distribution.pdf 02.rna_category_distribution.png
+l
+rm hsa.rds.gz 
+l
+ll
+rm NO_collected_data_distribution_within_species.png 
+l
+ll
+l
+ll
+rm lncrna_mirna_mrna_human.rds.gz 
+l
+rm mirna_rnalocate_human.rds.gz 
+l
+ll
+rm mirna_location_sequence.rds.gz 
+l
+ll
+cd human/
+l
+ll
+ll human
+ll human/mirna/
+l
+ll
+cd human/
+l
+cd rscript/
+l
+cd ../
+ls
+cd human/
+l
+ll
+rm hi*
+l
+ll
+top
+top -u liucj
+top -u cliu18
+top
+top -u cliu18
+l
+ll
+cd human/
+l
+ll
+top
+w
+ls
+ll
+cd human/
+l
+cd rscript/
+ls
+ll
+cd human/
+l
+cd rscript/
+ls
+ll
+cd human/
+ls
+cd rscript/
+ll
+ll practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/affyBatch.rds
+git filter-branch --index-filter 'git rm -r --cached --ignore-unmatch practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/gset.rds RNALocPred/rnalocate_data.rda  practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/affyBatch.rds' HEAD 
+cd ../
+ls
+ll
+du -sh .

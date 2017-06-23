@@ -1,0 +1,79 @@
+l
+mkdir mirna mrna lncrna
+ls
+cd ./
+cd ../
+ls
+l
+cd ../
+l
+rm hsa.rds.gz 
+l
+ll
+l
+ll
+l
+ll
+cd ../
+l
+ll
+l
+ll
+rm 01.all_hsa.rds.gz
+ll
+rm 02.human_rna_category_distribution.pdf 02.human_rna_category_distribution.png
+l
+ll
+rm 01.data_hsa.rds.gz
+ll
+l
+ll
+rm 03.human_lncrna_mirna_mrna.rds.gz
+ll
+l
+ll
+rm 02.fig_human_rna_category_distribution.pdf 02.fig_human_rna_category_distribution.png
+ll
+cd mirna/
+l
+ll
+ll */*
+ll
+cd ../
+l
+ll
+cd mirna/
+l
+ll
+l
+cd mirna/
+l
+ll
+cd ../
+ls
+ll
+cd mirna/
+l
+cd mirna/
+l
+ll
+cd ../
+ls
+ll
+cd mirna/
+l
+cd ../
+l
+cd mirna/
+ls
+cd mirna/
+l
+cd ../
+ls
+cd mirna/
+l
+cd ../
+ls
+mkdir snorna
+l
+cd snorna/

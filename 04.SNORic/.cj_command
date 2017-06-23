@@ -67,3 +67,5 @@ l
 ps xf
 l
 ps xf
+ll
+cd ../
