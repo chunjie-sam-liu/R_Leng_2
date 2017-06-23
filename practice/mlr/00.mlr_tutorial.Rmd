@@ -1,0 +1,89 @@
+---
+title: "mlr tutorial"
+author: "C.J. Liu"
+date: "4/7/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+> Learning mlr from Basics, Advanced, Extend and Appendix
+
+```{r load mlr}
+library(mlr)
+data(iris)
+```
+# 1. Define the task
+Create a classification, regression, survival, cluster, cost-sensitive classification or multilabel task.
+`getTaskFormula`, `getTaskFeatureNames`, `getTaskData`, `getTaskTargets`, `subsetTask`
+
+```{r make task}
+task <- makeClassifTask(id = "iris", data = iris, target = "Species")
+
+str(task)
+getTaskId(task)
+getTaskDesc(task)
+getTaskFeatureNames(task)
+getTaskFormula(task)
+class(task)
+```
+use `getTask[tab]` lists functions to get messages in the tark. The `task` is the instance of `Task`, `SupervisedTask`, `ClassifTask`
+
+# 2. Define the Learner
+Chose a specific algorithm (e.g. linear discrimination analysis)
+```{r make learner}
+lrn <- makeLearner("classif.lda")
+str(lrn)
+getLearnerId(lrn)
+
+getLearnerProperties("classif.lda")
+getLearnerPredictType(lrn)
+```
+
+# 3. Data preparation
+```{r sample data}
+n = getTaskSize(task)
+train.set = sample(n, size = 2/3 * n)
+test.set = setdiff(1:n, train.set)
+```
+Data preparation often needs clean data. partition data into train and test set. Using one set of train and test data maybe bias, of use 5-fold cross validation. That means, use 4/5 to subset to train model and 1/5 to test the model by five times.
+
+# 4. Fit model
+use `bechmark` to compare different learning algorithm across one or more tasks.
+```{r train}
+model <- train(lrn, task, subset = train.set)
+str(model)
+methods(class = "WrappedModel")
+res <- getLearnerModel(model)
+class(res)
+methods(class = "lda")
+coef(res)
+pairs(res)
+model.frame(res)
+plot(res)
+```
+
+
+# 5. Make predictions
+Predict values of the response for new observations by the trained model using the other part of data as test set.
+```{r predict}
+pred = predict(model, task = task, subset = test.set)
+str(pred)
+methods(class = "Prediction")
+plotResiduals(pred)
+methods(class = "PredictionClassif")
+
+```
+
+# 6. Evaluate the learner
+Calculate the mean misclassification error and accuracy
+```{r evaluate performance}
+performance(pred, measures = list(mmce, acc))
+```
+
+
+
+
+
+

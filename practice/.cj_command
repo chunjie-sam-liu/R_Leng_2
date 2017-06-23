@@ -1,0 +1,9 @@
+ls
+du -sh .
+cd Draw_pictures/
+l
+cd ../
+ls
+ll
+du -sh .
+cd ../

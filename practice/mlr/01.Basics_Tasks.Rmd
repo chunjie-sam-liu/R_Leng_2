@@ -1,0 +1,141 @@
+---
+title: "Basics Tasks"
+author: "C.J. Liu"
+date: "4/7/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+> [Learning Task](https://mlr-org.github.io/mlr-tutorial/release/html/task/index.html)
+
+```{r load library}
+library(mlr)
+```
+
+# Task types and creation
+The tasks are organized in a hierarchy, with the generic `Task` at the top.
+The task types are: 
+
++ `RegrTask`
++ `ClassifTask`
++ `SurvTask`
++ `MultilabelTask` 
++ `CostSensTask`
+
+# Regression
+```{r RegrTask}
+data(BostonHousing, package = "mlbench")
+regr.task <- makeRegrTask(id = "bh", data = BostonHousing, target = "medv")
+```
+
+# Classification
+```{r ClassifTask}
+# the target column must be factor
+data(BreastCancer, package = "mlbench")
+df <- BreastCancer
+df$Id <- NULL
+classif.task <- makeClassifTask(id = "BreastCancer", data = df, target = "Class")
+```
+
+# Prediction
+```{r}
+n <- getTaskSize(bh.task)
+train.set <- seq(1, n, by = 2)
+test.set <- seq(2, n, by = 2)
+lrn <- makeLearner("regr.gbm", n.trees = 100)
+mod <- train(lrn, bh.task, subset = train.set)
+task.pred = predict(mod, task = bh.task, subset = test.set)
+getPredictionTruth(task.pred)
+getPredictionResponse(task.pred)
+
+
+
+n = nrow(iris)
+iris.train = iris[seq(1, n, by = 2), -5]
+iris.test = iris[seq(2, n, by = 2), -5]
+task = makeClusterTask(data = iris.train)
+mod = train("cluster.kmeans", task)
+
+newdata.pred = predict(mod, newdata = iris.test)
+as.data.frame(newdata.pred)
+
+lrn.lm <- makeLearner("regr.lm", predict.type = "se")
+mod.lm <- train(lrn.lm, bh.task, subset = train.set)
+task.pred.lm <- predict(mod.lm, task = bh.task, subset = test.set)
+task.pred.lm
+getPredictionSE(task.pred.lm)
+```
+# Class and clustering probabilities
+```{r}
+lrn <- makeLearner("cluster.cmeans", predict.type = "prob")
+mod <- train(lrn, mtcars.task)
+
+pred <- predict(mod, task = mtcars.task)
+getPredictionProbabilities(pred)
+
+mod <- train("classif.lda", task = iris.task)
+pred <- predict(mod, task = iris.task)
+pred
+
+lrn <- makeLearner("classif.rpart", predict.type = "prob")
+mod <- train(lrn, iris.task)
+pred <- predict(mod, task = iris.task)
+getPredictionProbabilities(pred)
+```
+# Classification: Confusion matrix
+```{r}
+calculateConfusionMatrix(pred = pred, relative = T, sums = T) 
+
+```
+# Classification: Adjusting the decision threshold
+```{r}
+lrn <- makeLearner("classif.rpart", predict.type = "prob")
+mod <- train(lrn, task = sonar.task)
+getTaskDesc(sonar.task)$positive
+
+# default threshold
+pred1 <- predict(mod, sonar.task)
+pred1$threshold
+performance(pred1, measures = list(mmce, acc))
+calculateConfusionMatrix(pred1, relative = T)
+
+pred2 <- setThreshold(pred1, 0.7)
+pred2$threshold
+performance(pred2, measures = list(mmce, acc))
+calculateConfusionMatrix(pred2, relative = T)
+
+mod <- train(lrn, task = iris.task)
+pred = predict(mod, newdata = iris)
+pred$threshold
+table(as.data.frame(pred)$response)
+setThreshold(pred = pred, threshold = c(setosa = 0.01, versicolor = 50, virginica = 1))
+
+lrn <- makeLearner("classif.rpart", id = "CART")
+plotLearnerPrediction(lrn, task = iris.task)
+
+
+
+
+plotLearnerPrediction(learner = "regr.lm", task = bh.task, features = "lstat")
+plotLearnerPrediction(learner = "regr.lm", task = bh.task, features = c("lstat", "rm"))
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

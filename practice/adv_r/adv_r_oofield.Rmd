@@ -1,0 +1,42 @@
+---
+title: "oofield"
+author: "C.J. Liu"
+date: "4/6/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+teacher <- function(x, ...) UseMethod("teacher")
+teacher.lecture <- function(x) print("lecture")
+teacher.assign <- function(x) print("assignment")
+teacher.correcting <- function(x) print("correction")
+teacher.default <- function(x) print("You are not teacher")
+
+student <- function(x, ...) UseMethod("student")
+student.attend <- function(x) print("attend")
+student.homework <- function(x) print("homework")
+student.exam <- function(x) print("exam")
+student.default <- function(x) print("You are not student")
+```
+
+```{r}
+a <- "teacher"
+b <- "student"
+
+attr(a, "class") <- 'lecture'
+attr(a, "class") <- "assign"
+attr(a, "class") <- "correcting"
+
+attr(b, "class") <- 'attend'
+attr(b, "class") <- "hoemwork"
+attr(b, "class") <- "exam"
+
+ab <- "teacher_student"
+attr(ab, "class") <- c("lecture", "homework")
+
+```
+
