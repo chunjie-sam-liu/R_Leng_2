@@ -35,3 +35,59 @@ l
 ll
 ls
 git status
+git add -A
+git commit -m "ADD RNALocPred"
+git push origin master
+ls
+ll
+cd ../
+cp ../gset.rds practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/gset.rds
+cp ../rnalocate_data.rda RNALocPred/rnalocate_data.rda 
+cp ../affyBatch.rds practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/affyBatch.rds
+git status
+ll
+cat .gitignore 
+ll
+git status
+git rm --cache RNALocPred/rnalocate_data.rda practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/affyBatch.rds practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/gset.rds
+ll practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/gset.rds
+git status
+git rm --cached RNALocPred/rnalocate_data.rda practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/affyBatch.rds practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/gset.rds
+git rm --cached RNALocPred/rnalocate_data.rda
+ll RNALocPred/rnalocate_data.rda
+git status
+git commit --amend -CHEAD
+git status
+git add RNALocPred/rnalocate_data.rda practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/affyBatch.rds practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/gset.rds
+git status 
+git rm --cached RNALocPred/rnalocate_data.rda practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/affyBatch.rds practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/gset.rds
+git commit --amend -CHEAD
+git status
+cat .gitignore 
+git stauts
+git status
+find . -size +1G | cat
+cat .gitignore 
+ls -al 
+find . -size +1G | cat >> .gitignore 
+cat .gitignore 
+git status
+vim .gitignore 
+find . -size +50M | cat >> .gitignore 
+cat .gitignore 
+git status
+ll -al
+find . -size +1G | sed 's|^\./||g'
+find . -size +50M | sed 's|^\./||g'
+vim .gitignore 
+ll
+cd ../
+ls
+git status
+cat .gitignore 
+git status
+ll
+git add *
+git status
+git commit -m "ignore large file"
+git status

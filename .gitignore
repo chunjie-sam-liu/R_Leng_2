@@ -38,3 +38,6 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 >>>>>>> 13712c7036bb6f57e8fd02222e20337f6cae6344
+/practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/gset.rds
+/practice/Draw_pictures/mutationAndExpression/01.geneMuatationWithExpressionImprovePrediction/affyBatch.rds
+/RNALocPred/rnalocate_data.rda
