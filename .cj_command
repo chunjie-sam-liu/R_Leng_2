@@ -91,3 +91,31 @@ git add *
 git status
 git commit -m "ignore large file"
 git status
+git add -A
+git status
+git commit -m "ignore large file"
+git push origin master
+git pull
+git push origin master
+git push -u origin master
+git pull -f
+git push -f origin master
+git status
+ll
+cd
+ls
+cat .gitignore 
+git status
+exit
+l
+ll
+find . -name "*.R"|grep -i "kruskal.test"
+find . -name "*.r"|grep -i "kruskal"
+find . -name "*.r"
+find . -name "*.R"
+find . -name "*.R"|grep -i "kru"
+ls
+ll
+cd 04.SNORic/
+l
+git status

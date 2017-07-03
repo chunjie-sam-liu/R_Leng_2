@@ -69,3 +69,11 @@ l
 ps xf
 ll
 cd ../
+ls
+ll
+l
+mkdir snoric_plot
+l
+cd snoric_plot/
+l
+cd ../

@@ -1,0 +1,20 @@
+l
+guo4 /home/liucj/web/snorna_data_portal/snorna/rscripts/* .
+l
+ll
+cat survival_bygene.r 
+l
+grep dbConnect *
+sed -n -e 's/snoric_username/username/' basic_corr_cnv.r
+sed  -e 's/snoric_username/username/' basic_corr_cnv.r
+sed  -e 's/snoric_username/username/' basic_corr_cnv.r|grep dbConnect
+sed  -e 's/snoric_username/username/g' basic_corr_cnv.r|grep dbConnect
+sed  -e 's/snoric_username/username/g' -e 's/snoric_password/password/' basic_corr_cnv.r|grep dbConnect
+sed  -e 's/snoric_username/username/g' -e 's/snoric_password/password/' -e 's/snoric/db/' basic_corr_cnv.r|grep dbConnect
+sed  -e 's/snoric_username/username/g' -e 's/snoric_password/password/' -e 's/snoric/db/'  -e 's/211.69.207.247/localhost/' basic_corr_cnv.r|grep dbConnect
+sed -i -e 's/snoric_username/username/g' -e 's/snoric_password/password/' -e 's/snoric/db/'  -e 's/211.69.207.247/localhost/' *
+grep dbConnect *
+grep -i snoric *
+grep tbl *
+grep host *
+cd ../
