@@ -119,3 +119,18 @@ ll
 cd 04.SNORic/
 l
 git status
+git add -A
+git add 'snoric rscripts'
+git commit -m 'snoric rscripts'
+git push origin master
+ls
+ll
+l
+exit
+ls
+ll
+cd practice/
+l
+cd practice/
+l
+git status
