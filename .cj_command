@@ -134,3 +134,22 @@ l
 cd practice/
 l
 git status
+git add -A
+git commit -m "crispr software"
+git push origin master
+ll
+cd /extraspace/TCGA/Mutation
+ls
+ll
+cd cd
+l
+exit
+ls
+cd RNALocPred/
+ls
+l
+cd autophagy_codes/
+ls
+cd autophagy_codes/
+l
+git status

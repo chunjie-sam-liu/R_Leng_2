@@ -19,3 +19,12 @@ l
 grep reorder *
 l
 cd /extraspace/liucj/projects/5.CRISPR/softwares/omictools
+ls
+ll
+grep -i mirbase.db *R
+ll snorna/
+grep -i mirbase *R
+grep library *
+rm /home/cliu18/R/x86_64-redhat-linux-gnu-library/3.2/00LOCK-dplyr
+l
+exit

@@ -133,3 +133,5 @@ cd ../
 ls
 ll
 du -sh .
+ls
+cd rscript/
