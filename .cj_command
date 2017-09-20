@@ -153,3 +153,22 @@ ls
 cd autophagy_codes/
 l
 git status
+git add -A
+git commit -m "mirna"
+git push origin master
+ps xf
+cd /extraspace/
+ls
+git status
+ls
+ll
+cd ../
+ls
+l
+ll
+cd practice/
+l
+ll
+ls -tr
+ll -tr
+cd packrat/

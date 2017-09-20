@@ -15,3 +15,7 @@ ll
 cp /home/cliu18/liucj/projects/5.CRISPR/softwares/omictools/crispr_softwares.R .
 l
 cd ../
+ls
+ll
+l
+cd ../
